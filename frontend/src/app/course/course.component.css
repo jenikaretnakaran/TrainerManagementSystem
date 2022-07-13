@@ -1,0 +1,18 @@
+.cardborder{
+    border-radius: 20px;
+}
+.cardimgborder{
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    transition: 0.1s all ease-in-out;
+    margin-bottom: 5px;
+
+}
+
+.cardimgborder:hover{
+    transform: scale(0.95);
+    transition: 0.1s all ease-in-out;
+    border-radius: 20px;
+
+}
+
