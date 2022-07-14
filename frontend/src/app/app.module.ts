@@ -9,6 +9,8 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { CourseComponent } from './course/course.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { CourseComponent } from './course/course.component';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    CourseComponent
+    CourseComponent,
+    AdminDashboardComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
