@@ -1,0 +1,16 @@
+.signupbody{
+    min-height: 90vh;
+    background-color: rgba(176, 196, 222, 0.962);
+   
+}
+form{
+    padding: 30px;
+    background-color:rgba(255, 255, 255, 0.363);
+    padding-top: 10px;
+    border-radius: 20px;
+    border: 1px solid white;
+    font-family: 'Hind', sans-serif;
+}
+.dataitem{
+    margin-top: 6vh;
+}

@@ -1,0 +1,35 @@
+<form class="mb-5 shadow" #form="ngForm" (ngSubmit)="form.valid&&loginadmin()">
+    <div class="text-center">
+        <img src="https://library.kissclipart.com/20180916/gie/kissclipart-user-computer-icon-clipart-computer-icons-user-cli-3c205a08cb663d34.png" style="width: 80px;" alt="">
+        <h3 class="pt-1"><strong>Admin Login</strong></h3>
+    </div>
+    <div class="mb-3 mt-5">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input type="email" class="form-control" required #email="ngModel" name="email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" [(ngModel)]="admin.email">
+        <small class="text-danger" *ngIf="form.submitted&&email.errors?.['required']">*Enter your Email address</small>
+        <small class="text-danger" *ngIf="form.submitted&&email.errors?.['pattern']">*Enter valid email address</small>      
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password" class="form-control" required #password="ngModel" name="password" [(ngModel)]="admin.password">
+        <small class="text-danger" *ngIf="form.submitted&&password.errors?.['required']">*Enter your Password</small>
+      </div>
+
+      <div class="row mb-4">
+        <div class="col d-flex justify-content-between">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="form2Example34" unchecked />
+            <label class="form-check-label" for="form2Example34">Remember me</label>
+          </div>
+        </div>
+    
+        <div class="col">
+          <a routerLink="login">Forgot password?</a>
+        </div>
+      </div>
+
+      <div class="d-grid gap-2 mb-3">
+        <button class="btn btn-primary" type="submit">Login</button>
+      </div>
+     
+</form>

@@ -1,4 +1,20 @@
+<app-header></app-header>
 <div class="homebackground">
 
+    <div>
+        <div class="homedata ">
+            <h3 style="font-family: 'Cabin', sans-serif;">ICTAK Trainer Management System</h3>
+        <p></p>
+        <div class='buttonContainer text-center'>
+            <button (click)="login()" id='accept' class="me-2 shadow">Login</button>
+            <button (click)="signup()" id='cancel' class="shadow">SignUp</button>
+          </div>
+        </div>
+        
+        </div>
+
 </div>
-<app-course></app-course>
+<div id="courses">
+    <app-course></app-course>
+</div>
+<app-footer></app-footer>
