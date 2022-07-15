@@ -1,0 +1,55 @@
+
+<!--header-->
+<div id="header">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a href="#" class="navbar-brand ms-4">
+            <img src="../../assets/cropped-ict-ico.png" height="50" alt="logo">
+        </a>
+        <button class="navbar-toggler me-4" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link " href="#">HOME</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="#">ABOUTUS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="#">LOGOUT</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<!--sidebar-->
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark" id="sidebar">
+            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                    <span class="fs-4 d-none d-sm-inline py-2">ADMIN</span>
+                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="list">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link align-middle px-0 ">
+                            <i class=" fa fa-envelope-open px-2"></i>TRAINER REQUESTS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link align-middle px-0 ">
+                            <i class=" fa fa-user-circle-o px-2"></i>ALLOCATED TRAINERS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link align-middle px-0 ">
+                            <i class=" fa fa-address-card-o px-2"></i>TRAINERS</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col">
+        <router-outlet></router-outlet>
+    </div>
+    </div>
+</div>
