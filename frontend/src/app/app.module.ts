@@ -5,6 +5,10 @@ import { HttpClientModule} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { TrainerHomeComponent } from './trainer-home/trainer-home.component';
+import { TrainerEnrollmentComponent } from './trainer-enrollment/trainer-enrollment.component';
+import { FormsModule } from '@angular/forms';
+import { TrainerWaitingComponent } from './trainer-waiting/trainer-waiting.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
@@ -18,6 +22,9 @@ import { TrainersListComponent } from './trainers-list/trainers-list.component';
 @NgModule({
   declarations: [
     AppComponent,
+    TrainerHomeComponent,
+    TrainerEnrollmentComponent,
+    TrainerWaitingComponent,
     HeaderComponent,
     FooterComponent,
     HomeComponent,
@@ -27,12 +34,15 @@ import { TrainersListComponent } from './trainers-list/trainers-list.component';
     TrainerRequestComponent,
     TrainerApprovalComponent,
     TrainersListComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
