@@ -11,6 +11,9 @@ import { HomeComponent } from './home/home.component';
 import { CourseComponent } from './course/course.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { AdminComponent } from './admin/admin.component';
+import { TrainerRequestComponent } from './trainer-request/trainer-request.component';
+import { TrainerApprovalComponent } from './trainer-approval/trainer-approval.component';
+import { TrainersListComponent } from './trainers-list/trainers-list.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { AdminComponent } from './admin/admin.component';
     HomeComponent,
     CourseComponent,
     AdminDashboardComponent,
-    AdminComponent
+    AdminComponent,
+    TrainerRequestComponent,
+    TrainerApprovalComponent,
+    TrainersListComponent
   ],
   imports: [
     BrowserModule,
