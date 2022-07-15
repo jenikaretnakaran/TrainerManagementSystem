@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-trainer',
@@ -13,5 +13,6 @@ export class TrainerComponent implements OnInit {
   ngOnInit(): void {
   } 
   
+
 
 }

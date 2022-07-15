@@ -29,14 +29,16 @@ import { AdminComponent } from './admin/admin.component';
     HomeComponent,
     CourseComponent,
     AdminDashboardComponent,
-    AdminComponent
+    AdminComponent,
+    TrainerWaitingComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

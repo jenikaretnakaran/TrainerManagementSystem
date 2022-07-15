@@ -27,6 +27,9 @@ nav .sidebar-button i{
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+
+  background-color: rgb(227, 227, 235);
+  width: 80%;
 }
 .tab1{
     width: 20%;

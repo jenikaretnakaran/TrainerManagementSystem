@@ -26,6 +26,7 @@ const routes: Routes = [
   {path:'waiting',component:TrainerWaitingComponent}
 ];
 
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
