@@ -1,0 +1,122 @@
+/* Googlefont Poppins CDN Link */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+nav .sidebar-button i{
+  font-size: 35px;
+  margin-right: 10px;
+}
+.enrol{
+  margin-left: 10%;
+ 
+  font-family: 'Courier New', Courier, monospace;
+  color: rgb(88, 76, 76);
+  font-size: bold;
+ /* background-color: rgb(227, 227, 235);*/
+ background-color: transparent;
+ 
+  width: 80%;
+}
+.back{
+  background-image: url('../../assets/images/bg4.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.tab1{
+    width: 20%;
+    
+}
+.tab2{
+    width: 80%;
+    color:black;
+    font-weight: bold;
+    height: 450px;
+    max-height: 450px;
+    
+}
+.submitme{
+  margin-left: 40%;
+  align-items: center;
+  padding: 10px;
+  display: inline-block;
+  margin-right: 4px;
+}
+.container>.button:not(:last-child) {
+  margin-right: 10px;
+ }
+ #photo{
+ /* background-color: rgb(70, 155, 224);
+  width: 150px;
+  height: 50px;
+  border-radius: 1em;*/
+  display: flex;
+  justify-content: center;
+ align-items: center;
+ color: black;
+ left: 30%;
+ cursor: pointer;
+}
+     
+.custom{
+  margin-left: 14%;
+}
+ #submit {
+  margin-bottom: 20px;
+  margin-right: 0px; }
+
+
+ .submit {
+  width: 150px;
+  height: 50px;
+  display: inline-block;
+  font-family: 'Poppins';
+  font-weight: bold;
+  font-size: 14px;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px; }
+.title{
+  text-align: center;
+  font-size: x-large;
+  margin-left: 40%;
+}
+  #reset {
+    background: #fff;
+    color: #999;
+    border: 2px solid #ebebeb; }
+    #reset:hover {
+      border: 2px solid #1161ee;
+      background: #1161ee;
+      color: #fff; }
+  
+  #submit {
+    background: #fff;
+    color: #999;
+    margin-right: 25px; }
+    /*#submit:hover {
+      background-color: #1161ee; 
+      color: #fff;
+    }*/
+    #submit:hover {
+      border: 2px solid #1161ee;
+      background: #1161ee;
+      color: #fff; }
+      .tab{
+        display: flex;
+        align-items: center;
+      }
+
+      
+  
