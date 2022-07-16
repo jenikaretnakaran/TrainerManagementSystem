@@ -1,0 +1,41 @@
+.firstsection{
+    height: 90vh;
+    padding-top: 22vh;
+}
+
+.datasecond{
+    padding-top: 70px;
+ }
+@media only screen and (max-width: 774px) {
+    .firstsection{
+
+        padding-top: 10vh;
+    }
+    .datasecond{
+        padding-top: 0px;
+    }
+   
+  }
+
+  img{
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+  }
+
+  .secondsection{
+    height: 90vh;
+    padding-top: 22vh;
+    background-color: rgba(135, 206, 250, 0.148);
+
+  }
+
+  .thirdsection{
+    min-height: 90vh;
+    padding-top: 22vh;
+    background-color: rgba(176, 196, 222, 0.243);
+
+  }
+  p{
+    font-family: 'Sarabun', sans-serif;
+  }

@@ -4,4 +4,46 @@
     background-attachment: fixed;
     background-size: 100% 100%;
     height: 88vh;
+
+    display: flex;
+    justify-content: center;
+    padding-top: 27vh;
+    color: white;
+  }
+
+  button {
+    width: 7em;
+    height: 3em;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    color: white;
+  }
+  
+  #accept {
+    background-color: #0ba846;
+  }
+  
+  #accept:hover {
+    background-color: #0dc251;
+    transition: 0.3s;
+  }
+  
+  #cancel {
+    background-color: #ad0c0c;
+  }
+  
+  #cancel:hover {
+    background-color: #c70d0d;
+    transition: 0.3s;
+  }
+  
+  .homedata{
+    background-color: rgba(0, 0, 0, 0.238);
+    padding: 35px;
+    border-radius: 20px;
+  }
+  
+  .buttonContainer{
+    font-family: 'Titillium Web', sans-serif;
   }
