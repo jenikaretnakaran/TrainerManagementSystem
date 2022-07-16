@@ -1,66 +1,145 @@
+/* Googlefont Poppins CDN Link */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
 
-<!--header starts-->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a href="#" class="navbar-brand ms-4">
-        <img src="../../assets/images/ict-logo.png" height="50" alt="logo">
-    </a>
-    <button class="navbar-toggler me-4" type="button" data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-        aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link " href="#">HOME</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link " href="#">ABOUTUS</a>
-            </li>
-            <li class="nav-item d-flex">
-                <a class="nav-link " href="#">LOGOUT</a>
-            </li>
-        </ul>
-    </div>
-   </nav>
-   <!--header ends-->
-   <div  >
-    <div class="card-body">
-        <div class="table-responsive enrol">
-            <form (ngSubmit) = "addTrainer()"class="register-form" >
-                <div class="title ">{{title}}</div><br>
-                    <div class="tab">
-                    <table class="table tab1 table-borderless">
-                    <tbody><tr class="form-group ">
-                            <td colspan="4"><div class="Image" >
-                                <img [src]="url" class="rounded mx-auto d-block pic"  name="img"  alt="..." width="150vh" height="150vh" ><br>
-                                <input type="file" id="photo" accept="image/*" class="custom" (change)="onFileSelected($event)" required>
-                                            </div>
-                            </td>
-                            </tr></tbody></table> 
-                    <table class="table tab2 table-borderless"><tbody>
-                        <tr ><td><label for="name"> Name</label></td><td ><input type="text" class="form-control" id="name" placeholder="Name" required></td></tr>
-                        <tr ><td > <label for="email">Email</label></td><td>   <input type="email" class="form-control" id="email" placeholder="Email" required></td></tr>
-                        <tr ><td > <label for="phone">Phone</label></td><td>  <input type="number" class="form-control" id="phone" placeholder="Phone Number" required></td></tr>
-                        <tr ><td > <label for="address">Address</label></td><td>  <input type="text" class="form-control" id="address" placeholder="Address" required></td></tr>
-                        <tr ><td> <label for="qualification">Highest Qualification</label></td><td><input type="text" class="form-control" id="qualification" placeholder="Highest Qualification" required></td></tr>
-                        <tr ><td> <label for="skill">Skill Set</label></td><td><input type="text" class="form-control" id="skill" placeholder="Skill Set" required></td></tr>
-                        <tr ><td> <label for="company">Current Company Name</label></td><td> <input type="text" class="form-control" id="company" placeholder="Current Company Name" required></td></tr>
-                        <tr ><td> <label for="designation">Current Designation</label></td><td><input type="text" class="form-control" id="course" placeholder="Current Designation" required></td></tr>
-                        <tr ><td> <label for="course">ICTAK Courses Handling</label></td><td>
-                            <select name="course"  value="select" style="padding: 5px;" class="form-control" id="formGroupExampleInput">
-                                <option>---Select one---</option>
-                                <option  *ngFor=" let course of courses"> {{course}}</option>
-                            </select></td>
-    
-                         </tr>
-                    </tbody>
-                    </table>
-                    </div>
-            <div class="form-submit submitme">
-   
-                <button type="submit" value="Submit" class="submit" id="submit" name="submit"   >Submit</button>
-                <input type="reset" value="Reset"  class="submit" id="reset" name="reset" />
-            </div>
-        </form>
-        </div></div></div>
+nav .sidebar-button i{
+  font-size: 35px;
+  margin-right: 10px;
+}
+.enrol{
+  margin-left: 10%;
+ 
+  font-family: 'Courier New', Courier, monospace;
+  color: rgb(88, 76, 76);
+  font-size: bold;
+ /* background-color: rgb(227, 227, 235);*/
+ background-color: transparent;
+ 
+  width: 80%;
+}
+
+.back{
+ /* margin:0px;
+  height:100%;
+  width:100%;
+  background:url('../../assets/images/bg4.jpg')no-repeat center center fixed; 
+  -webkit-background-size:cover;
+  -o-background-size:cover;
+  -moz-background-size:cover;
+  background-size:cover;
+  max-height: 100%;*/
+  background-image: url('../../assets/images/bg4.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+/*
+  background-color: rgb(206, 206, 226);
+  width: 100%;
+  */
+}
+
+
+.tab1{
+    width: 20%;
+   height: 100%;
+} 
+.tab2{
+    width: 100%;
+    /*color:black;*/
+    color:#999;
+    font-weight: bold;
+    border-collapse: separate;
+    border-spacing:0 6px;
+    height: 100%;
+}
+.submitme{
+  margin-left: 40%;
+  align-items: center;
+  padding: 10px;
+  display: inline-block;
+  margin-right: 4px;
+}
+.container>.button:not(:last-child) {
+  margin-right: 10px;
+ }
+ #photo{
+ /* background-color: rgb(70, 155, 224);
+  width: 150px;
+  height: 50px;
+  border-radius: 1em;*/
+  display: flex;
+  justify-content: center;
+ align-items: center;
+ color: black;
+ left: 30%;
+ cursor: pointer;
+}
+     
+.custom{
+  margin-left: 14%;
+}
+ #submit {
+  margin-bottom: 20px;
+  margin-right: 0px; }
+
+
+ .submit {
+  width: 150px;
+  height: 50px;
+  display: inline-block;
+  font-family: 'Poppins';
+  font-weight: bold;
+  font-size: 14px;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px; }
+
+  #reset {
+    background: #fff;
+    color: #999;
+    border: 2px solid #ebebeb;
+   }
+    #reset:hover {
+      border: 2px solid #1161ee;
+      background: #1161ee;
+      color: #fff; }
+  
+  #submit {
+    background: #fff;
+    color: #999;
+    margin-right: 25px; 
+    border: 2px solid #ebebeb;
+  }
+    #submit:hover {
+      background-color: #1161ee; 
+      color: #fff;
+    }
+    #submit:hover {
+      border: 2px solid #1161ee;
+      background: #1161ee;
+      color: #fff; 
+    }
+      .tab{
+        display: flex;
+        align-items: center;
+      }
+
+      .title{
+        text-align: center;
+        font-size: x-large;
+        margin-left: 6%;
+        margin-top: 2%;
+      }
+  
