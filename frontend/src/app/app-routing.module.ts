@@ -14,6 +14,7 @@ import { AdminComponent } from './admin/admin.component';
 import { TrainerRequestComponent } from './trainer-request/trainer-request.component';
 import { TrainerApprovalComponent } from './trainer-approval/trainer-approval.component';
 import { TrainersListComponent } from './trainers-list/trainers-list.component';
+import { AllocatedlistComponent } from './allocatedlist/allocatedlist.component';
 
 
 const routes: Routes = [
@@ -31,7 +32,8 @@ const routes: Routes = [
     {path:"",component:AdminDashboardComponent},
     {path:"requests",component:TrainerRequestComponent},
     {path:"approval",component:TrainerApprovalComponent},
-    {path:"list",component:TrainersListComponent}
+    {path:"list",component:TrainersListComponent},
+    {path:"allocated-trainers",component:AllocatedlistComponent}
   ]},
     {path:"dashboard",component:AdminDashboardComponent},
     {path:'trainer',component:TrainerHomeComponent},

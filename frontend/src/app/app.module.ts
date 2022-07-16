@@ -24,6 +24,7 @@ import { AdminComponent } from './admin/admin.component';
 import { TrainerRequestComponent } from './trainer-request/trainer-request.component';
 import { TrainerApprovalComponent } from './trainer-approval/trainer-approval.component';
 import { TrainersListComponent } from './trainers-list/trainers-list.component';
+import { AllocatedlistComponent } from './allocatedlist/allocatedlist.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { TrainersListComponent } from './trainers-list/trainers-list.component';
     TrainerRequestComponent,
     TrainerApprovalComponent,
     TrainersListComponent,
-    TrainerComponent
+    TrainerComponent,
+    AllocatedlistComponent
 
   ],
   imports: [
