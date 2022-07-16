@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-adminlogin',
@@ -14,11 +15,14 @@ export class AdminloginComponent implements OnInit {
 
   }
 
+  constructor(private route:Router) { }
+
+
   loginadmin(){
     alert("LogedIn")
+    this.route.navigate(['/admin/dashboard'])
   }
 
-  constructor() { }
 
   ngOnInit(): void {
   }

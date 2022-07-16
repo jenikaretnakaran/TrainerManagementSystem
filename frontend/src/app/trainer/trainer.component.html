@@ -1,0 +1,69 @@
+
+<!-- 
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a href="#" class="navbar-brand ms-4">
+        <img src="../../assets/images/ict-logo.png" height="50" alt="logo">
+    </a>
+    <button class="navbar-toggler me-4" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link " href="#">HOME</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="#">ABOUTUS</a>
+            </li>
+            <li class="nav-item d-flex">
+                <a class="nav-link " href="#">LOGOUT</a>
+            </li>
+        </ul>
+    </div>
+   </nav>
+   <div class="card-body">
+    <div class="table-responsive enrol">
+     
+
+<form #userlogin = "ngForm" (ngSubmit) = "addTrainer()"class="register-form" >
+ <div class="title ">{{title}}</div><br>
+<div class="tab">
+ <table class="table tab1">
+    <tbody><tr class="form-group ">
+    <td colspan="4"><div class="Image" >
+      <img [src]="url" class="rounded mx-auto d-block pic"  name="img"  alt="..." width="150vh" height="150vh" ><br>
+      <input type="file" id="photo" accept="image/*" class="custom" (change)="onFileSelected($event)" required>
+     </div></td>
+  </tr></tbody></table> 
+  <table class="table tab2"><tbody>
+    <tr class="form-group "><td><label for="formGroupExampleInput2">First Name</label></td><td ><input type="text" class="form-control" id="formGroupExampleInput" placeholder="First Name" required></td></tr>
+    <tr class="form-group "><td > <label for="formGroupExampleInput2">Email</label></td><td>   <input type="email" class="form-control" id="formGroupExampleInput" placeholder="Email" required></td></tr>
+    <tr class="form-group "><td > <label for="formGroupExampleInput2">Phone</label></td><td>  <input type="number" class="form-control" id="formGroupExampleInput" placeholder="Phone Number" required></td></tr>
+    <tr class="form-group "><td > <label for="formGroupExampleInput2">Address</label></td><td>  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Address" required></td></tr>
+    <tr class="form-group "><td> <label for="formGroupExampleInput2">Highest Qualification</label></td><td><input type="text" class="form-control" id="formGroupExampleInput" placeholder="" required></td></tr>
+    <tr class="form-group "><td> <label for="formGroupExampleInput2">Skill Set</label></td><td><input type="text" class="form-control" id="formGroupExampleInput" placeholder="" required></td></tr>
+    <tr class="form-group "><td> <label for="formGroupExampleInput2">Current Company Name</label></td><td> <input type="text" class="form-control" id="formGroupExampleInput" placeholder="" required></td></tr>
+    <tr class="form-group "><td> <label for="formGroupExampleInput2">Current Designation</label></td><td><input type="text" class="form-control" id="formGroupExampleInput" placeholder="" required></td></tr>
+    <tr class="form-group "><td> <label for="formGroupExampleInput2">ICTAK Courses Handling</label></td><td>
+         <select name="course"  value="select" style="padding: 5px;" class="form-control" id="formGroupExampleInput">
+        <option>---Select one---</option>
+      <option  *ngFor=" let course of courses"> {{course}}</option>
+      </select></td>
+    
+    </tr>
+    </tbody>
+</table>
+</div>
+
+
+
+
+
+<div class="form-submit submitme">
+<button type="submit" value="Submit" class="submit" id="submit" name="submit" click="validate()" >Submit</button>
+<input type="reset" value="Reset"  class="submit" id="reset" name="reset" />
+</div>
+</form>
+</div></div> -->

@@ -6,6 +6,10 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { TrainerHomeComponent } from './trainer-home/trainer-home.component';
+import { TrainerEnrollmentComponent } from './trainer-enrollment/trainer-enrollment.component';
+import { TrainerComponent } from './trainer/trainer.component';
+import { TrainerWaitingComponent } from './trainer-waiting/trainer-waiting.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
@@ -15,10 +19,16 @@ import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { AdminloginComponent } from './adminlogin/adminlogin.component';
 import { TrainerloginComponent } from './trainerlogin/trainerlogin.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    TrainerHomeComponent,
+    TrainerEnrollmentComponent,
+    TrainerComponent,
+    TrainerWaitingComponent,
     HeaderComponent,
     FooterComponent,
     HomeComponent,
@@ -27,11 +37,15 @@ import { TrainerloginComponent } from './trainerlogin/trainerlogin.component';
     SignupComponent,
     LoginComponent,
     AdminloginComponent,
-    TrainerloginComponent
+    TrainerloginComponent,
+    AdminDashboardComponent,
+    AdminComponent,
+    TrainerWaitingComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule
