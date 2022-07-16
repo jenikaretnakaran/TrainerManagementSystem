@@ -6,9 +6,9 @@ import { TrainerEnrollmentComponent } from './trainer-enrollment/trainer-enrollm
 import { TrainerWaitingComponent } from './trainer-waiting/trainer-waiting.component';
 const routes: Routes = [
                     {path:'',component:TrainerHomeComponent},
-                   
                     {path:'enrollment',component:TrainerEnrollmentComponent},
-                    {path:'waiting',component:TrainerWaitingComponent}];
+                    {path:'waiting',component:TrainerWaitingComponent}
+                      ];
                   
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -17,7 +17,8 @@ import { TrainerWaitingComponent } from './trainer-waiting/trainer-waiting.compo
     TrainerHomeComponent,
     TrainerEnrollmentComponent,
    
-    TrainerWaitingComponent
+    TrainerWaitingComponent,
+        
   ],
   imports: [
     BrowserModule,
