@@ -8,7 +8,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TrainerHomeComponent } from './trainer-home/trainer-home.component';
 import { TrainerEnrollmentComponent } from './trainer-enrollment/trainer-enrollment.component';
-import { TrainerComponent } from './trainer/trainer.component';
 import { TrainerWaitingComponent } from './trainer-waiting/trainer-waiting.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -45,7 +44,6 @@ import { TrainersListComponent } from './trainers-list/trainers-list.component';
     TrainerRequestComponent,
     TrainerApprovalComponent,
     TrainersListComponent,
-    TrainerComponent
 
   ],
   imports: [
