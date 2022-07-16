@@ -1,0 +1,43 @@
+.loginbody{
+    min-height: 90vh;
+    background-color: rgba(176, 196, 222, 0.962);
+}
+
+.dataitem{
+    margin-top: 6vh;
+
+}
+.buttoncolor{
+    background-color:rgba(255, 255, 255, 0.363);
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+    border-top: 1px solid white;
+    font-family: 'Hind', sans-serif;
+}
+
+.btngreen{
+    background-color: #0ba846;
+    border: 2px solid  #0ba846;
+    color: white;
+    border-left: 1px solid white;
+   
+
+}
+
+.btngreen:hover {
+    background-color: #0dc251;
+    transition: 0.3s;
+  }
+
+.btnred{
+    background-color: #c70d0d;
+    border: 2px solid #c70d0d;
+    color: white;
+    border-right: 1px solid white;
+
+   
+}
+.btnred:hover {
+    background-color: rgb(222, 54, 54);
+    transition: 0.3s;
+}

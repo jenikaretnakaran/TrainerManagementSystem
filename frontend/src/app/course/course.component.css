@@ -6,6 +6,8 @@
     border-top-left-radius: 20px;
     transition: 0.1s all ease-in-out;
     margin-bottom: 5px;
+    background-color: azure;
+
 
 }
 
@@ -16,3 +18,24 @@
 
 }
 
+h5{
+    height: 71px;
+    background-color: azure;
+}
+
+p{
+    height: 150px;
+    overflow:hidden;
+}
+
+.coursehome{
+    background-color:rgba(245, 222, 179, 0.144);
+}
+
+.card-text{
+    font-family: 'Sarabun', sans-serif;
+}
+
+.heading22 .heading33{
+    font-family: 'Cabin', sans-serif;
+}
