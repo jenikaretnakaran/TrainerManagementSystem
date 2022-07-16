@@ -20,7 +20,7 @@ export class AdminloginComponent implements OnInit {
 
   loginadmin(){
     alert("LogedIn")
-    this.route.navigate(['/admin/dashboard'])
+    this.route.navigate(['/admin'])
   }
 
 

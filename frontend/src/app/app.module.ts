@@ -21,13 +21,15 @@ import { AdminloginComponent } from './adminlogin/adminlogin.component';
 import { TrainerloginComponent } from './trainerlogin/trainerlogin.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { AdminComponent } from './admin/admin.component';
+import { TrainerRequestComponent } from './trainer-request/trainer-request.component';
+import { TrainerApprovalComponent } from './trainer-approval/trainer-approval.component';
+import { TrainersListComponent } from './trainers-list/trainers-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TrainerHomeComponent,
     TrainerEnrollmentComponent,
-    TrainerComponent,
     TrainerWaitingComponent,
     HeaderComponent,
     FooterComponent,
@@ -40,7 +42,11 @@ import { AdminComponent } from './admin/admin.component';
     TrainerloginComponent,
     AdminDashboardComponent,
     AdminComponent,
-    TrainerWaitingComponent
+    TrainerRequestComponent,
+    TrainerApprovalComponent,
+    TrainersListComponent,
+    TrainerComponent
+
   ],
   imports: [
     BrowserModule,

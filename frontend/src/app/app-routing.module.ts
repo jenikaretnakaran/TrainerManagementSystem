@@ -8,31 +8,36 @@ import { SignupComponent } from './signup/signup.component';
 import { TrainerloginComponent } from './trainerlogin/trainerlogin.component'; 
 import { TrainerHomeComponent } from './trainer-home/trainer-home.component';
 import { TrainerEnrollmentComponent } from './trainer-enrollment/trainer-enrollment.component';
-import { TrainerComponent } from './trainer/trainer.component';
 import { TrainerWaitingComponent } from './trainer-waiting/trainer-waiting.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { AdminComponent } from './admin/admin.component';
+import { TrainerRequestComponent } from './trainer-request/trainer-request.component';
+import { TrainerApprovalComponent } from './trainer-approval/trainer-approval.component';
+import { TrainersListComponent } from './trainers-list/trainers-list.component';
 
 
 const routes: Routes = [
 
   {path:"" , component:HomeComponent},
   {path:"signup" , component:SignupComponent},
-  {path:"login" , component:LoginComponent,
-      children:[
-        {path:"" , component:TrainerloginComponent},
-        {path:"adminlogin" , component:AdminloginComponent}
-  ]},
   {path:"aboutus" , component:AboutComponent},
-  {path:"admin",component:AdminComponent,
-  children:[
-    {path:"dashboard",component:AdminDashboardComponent}
+  {path:"login" , component:LoginComponent,
+    children:[
+      {path:"" , component:TrainerloginComponent},
+      {path:"adminlogin" , component:AdminloginComponent}
   ]},
-  {path:'trainer',component:TrainerHomeComponent},
-  {path:'trainerprofile',component:TrainerComponent},
-  {path:'enrollment',component:TrainerEnrollmentComponent},
-  {path:'waiting',component:TrainerWaitingComponent}
-];
+  {path:"admin",component:AdminComponent,
+   children:[
+    {path:"",component:AdminDashboardComponent},
+    {path:"requests",component:TrainerRequestComponent},
+    {path:"approval",component:TrainerApprovalComponent},
+    {path:"list",component:TrainersListComponent}
+  ]},
+    {path:"dashboard",component:AdminDashboardComponent},
+    {path:'trainer',component:TrainerHomeComponent},
+    {path:'enrollment',component:TrainerEnrollmentComponent},
+    {path:'waiting',component:TrainerWaitingComponent}
+  ];
 
 
 @NgModule({
