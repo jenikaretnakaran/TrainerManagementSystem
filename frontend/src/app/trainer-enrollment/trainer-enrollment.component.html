@@ -30,7 +30,7 @@
             <form (ngSubmit) = "addTrainer()"class="register-form" >
                 <div class="title ">{{title}}</div><br>
                     <div class="tab">
-                    <table class="table tab1">
+                    <table class="table tab1 table-borderless">
                     <tbody><tr class="form-group ">
                             <td colspan="4"><div class="Image" >
                                 <img [src]="url" class="rounded mx-auto d-block pic"  name="img"  alt="..." width="150vh" height="150vh" ><br>
@@ -38,7 +38,7 @@
                                             </div>
                             </td>
                             </tr></tbody></table> 
-                    <table class="table tab2"><tbody>
+                    <table class="table tab2 table-borderless"><tbody>
                         <tr ><td><label for="name"> Name</label></td><td ><input type="text" class="form-control" id="name" placeholder="Name" required></td></tr>
                         <tr ><td > <label for="email">Email</label></td><td>   <input type="email" class="form-control" id="email" placeholder="Email" required></td></tr>
                         <tr ><td > <label for="phone">Phone</label></td><td>  <input type="number" class="form-control" id="phone" placeholder="Phone Number" required></td></tr>

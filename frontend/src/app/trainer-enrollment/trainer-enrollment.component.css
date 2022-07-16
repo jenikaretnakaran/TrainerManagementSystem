@@ -23,23 +23,26 @@ nav .sidebar-button i{
   width: 80%;
 }
 .back{
-  background-image: url('../../assets/images/bg5.jpeg');
+  background-image: url('../../assets/images/bg4.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
 
-  background-color: rgb(227, 227, 235);
+  background-color: rgb(206, 206, 226);
   width: 100%;
+  
 }
 .tab1{
     width: 20%;
-    
-}
+   
+} 
 .tab2{
     width: 100%;
-    color:black;
+    /*color:black;*/
+    color:#999;
     font-weight: bold;
-    height: 100%;
+    border-collapse: separate;
+    border-spacing:0 6px;
    
 }
 .submitme{
@@ -92,7 +95,7 @@ nav .sidebar-button i{
 .title{
   text-align: center;
   font-size: x-large;
-  margin-left: 40%;
+  margin-left: 6%;
 }
   #reset {
     background: #fff;
