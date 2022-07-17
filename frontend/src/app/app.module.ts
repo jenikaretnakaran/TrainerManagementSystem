@@ -58,7 +58,8 @@ import { AllocatedlistComponent } from './allocatedlist/allocatedlist.component'
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
