@@ -25,6 +25,11 @@ import { TrainersListComponent } from './trainers-list/trainers-list.component';
 import { TrainerHomeComponent } from './trainer-home/trainer-home.component';
 import { TrainerEnrollmentComponent } from './trainer-enrollment/trainer-enrollment.component';
 import { TrainerWaitingComponent } from './trainer-waiting/trainer-waiting.component';
+import { ScheduleallocationComponent } from './scheduleallocation/scheduleallocation.component';
+import { AllocatedtrainersComponent } from './allocatedtrainers/allocatedtrainers.component';
+import { TrainerlistComponent } from './trainerlist/trainerlist.component';
+import { AllocateComponent } from './allocate/allocate.component';
+import { AllocatedlistComponent } from './allocatedlist/allocatedlist.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +53,11 @@ import { TrainerWaitingComponent } from './trainer-waiting/trainer-waiting.compo
     TrainersListComponent,   
     TrainerWaitingComponent,
     TrainersListComponent,
+    ScheduleallocationComponent,
+    AllocatedtrainersComponent,
+    TrainerlistComponent,
+    AllocateComponent,
+    AllocatedlistComponent,
     
 
   ],
