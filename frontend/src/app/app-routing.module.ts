@@ -16,6 +16,8 @@ import { TrainersListComponent } from './trainers-list/trainers-list.component';
 import { TrainerHomeComponent } from './trainer-home/trainer-home.component';
 import { TrainerEnrollmentComponent } from './trainer-enrollment/trainer-enrollment.component';
 import { TrainerWaitingComponent } from './trainer-waiting/trainer-waiting.component';
+import { AllocatedlistComponent } from './allocatedlist/allocatedlist.component';
+import { AllocateComponent } from './allocate/allocate.component';
 
 const routes: Routes = [
 
@@ -37,7 +39,9 @@ const routes: Routes = [
     {path:"dashboard",component:AdminDashboardComponent},
     {path:'trainer',component:TrainerHomeComponent},
     {path:'enrollment',component:TrainerEnrollmentComponent},
-    {path:'waiting',component:TrainerWaitingComponent}
+    {path:'waiting',component:TrainerWaitingComponent},
+    {path:'allocated-trainers', component:AllocatedlistComponent},
+    {path:'allocate', component:AllocateComponent}
   ];
                   
 @NgModule({
