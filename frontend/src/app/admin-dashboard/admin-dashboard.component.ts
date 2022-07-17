@@ -12,7 +12,7 @@ import { trainerDataModel } from '../models/trainerdata.model';
 export class AdminDashboardComponent implements OnInit {
   trainersList:trainerDataModel[]=[];
   constructor(private adminservice:AdminService, private router:Router,private authservice:AuthService) { }
-  trainercount=[];
+  trainerCount=[];
   ngOnInit(): void 
   {
     if(!this.authservice.checkAdmin()){
@@ -23,7 +23,7 @@ export class AdminDashboardComponent implements OnInit {
       this.trainersList=(JSON.parse(JSON.stringify(trainers)))
     })
     this.adminservice.getCount().subscribe((numbers)=>{
-      this.trainercount=JSON.parse(JSON.stringify(numbers));
+      this.trainerCount=JSON.parse(JSON.stringify(numbers));
     })
 
   }
@@ -73,6 +73,12 @@ searchCourse()
   this.adminservice.searchByCourse(this.searchBySkill).subscribe((search)=>{
     this.trainersList=JSON.parse(JSON.stringify(search))
   })
+}
+
+allocate(trainer){
+  localStorage.setItem("getTrainerId",trainer._id.toString());
+  localStorage.setItem("allocatemail",trainer.email);
+  this.router.navigate(["/admin/allocate"])
 }
 
 

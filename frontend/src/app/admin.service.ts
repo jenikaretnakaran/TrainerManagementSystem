@@ -8,6 +8,8 @@ export class AdminService {
 
   constructor(private http:HttpClient) { }
 
+  //dashboardComponent
+
   getTrainers(){
     return this.http.get("api/getTrainers");
   }
@@ -26,5 +28,13 @@ export class AdminService {
   }
   searchByCourse(course){
     return this.http.get("api/courseSearch");
+  }
+
+  //trainerApproval
+  getrequest(id){
+    return this.http.get("api/approveRequest"+id);
+  }
+  getApprove(trainer){
+    return this.http.post("api/approvedTrainer",trainer);
   }
 }
