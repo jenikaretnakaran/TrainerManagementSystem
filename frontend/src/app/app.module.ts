@@ -26,6 +26,7 @@ import { AllocatedlistComponent } from './allocatedlist/allocatedlist.component'
 import { TrainerHomeComponent } from './trainer-home/trainer-home.component';
 import { TrainerEnrollmentComponent } from './trainer-enrollment/trainer-enrollment.component';
 import { TrainerWaitingComponent } from './trainer-waiting/trainer-waiting.component';
+import { AllocateComponent } from './allocate/allocate.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { TrainerWaitingComponent } from './trainer-waiting/trainer-waiting.compo
     TrainerWaitingComponent,
     TrainersListComponent,
     TrainerHomeComponent,
-    AllocatedlistComponent
+    AllocatedlistComponent,
+    AllocateComponent
 
   ],
   imports: [

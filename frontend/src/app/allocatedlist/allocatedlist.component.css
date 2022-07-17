@@ -5,10 +5,11 @@
 }
 
 .trainerlist{
-    min-width: 95%;
+    width: 100%;
     padding: 25px;
-    margin-top: 25px;
     border-radius: 10px;
+    padding-top: 0px;
+
 }
 .trainerdata{
     background-color: rgba(176, 196, 222, 0.338);

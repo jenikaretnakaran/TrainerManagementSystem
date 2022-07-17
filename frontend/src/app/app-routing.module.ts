@@ -16,6 +16,7 @@ import { AllocatedlistComponent } from './allocatedlist/allocatedlist.component'
 import { TrainerHomeComponent } from './trainer-home/trainer-home.component';
 import { TrainerEnrollmentComponent } from './trainer-enrollment/trainer-enrollment.component';
 import { TrainerWaitingComponent } from './trainer-waiting/trainer-waiting.component';
+import { AllocateComponent } from './allocate/allocate.component';
 
 
 const routes: Routes = [
@@ -36,7 +37,8 @@ const routes: Routes = [
     {path:"requests",component:TrainerRequestComponent},
     {path:"approval",component:TrainerApprovalComponent},
     {path:"list",component:TrainersListComponent},
-    {path:"allocated-trainers",component:AllocatedlistComponent}
+    {path:"allocated-trainers",component:AllocatedlistComponent},
+    {path:"allocate",component:AllocateComponent}
   ]},
 
     {path:"dashboard",component:AdminDashboardComponent},
