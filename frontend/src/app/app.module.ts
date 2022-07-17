@@ -49,7 +49,6 @@ import { AllocateComponent } from './allocate/allocate.component';
     TrainerApprovalComponent,
     TrainersListComponent,   
     TrainerWaitingComponent,
-    TrainersListComponent,
     TrainerHomeComponent,
     AllocatedlistComponent,
     AllocateComponent

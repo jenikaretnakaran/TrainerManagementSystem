@@ -22,19 +22,32 @@ nav .sidebar-button i{
  
   width: 80%;
 }
+
 .back{
+ /* margin:0px;
+  height:100%;
+  width:100%;
+  background:url('../../assets/images/bg4.jpg')no-repeat center center fixed; 
+  -webkit-background-size:cover;
+  -o-background-size:cover;
+  -moz-background-size:cover;
+  background-size:cover;
+  max-height: 100%;*/
   background-image: url('../../assets/images/bg4.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
   background-position: center;
-
+/*
   background-color: rgb(206, 206, 226);
   width: 100%;
-  
+  */
 }
+
+
 .tab1{
     width: 20%;
-   
+   height: 100%;
 } 
 .tab2{
     width: 100%;
@@ -43,7 +56,7 @@ nav .sidebar-button i{
     font-weight: bold;
     border-collapse: separate;
     border-spacing:0 6px;
-   
+    height: 100%;
 }
 .submitme{
   margin-left: 40%;
@@ -92,15 +105,12 @@ nav .sidebar-button i{
   -webkit-border-radius: 5px;
   -o-border-radius: 5px;
   -ms-border-radius: 5px; }
-.title{
-  text-align: center;
-  font-size: x-large;
-  margin-left: 6%;
-}
+
   #reset {
     background: #fff;
     color: #999;
-    border: 2px solid #ebebeb; }
+    border: 2px solid #ebebeb;
+   }
     #reset:hover {
       border: 2px solid #1161ee;
       background: #1161ee;
@@ -109,19 +119,27 @@ nav .sidebar-button i{
   #submit {
     background: #fff;
     color: #999;
-    margin-right: 25px; }
-    /*#submit:hover {
+    margin-right: 25px; 
+    border: 2px solid #ebebeb;
+  }
+    #submit:hover {
       background-color: #1161ee; 
       color: #fff;
-    }*/
+    }
     #submit:hover {
       border: 2px solid #1161ee;
       background: #1161ee;
-      color: #fff; }
+      color: #fff; 
+    }
       .tab{
         display: flex;
         align-items: center;
       }
 
-      
+      .title{
+        text-align: center;
+        font-size: x-large;
+        margin-left: 6%;
+        
+      }
   

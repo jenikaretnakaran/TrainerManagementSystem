@@ -1,5 +1,3 @@
-
-<!--header starts-->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a href="#" class="navbar-brand ms-4">
         <img src="../../assets/images/ict-logo.png" height="50" alt="logo">
@@ -24,14 +22,14 @@
     </div>
    </nav>
    <!--header ends-->
-   <div class="card-body back" >
+   <div  >
     <div class="card-body">
         <div class="table-responsive enrol">
             <form (ngSubmit) = "addTrainer()"class="register-form" >
                 <div class="title ">{{title}}</div><br>
                     <div class="tab">
                     <table class="table tab1 table-borderless">
-                    <tbody><tr class="form-group ">
+                    <tbody><tr class="form-group "> 
                             <td colspan="4"><div class="Image" >
                                 <img [src]="url" class="rounded mx-auto d-block pic"  name="img"  alt="..." width="150vh" height="150vh" ><br>
                                 <input type="file" id="photo" accept="image/*" class="custom" (change)="onFileSelected($event)" required>
@@ -63,4 +61,7 @@
                 <input type="reset" value="Reset"  class="submit" id="reset" name="reset" />
             </div>
         </form>
-        </div></div></div>
+        </div>
+      </div>
+    </div>
+  

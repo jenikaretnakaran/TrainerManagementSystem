@@ -9,3 +9,8 @@
     background-color: #758283;
 }
 
+@media (max-width :768px) {
+    #dashboard{
+        display: none;
+    }
+}

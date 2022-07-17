@@ -44,7 +44,8 @@ const routes: Routes = [
     {path:"dashboard",component:AdminDashboardComponent},
     {path:'trainer',component:TrainerHomeComponent},
     {path:'enrollment',component:TrainerEnrollmentComponent},
-    {path:'waiting',component:TrainerWaitingComponent}
+    {path:'waiting',component:TrainerWaitingComponent},
+   
   ];
                   
 @NgModule({
