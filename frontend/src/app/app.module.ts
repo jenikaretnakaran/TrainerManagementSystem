@@ -54,7 +54,8 @@ import { TrainerWaitingComponent } from './trainer-waiting/trainer-waiting.compo
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
