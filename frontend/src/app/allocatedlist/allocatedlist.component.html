@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+    <i class=" fa fa-user-circle-o px-2 fs-2" aria-hidden="true"></i>
+    <h4 class="py-2 mt-2">ALLOCATED TRAINERS</h4>
+</nav>
+
+
+<div class="d-flex justify-content-center homelist">
+    <div class="trainerlist">
+
+        <div *ngFor="let i of trainer" class="trainerdata shadow-sm mb-4">
+            <div class="listbox">
+                <h5>Course:  {{i.course}}</h5>
+                <h5 class="pb-2">Batch:  {{i.batch}}</h5>
+                <h5 class="pb-2 pt-2 mbl">Name:  {{i.name}}</h5>
+                <div>Duration:  {{i.duration}}</div>
+                <div>Time:  {{i.time}}</div>
+                <div>Meeting Link:  {{i.link}}</div>
+
+
+            </div>
+        </div>
+
+
+    </div>
+</div>

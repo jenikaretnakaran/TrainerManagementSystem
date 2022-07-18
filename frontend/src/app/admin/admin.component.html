@@ -29,24 +29,19 @@
 <!--sidebar-->
 <div class="container-fluid">
     <div class="row flex-nowrap">
-        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark" id="sidebar">
-            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-                    <span class="fs-4 d-none d-sm-inline py-2">ADMIN</span>
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0" id="sidebar">
+            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2  min-vh-100" id="content">
                 <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="list">
                     <li class="nav-item">
-                        <a routerLink="/admin" class="nav-link align-middle px-0 ">
-                            <i class=" fa fa-th-large px-2"></i>DASHBOARD</a>
-                    </li>
-                    <li class="nav-item">
                         <a routerLink="/admin/requests" class="nav-link align-middle px-0 ">
-                            <i class=" fa fa-envelope-open px-2"></i>TRAINER REQUESTS</a>
+                            <i class=" fa fa-envelope-open px-2"></i><span class="spanitem">TRAINER REQUESTS</span></a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link align-middle px-0 ">
+                        <a routerLink="/admin/allocated-trainers" class="nav-link align-middle px-0 ">
                             <i class=" fa fa-user-circle-o px-2"></i>ALLOCATED TRAINERS</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link align-middle px-0 ">
+                        <a routerLink="/admin/list" class="nav-link align-middle px-0 ">
                             <i class=" fa fa-address-card-o px-2"></i>TRAINERS</a>
                     </li>
                 </ul>

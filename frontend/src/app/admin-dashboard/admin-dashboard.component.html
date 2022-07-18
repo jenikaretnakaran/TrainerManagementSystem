@@ -7,13 +7,13 @@
   <div class="container-fluid">
     <section id="dashboard">
       <div class="row">
-        <div class="col-xl-4 col-12">
+        <div class="col-xl-4 col-12 ">
           <div class="card">
             <div class="card-content">
               <div class="card-body">
                 <i class=" fa fa-envelope-open" style="font-size:60px;color:#293462;"></i>
                 <div class="float-end">
-                  <h3>1</h3>
+                  <h3>{{trainerCount[0]}}</h3>
                   <span>Trainer Requests</span>
                 </div>
               </div>
@@ -26,7 +26,7 @@
               <div class="card-body">
                 <i class="fa fa-user-circle-o" style="font-size:60px;color:#243D25;"></i>
                 <div class="float-end">
-                  <h3>1</h3>
+                  <h3>{{trainerCount[1]}}</h3>
                   <span>allocated trainers</span>
                 </div>
               </div>
@@ -39,7 +39,7 @@
               <div class="card-body">
                 <i class="fa fa-address-card-o" style="font-size:60px;color:violet;"></i>
                 <div class="float-end">
-                  <h3>1</h3>
+                  <h3>{{trainerCount[2]}}</h3>
                   <span>Trainers</span>
                 </div>
               </div>
@@ -52,7 +52,7 @@
 
   <!--table-->
 
-  <div class="container table-responsive py-5">
+  <div class="table-responsive py-5">
     <table class="table table-bordered table-hover table-striped">
       <thead class="thead">
         <tr>
@@ -67,8 +67,8 @@
           <td>
             <div class="input-group">
               <div class="form-outline  d-inline-flex px-2">
-                <input type="search" id="form1" class="form-control" />
-                <button type="button" class="btn btn-primary">
+                <input type="search" id="form1" class="form-control" (change)="changeName($event)"  />
+                <button type="button" class="btn btn-primary" (click)="searchName()">
                   <i class="fa fa-search"></i>
                 </button>
               </div>
@@ -77,8 +77,8 @@
           <td>
             <div class="input-group">
               <div class="form-outline  d-inline-flex px-2">
-                <input type="search" id="form1" class="form-control" />
-                <button type="button" class="btn btn-primary">
+                <input type="search" id="form1" class="form-control" (change)="changeSkill($event)"  />
+                <button type="button" class="btn btn-primary" (click)="searchSkill()">
                   <i class="fa fa-search"></i>
                 </button>
               </div>
@@ -87,8 +87,8 @@
           <td>
             <div class="input-group">
               <div class="form-outline  d-inline-flex px-2">
-                <input type="search" id="form1" class="form-control" />
-                <button type="button" class="btn btn-primary">
+                <input type="search" id="form1" class="form-control" (change)="changeEmp($event)"  />
+                <button type="button" class="btn btn-primary" (click)="searchEmp()">
                   <i class="fa fa-search"></i>
                 </button>
               </div>
@@ -97,8 +97,8 @@
           <td>
             <div class="input-group">
               <div class="form-outline  d-inline-flex px-2">
-                <input type="search" id="form1" class="form-control" />
-                <button type="button" class="btn btn-primary">
+                <input type="search" id="form1" class="form-control" (change)="changeCourse($event)"  />
+                <button type="button" class="btn btn-primary" (click)="searchCourse()">
                   <i class="fa fa-search"></i>
                 </button>
               </div>
@@ -107,11 +107,11 @@
         </tr>
       </tbody>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>1</td>
-          <td>1</td>
-          <td>1</td>
+        <tr *ngFor="let trainer of trainersList" (click)="allocate(trainer)">
+          <td>{{trainer.name}}</td>
+          <td>{{trainer.skillSet}}</td>
+          <td>{{trainer.typeOfTrainer}}</td>
+          <td>{{trainer.course}}</td>
         </tr>
       </tbody>
     </table>

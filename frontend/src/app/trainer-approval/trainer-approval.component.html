@@ -8,7 +8,7 @@
 <div class="container rounded  mt-5 mb-5">
     <div class="row">
         <div class="col-md-4 border-right">
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src ="https://www.clipartmax.com/png/middle/255-2557794_animated-person-animated-picture-of-man.png"><h3 class="font-weight-bolder">name</h3></div>
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src ="{{trainerData.image}}"><h3 class="font-weight-bolder">{{trainerData.trainerName}}</h3></div>
         </div>
         <div class="col-md-5 border-right">
             <div class="p-3 py-5">
@@ -16,17 +16,17 @@
                     <h4 class="text-right">TRAINER DETAILS</h4>
                 </div>
                 <div class="row mt-3">
-                    <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" class="form-control" value=""></div>
-                    <div class="col-md-12"><label class="labels">Address</label><input type="text" class="form-control" value=""></div>
-                    <div class="col-md-12"><label class="labels">Email ID</label><input type="text" class="form-control" value=""></div>
-                    <div class="col-md-12"><label class="labels">Highest qualification</label><input type="text" class="form-control" value=""></div>
-                    <div class="col-md-12"><label class="labels">Skill set</label><input type="text" class="form-control" value=""></div>
-                    <div class="col-md-12"><label class="labels">Current companyname</label><input type="text" class="form-control" value=""></div>
-                    <div class="col-md-12"><label class="labels">Current designation</label><input type="text" class="form-control" value=""></div>
-                    <div class="col-md-12"><label class="labels">ICTAK course</label><input type="text" class="form-control" value=""></div>
+                    <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" class="form-control" value="{{trainerData.phone}}"></div>
+                    <div class="col-md-12"><label class="labels">Address</label><input type="text" class="form-control" value="{{trainerData.address}}"></div>
+                    <div class="col-md-12"><label class="labels">Email ID</label><input type="text" class="form-control" value="{{trainerData.email}}"></div>
+                    <div class="col-md-12"><label class="labels">Highest qualification</label><input type="text" class="form-control" value="{{trainerData.qualification}}"></div>
+                    <div class="col-md-12"><label class="labels">Skill set</label><input type="text" class="form-control" value="{{trainerData.skillSet}}"></div>
+                    <div class="col-md-12"><label class="labels">Current companyname</label><input type="text" class="form-control" value="{{trainerData.companyName}}"></div>
+                    <div class="col-md-12"><label class="labels">Current designation</label><input type="text" class="form-control" value="{{trainerData.designation}}"></div>
+                    <div class="col-md-12"><label class="labels">ICTAK course</label><input type="text" class="form-control" value="{{trainerData.courseHandle}}"></div>
                     <div class="col-md-12">
                       <label class="labels py-2">Type of employment</label>
-                      <select class ="form-select" required aria-label="select employment">
+                      <select class ="form-select" required aria-label="select employment" [(ngModel)]="trainerData.typeOfEmp" value="select" required="">
                         <option value="">select employment</option>
                         <option value="1">Internal</option>
                         <option value="2">Empanelled</option>
@@ -35,7 +35,7 @@
                     </div>
                    
                 </div>
-                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit" routerLink="/admin/list">APPROVE</button></div>
+                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit">APPROVE</button></div>
             </div>
         </div>
     </div>

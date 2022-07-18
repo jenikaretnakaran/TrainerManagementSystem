@@ -3,6 +3,7 @@ export class trainerDataModel {
         public name:String,
         public skillSet:String,
         public typeOfTrainer:string,
-        public course:String
+        public course:String,
+        public _id:any
     ){};
 }
