@@ -7,7 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AllocatedlistComponent implements OnInit {
 
-  constructor() { }
   trainer=[{
     course:"",
     batch:"",
@@ -17,6 +16,8 @@ export class AllocatedlistComponent implements OnInit {
     link:""
     
   }]
+
+  constructor() { }
 
   ngOnInit(): void {
   }

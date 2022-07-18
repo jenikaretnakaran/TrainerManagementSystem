@@ -22,11 +22,11 @@ import { AdminComponent } from './admin/admin.component';
 import { TrainerRequestComponent } from './trainer-request/trainer-request.component';
 import { TrainerApprovalComponent } from './trainer-approval/trainer-approval.component';
 import { TrainersListComponent } from './trainers-list/trainers-list.component';
+import { AllocatedlistComponent } from './allocatedlist/allocatedlist.component';
 import { TrainerHomeComponent } from './trainer-home/trainer-home.component';
 import { TrainerEnrollmentComponent } from './trainer-enrollment/trainer-enrollment.component';
 import { TrainerWaitingComponent } from './trainer-waiting/trainer-waiting.component';
 import { AllocateComponent } from './allocate/allocate.component';
-import { AllocatedlistComponent } from './allocatedlist/allocatedlist.component';
 
 @NgModule({
   declarations: [
@@ -49,14 +49,14 @@ import { AllocatedlistComponent } from './allocatedlist/allocatedlist.component'
     TrainerApprovalComponent,
     TrainersListComponent,   
     TrainerWaitingComponent,
-    TrainersListComponent,
-    AllocateComponent,
+    TrainerHomeComponent,
     AllocatedlistComponent,
-    
+    AllocateComponent
 
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule
