@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginService } from '../login.service';
 
 @Component({
   selector: 'app-adminlogin',
@@ -15,11 +16,11 @@ export class AdminloginComponent implements OnInit {
 
   }
 
-  constructor(private route:Router) { }
+  constructor(private userlogin:LoginService ,private route:Router) { }
 
 
-  loginadmin(){
-    alert("LogedIn")
+  adminlogin(){
+    this.userlogin.adminlogin(this.admin).subscribe((data)=>{console.log("Success")})
     this.route.navigate(['/admin'])
   }
 

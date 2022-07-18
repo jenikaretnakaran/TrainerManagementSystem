@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { LoginService } from '../login.service';
 
 @Component({
   selector: 'app-signup',
@@ -15,11 +17,14 @@ export class SignupComponent implements OnInit {
     checkbox:false
   }
 
+  constructor(private usersignup:LoginService , private route:Router) { }
+
+
   signup(){
-    alert("Done")
+      this.usersignup.signup(this.user).subscribe((data)=>{console.log("Success")})
+      this.route.navigate(['/login'])
   }
 
-  constructor() { }
 
   ngOnInit(): void {
   }
