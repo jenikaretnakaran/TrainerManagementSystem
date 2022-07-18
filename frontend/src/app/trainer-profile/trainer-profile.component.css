@@ -13,62 +13,79 @@ nav .sidebar-button i{
 }
 .enrol{
   margin-left: 2%;
+ 
   font-family: 'Courier New', Courier, monospace;
   color: rgb(88, 76, 76);
   font-size: bold;
   /*
  background-color: transparent;*/
- 
+ background-color: aquamarine;
   width: 100%;
 }
-.box{
-  padding: 5px;
-}
+
 .back{
  
   background-image: url('../../assets/images/bg4.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  
+  background-attachment: fixed;
   background-position: center;
-width: 100%;
-height: 100%;
+
 }
+.box{
+  padding: 5px;
+}
+.re1{
+  background-color: yellow;
+}
+.col1{
+  background-color: #1161ee;
+}
+.col2{
+  background-color: aqua;
+}
+.col3{
+  background-color:blueviolet;
+}
+.col4{
+  background-color: tomato;
+}
+
 
 
 .tab{
   display: flex;
   align-items: center;
-  
+  background-color: tomato;
 }
 
 
 .tab1{
-   
-   width: 60%;
+    
+    
    height: 100%;
-   margin-left: 10%;
-   margin-right: 10%;
-   align-items: center;
-  
+   background-color: #1161ee;
 } 
-.colm1{
-  
-  margin-left: 35%;
+.tab2{
+   
+    /*color:black;*/
+    color:#999;
+    font-weight: bold;
+    border-collapse: separate;
+    border-spacing:0 6px;
+    height: 100%;
+    background-color: bisque;
 }
-
-
 .checkbx{
-  font-family: 'Courier New', Courier, monospace;
-  color: rgb(88, 76, 76);
-  font-weight: normal;
+  color: #999;
+  font-weight: lighter;
   margin-left: 5%;
 }
 .submitme{
   margin-left: 40%;
   align-items: center;
   padding: 10px;
-  display: inline-flex;
+  display: inline-block;
   margin-right: 4px;
 }
 .container>.button:not(:last-child) {
@@ -88,13 +105,12 @@ height: 100%;
 }
      
 .custom{
-  margin-left: 40%;
+  margin-left: 14%;
 }
-/*
  #submit {
   margin-bottom: 20px;
   margin-right: 0px; }
-*/
+
 
  .submit {
   width: 150px;
@@ -129,7 +145,10 @@ height: 100%;
     margin-right: 25px; 
     border: 2px solid #ebebeb;
   }
-   
+    #submit:hover {
+      background-color: #1161ee; 
+      color: #fff;
+    }
     #submit:hover {
       border: 2px solid #1161ee;
       background: #1161ee;
@@ -139,7 +158,8 @@ height: 100%;
       .title{
         text-align: center;
         font-size: x-large;
-       
+        margin-left: 1%;
+        color: #999;
       }
    .clr{
     color: #999;
