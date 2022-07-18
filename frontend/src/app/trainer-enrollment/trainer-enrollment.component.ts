@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { TrainerModel } from './trainer.model';
+import { TrainerModel } from '../models/trainer.model';
+import { TrainerService } from '../trainer.service';
+
 
 @Component({
   selector: 'app-trainer-enrollment',
@@ -9,7 +11,7 @@ import { TrainerModel } from './trainer.model';
 })
 export class TrainerEnrollmentComponent implements OnInit {
 
-  constructor(public route:Router) {   }
+  constructor(public route:Router,public trainerService:TrainerService) {   }
  title:string="ENROLLMENT FORM";
   TrainerItem:any =new TrainerModel("","",0,"","","","","","","");
   ngOnInit(): void {
@@ -54,12 +56,12 @@ export class TrainerEnrollmentComponent implements OnInit {
 
   addTrainer()
   {
-    this.route.navigate(['waiting']);
+    this.trainerService.enrollTrainer(this.TrainerItem);
+    // alert("You are Enrolled");
+    this.route.navigate(['confirmation']);
+
+   
   }
 
-  validate()
-  {
-    alert("submit");
-    console.log("subited");
-  }
+ 
 }

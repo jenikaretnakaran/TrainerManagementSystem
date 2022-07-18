@@ -96,7 +96,7 @@
         <div class="row form-group box">
             <div class="col-2 "></div>
             <div class="col-2 "><label for="company">Current Company Name</label></div>
-            <div class="col-4 "><input type="text" #company class="form-control" placeholder="Current Company Name" id="company"  [(ngModel)]="TrainerItem.company" name="company"></div>
+            <div class="col-4 "><input type="text" #company="ngModel" class="form-control" placeholder="Current Company Name" id="company"  [(ngModel)]="TrainerItem.company" name="company"></div>
             
             <div class="col-4 "></div>
         </div>
@@ -104,7 +104,7 @@
         <div class="row form-group box">
             <div class="col-2 "></div>
             <div class="col-2 "><label for="designation">Current Designation</label></div>
-            <div class="col-4 "><input type="text" #designation class="form-control" id="designation" placeholder="Current Designation"  [(ngModel)]="TrainerItem.designation" name="designation"></div>
+            <div class="col-4 "><input type="text" #designation="ngModel" class="form-control" id="designation" placeholder="Current Designation"  [(ngModel)]="TrainerItem.designation" name="designation"></div>
             <div class="col-4 "></div>
         </div>
         <div class="row form-group box">
@@ -113,10 +113,8 @@
             <div class="col-4 ">
                 <div *ngFor="let course of courses; let i = index">
                     <label class="form-check-label">
-          <input type="checkbox" class="form-check-input" 
-          ngModel name="{{course.id}}">
-          {{course.name}}
-       </label>
+                        <input type="checkbox" class="form-check-input" name="courseHandle" ngModel name="{{course.id}}">{{course.name}}
+                    </label>
                 </div>
             </div>
             <div class="col-4 "></div>

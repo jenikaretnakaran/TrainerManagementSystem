@@ -23,67 +23,7 @@
         </ul>
     </div>
    </nav> 
-   <!--header ends class=" back"  style="height: 100%; background-image: url(../../assets/images/bg4.jpg); background-size: cover; background-position: center; background-attachment: fixed;"-->
-  <!-- <div  class="back">
-    <div class="card-body">-->
-        <!--
-        <div class="back">
-        <div class="table-responsive enrol ">
-             <form (ngSubmit) = "addTrainer()"class="register-form" #enrollForm="ngForm">
-                <div class="title ">{{title}}</div><br>
-                    <div class="tab">
-                        <table><tr><td>  
-                           
-                    <table class="table tab1 table-borderless">
-                    <tbody><tr class="form-group ">
-                            <td colspan="4"><div class="Image" >
-                                <img [src]="url" class="rounded mx-auto d-block pic"  name="img"  alt="..." width="150vh" height="150vh" ><br>
-                                <input type="file" id="photo" accept="image/*" class="custom" (change)="onFileSelected($event)" required>
-                                            </div>
-                            </td>
-                            </tr>
-                            <tr ><td><label for="name"> Name</label></td><td ><input type="text" class="form-control" id="name" placeholder="Name" required ></td></tr>
-                            <tr ><td > <label for="email">Email</label></td><td>   <input type="email" class="form-control" id="email" placeholder="Email" required></td></tr>
-                           <tr ><td > <label for="phone">Phone</label></td><td>  <input type="number" class="form-control" id="phone" placeholder="Phone Number" required></td></tr>
-                           <tr ><td > <label for="address">Address</label></td><td>  <input type="text" class="form-control" id="address" placeholder="Address" required></td></tr>
-                         
-                        </tbody></table> 
-                        </td><td>
-                    <table class="table tab2 table-borderless"><tbody>
-                       
-                         <tr ><td> <label for="qualification">Highest Qualification</label></td><td><input type="text" class="form-control" id="qualification"  required></td></tr>
-                        <tr ><td> <label for="skill">Skill Set</label></td><td><input type="text" class="form-control" id="skill" placeholder="Skill Set" required></td></tr>
-                        <tr ><td> <label for="company">Current Company Name</label></td><td> <input type="text" class="form-control" id="company"  required></td></tr>
-                        <tr ><td> <label for="designation">Current Designation</label></td><td><input type="text" class="form-control" id="course" required></td></tr>
-                        <tr ><td> <label for="course">ICTAK Courses Handling</label></td><td>
-                             
-                                <div class="form-check checkbx" 
-                                *ngFor="let course of courses; let i = index">
-                               <label class="form-check-label">
-                                 <input type="checkbox" class="form-check-input"
-                                 ngModel name="{{course.id}}">
-                                 {{course.name}}
-                             </label>
-                             </div>
-
-                         </td>
-    
-                         </tr>
-                    </tbody>
-                    </table>
-                    </td></tr></table>
-                    </div>
-            <div class="form-submit submitme">
-   
-                <input type="submit" value="Submit" class="submit" id="submit" name="submit"   />
-                <input type="reset" value="Reset"  class="submit" id="reset" name="reset" />
-            </div>
-        </form>
-        </div>
-        
-    </div>
--->
-
+   <!--header ends-->
 
 <!--sidebar-->
 <div class="container-fluid">
@@ -112,22 +52,7 @@
         <div class="col">
         
             <div class="title ">{{title}}</div><br>
-          <!--  <div class="row ">
-                <div class="col-1 ">
-                    
-                </div>
-                <div class="col-3 "><div >
-                    <img [src]="TrainerDetails.trainerURL" alt="image" class="rounded-circle" alt="100x100"
-                         [style.width.px]='imageWidth'
-                         [style.margin.px]="imageMargin">  </div>
-                        </div>
-                <div class="col-5 ">
-                    <div>  </div>
-                </div>
-                <div class="col-3"></div>
-            </div>
-            <br><br>-->
-            <!----------------------------------->
+          
            
             <div class="row ">
                 <div class="col-1 "></div>
@@ -155,7 +80,7 @@
                             </div>
                             <div class="row box">
                                 <div class="col">
-                                    <input class=" form-control" type="text" name="" id="" disabled value="Phone Number" >
+                                    <input class=" form-control" type="text" name="" id="" disabled value="Phone">
                                 </div>
                             </div>
                         </div>
@@ -181,19 +106,13 @@
                                 <div class="col"><label>Current company</label><input type="text" class="form-control" disabled></div>
                             </div>
                             <div class="row box">
-                                <div class="col"><label>Course handling</label><input type="text" class="form-control" disabled></div>
-                            </div>
+                                <div class="col"><label>Course handling</label><input type="text" class="form-control" disabled>
                             
                             
                         </div>
                     </div>
                 </div></div>
-               <!-- <div class="form-submit submitme">
-             
-                    <button type="submit" value="Submit" class="submit" id="submit" name="submit"  >Edit Profile</button>
-                   
-                
-                </div>-->
+               
                 <div class="col-2 "></div>
                 
             </div>

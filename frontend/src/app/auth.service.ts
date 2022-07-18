@@ -12,4 +12,9 @@ export class AuthService {
   {
     return !!localStorage.getItem('admindata');
   }
+
+  checkTrainer()
+  {
+    return !!localStorage.getItem('trainerdata');
+  }
 }
