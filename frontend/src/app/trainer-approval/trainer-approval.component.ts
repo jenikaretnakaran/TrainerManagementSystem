@@ -28,7 +28,7 @@ export class TrainerApprovalComponent implements OnInit {
   ngOnInit(): void 
   {
     let approveId=localStorage.getItem("approveId");
-    this.adminservice.getrequest(approveId).subscribe((data)=>{
+    this.adminservice.getRequest(approveId).subscribe((data)=>{
       this.trainerData=JSON.parse(JSON.stringify(data));
     })
   }
