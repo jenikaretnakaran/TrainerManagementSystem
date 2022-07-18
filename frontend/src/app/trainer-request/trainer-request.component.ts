@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AdminService } from '../admin.service';
 
 @Component({
   selector: 'app-trainer-request',
@@ -7,9 +9,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TrainerRequestComponent implements OnInit {
 
-  constructor() { }
+  trainerData=
+  [{
+    trainerName:"",
+    qualification:"",
+    companyName:"",
+    designation:"",
+    skillSet:""
+  }]
+  constructor(private adminservice:AdminService,private router:Router) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void 
+  {
+    this.adminservice.getTrainerRequest().subscribe((data)=>{
+      this.trainerData=JSON.parse(JSON.stringify(data));
+    })
   }
 
+  rejectTrainer(id)
+  {
+    this.adminservice.rejectTrainer(id._id)
+    .subscribe((data)=>{
+      this.trainerData=this.trainerData.filter(trainer=>trainer !== id)
+    })
+  }
+  approveRequest(id)
+  {
+    localStorage.setItem("approveRequestId",id._id.toString());
+    this.router.navigate(["/admin/approval"]);
+  }
 }
+ 
