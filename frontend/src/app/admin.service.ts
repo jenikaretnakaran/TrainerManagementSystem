@@ -37,4 +37,22 @@ export class AdminService {
   getApprove(trainer){
     return this.http.post("api/approvedTrainer",trainer);
   }
+
+  //trainerRequest
+  getTrainerRequest(){
+    return this.http.get("api/request");
+  }
+  rejectTrainer(id){
+   return this.http.delete("api/reject"+id) 
+  }
+
+  //trainersList
+ getTrainersList(){
+   return this.http.get("api/getTrainersList");
+ }
+ removeTrainer(id){
+  return this.http.delete("api/removeTrainer"+id)
+ }
 }
+
+

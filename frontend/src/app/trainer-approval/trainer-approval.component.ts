@@ -20,7 +20,8 @@ export class TrainerApprovalComponent implements OnInit {
     companyName:"",
     designation:"",
     courseHandle:[],
-    image:""
+    image:"",
+    typeOfEmp:""
   }
   constructor(private adminservice:AdminService,private router:Router) { }
 
