@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TrainerModel } from './trainer.model';
 
 @Component({
   selector: 'app-trainer-enrollment',
@@ -8,16 +9,25 @@ import { Router } from '@angular/router';
 })
 export class TrainerEnrollmentComponent implements OnInit {
 
-  constructor(public route:Router) { }
-  title:string="ENROLLMENT FORM"
+  constructor(public route:Router) {   }
+ title:string="ENROLLMENT FORM";
+  TrainerItem:any =new TrainerModel("","",0,"","","","","","","");
   ngOnInit(): void {
   }
-  courses=[
-    "CERTIFIED XR ASSOCIATE","CERTIFIED CYBER SECURITY ANALYST","CERTIFIED SPECIALIST IN FULL STACK DEVELOPMENT",
-    "CERTIFIED SPECIALIST INs DATA SCIENCE & ANALYTICS","MICRO SKILLS TRAINING ON ROBOTIC PROCESS AUTOMATION",
-    "MICRO SKILLS TRAINING ON DIGITAL MARKETING AND SEO","CERTIFIED SPECIALIST IN M L AND A I",
-    "MOODLE","ARM EMBEDDED SYSTEMS","IOT FOR ENGINEERING APPLICATIONS","AWS EDUCATE"
-  ]
+  courses: any = [
+    {name:'CERTIFIED XR ASSOCIATE', id:1, selected: true}, 
+    {name:'CERTIFIED CYBER SECURITY ANALYST', id:2, selected: false},
+    {name:'CERTIFIED SPECIALIST IN FULL STACK DEVELOPMENT', id:3, selected: false},  
+    {name:'CERTIFIED SPECIALIST INs DATA SCIENCE & ANALYTICS', id:4, selected: false},
+    {name:'MICRO SKILLS TRAINING ON ROBOTIC PROCESS AUTOMATION', id:5, selected: true}, 
+    {name:'MICRO SKILLS TRAINING ON DIGITAL MARKETING AND SEO', id:6, selected: false},
+    {name:'CERTIFIED SPECIALIST IN MACHINE LEARNING AND ARTIFICIAL INTELLIGENCE', id:7, selected: false},  
+    {name:'MOODLE', id:8, selected: false},
+    {name:'ARM EMBEDDED SYSTEMS', id:9, selected: true}, 
+    {name:'IOT FOR ENGINEERING APPLICATIONS', id:10, selected: false},
+    {name:'AWS EDUCATE', id:11, selected: false}  
+     ]
+
   fname="";
   lname="";
   address="";

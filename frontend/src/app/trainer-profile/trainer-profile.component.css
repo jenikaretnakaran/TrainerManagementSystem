@@ -13,20 +13,18 @@ nav .sidebar-button i{
 }
 .enrol{
   margin-left: 2%;
+ 
   font-family: 'Courier New', Courier, monospace;
   color: rgb(88, 76, 76);
   font-size: bold;
   /*
  background-color: transparent;*/
- 
+ background-color: aquamarine;
   width: 100%;
-}
-.box{
-  padding: 5px;
 }
 
 .back{
-
+ 
   background-image: url('../../assets/images/bg4.jpg');
   background-repeat: no-repeat;
   background-size: cover;
@@ -34,33 +32,70 @@ nav .sidebar-button i{
   background-position: center;
 
 }
+.box{
+  padding: 5px;
+}
+.re1{
+  background-color: yellow;
+}
+.col1{
+  background-color: #1161ee;
+}
+.col2{
+  background-color: aqua;
+}
+.col3{
+  background-color:blueviolet;
+}
+.col4{
+  background-color: tomato;
+}
+
+
+
+.tab{
+  display: flex;
+  align-items: center;
+  background-color: tomato;
+}
 
 
 .tab1{
-    width: 20%;
+    
+    
    height: 100%;
+   background-color: #1161ee;
 } 
 .tab2{
-    width: 100%;
+   
     /*color:black;*/
     color:#999;
     font-weight: bold;
     border-collapse: separate;
     border-spacing:0 6px;
     height: 100%;
+    background-color: bisque;
+}
+.checkbx{
+  color: #999;
+  font-weight: lighter;
+  margin-left: 5%;
 }
 .submitme{
   margin-left: 40%;
   align-items: center;
   padding: 10px;
-  display: inline-flex;
+  display: inline-block;
   margin-right: 4px;
 }
 .container>.button:not(:last-child) {
   margin-right: 10px;
  }
  #photo{
- 
+ /* background-color: rgb(70, 155, 224);
+  width: 150px;
+  height: 50px;
+  border-radius: 1em;*/
   display: flex;
   justify-content: center;
  align-items: center;
@@ -70,13 +105,12 @@ nav .sidebar-button i{
 }
      
 .custom{
-  margin-left: 40%;
+  margin-left: 14%;
 }
-/*
  #submit {
   margin-bottom: 20px;
   margin-right: 0px; }
-*/
+
 
  .submit {
   width: 150px;
@@ -111,34 +145,21 @@ nav .sidebar-button i{
     margin-right: 25px; 
     border: 2px solid #ebebeb;
   }
-
     #submit:hover {
       background-color: #1161ee; 
       color: #fff;
     }
-
     #submit:hover {
       border: 2px solid #1161ee;
       background: #1161ee;
       color: #fff; 
     }
-      .tab{
-        display: flex;
-        align-items: center;
-      }
-
-      .title{
-        text-align: center;
-        font-size: x-large;
-        margin-left: 6%;
-       
-      }
-  
      
       .title{
         text-align: center;
         font-size: x-large;
-       
+        margin-left: 1%;
+        color: #999;
       }
    .clr{
     color: #999;
