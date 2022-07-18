@@ -1,10 +1,6 @@
 
-
 <!--header starts-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-
     <a href="#" class="navbar-brand ms-4">
         <img src="../../assets/images/ict-logo.png" height="50" alt="logo">
     </a>
@@ -117,13 +113,12 @@
             <div class="col-4 ">
                 <div *ngFor="let course of courses; let i = index">
                     <label class="form-check-label">
-                        <input type="checkbox" class="form-check-input" 
-                        ngModel name="{{course.id}}">
-                        {{course.name}}
-                     </label>
+          <input type="checkbox" class="form-check-input" 
+          ngModel name="{{course.id}}">
+          {{course.name}}
+       </label>
                 </div>
             </div>
-
             <div class="col-4 "></div>
         </div>
 
@@ -149,10 +144,3 @@
 
 </form>
 </div>
-
-        </form>
-        </div>
-      </div>
-    </div>
-  
-
