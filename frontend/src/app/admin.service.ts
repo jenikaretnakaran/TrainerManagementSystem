@@ -18,20 +18,20 @@ export class AdminService {
     return this.http.get("api/getCount");
   }
   searchByName(name){
-    return this.http.get("api/nameSearch");
+    return this.http.get("api/nameSearch"+name);
   }
   searchBySkill(skill){
-    return this.http.get("api/skillSearch");
+    return this.http.get("api/skillSearch"+skill);
   }
   searchByEmp(emp){
-    return this.http.get("api/empSearch");
+    return this.http.get("api/empSearch"+emp);
   }
   searchByCourse(course){
-    return this.http.get("api/courseSearch");
+    return this.http.get("api/courseSearch"+course);
   }
 
   //trainerApproval
-  getrequest(id){
+  getRequest(id){
     return this.http.get("api/approveRequest"+id);
   }
   getApprove(trainer){
