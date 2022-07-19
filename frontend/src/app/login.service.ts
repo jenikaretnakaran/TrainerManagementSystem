@@ -14,15 +14,15 @@ export class LoginService {
 
 
   signup(data){
-   return this.http.post(`${this.server_address}/signup`, {data:data})
+   return this.http.post<any>(`${this.server_address}/signup`, {data:data})
   }
 
   adminlogin(data){
-    return this.http.post(`${this.server_address}/adminlogin`, {data:data})
+    return this.http.post<any>(`${this.server_address}/adminlogin`, {data:data})
   }
 
   trainerlogin(data){
-    return this.http.post(`${this.server_address}/trainerlogin`, {data:data})
+    return this.http.post<any>(`${this.server_address}/trainerlogin`, {data:data})
   }
 
 

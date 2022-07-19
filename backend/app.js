@@ -4,13 +4,18 @@ const mongoose= require('mongoose');
 const cors=require("cors");
 // const path = require('path');
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cors());
+
 const adminRoutes =require("./routes/admin")
+const loginRoutes =require("./routes/login")
 
 const PORT = process.env.PORT || 3000;
 
 //DB Connection
 mongoose
-  .connect("mongodb://localhost:27017/project",{
+  .connect("mongodb+srv://admin:user123@project1.cfkyt.mongodb.net/ICTAK?retryWrites=true&w=majority",{
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -20,17 +25,13 @@ mongoose
 
   //Routes
   app.use("/api", adminRoutes);
+  app.use("/", loginRoutes);
  
-
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(cors());
 
 
 app.get("/" , (req,res)=>{
     res.send(`Server Running on PORT ${PORT}`)
 })
-
 
 
 app.listen(PORT , (req,res)=>{
