@@ -33,7 +33,7 @@ export class AdminService {
 
   //trainerApproval
   getRequest(id){
-    return this.http.get("http://localhost:3000/api/approveRequest"+id);
+    return this.http.get("http://localhost:3000/api/approveRequest/"+id);
   }
   getApprove(trainer){
     return this.http.post("http://localhost:3000/api/approvedTrainer",trainer);
@@ -44,7 +44,7 @@ export class AdminService {
     return this.http.get("http://localhost:3000/api/request");
   }
   rejectTrainer(id){
-   return this.http.delete("http://localhost:3000/api/reject/"+id) 
+   return this.http.delete("http://localhost:3000/api/reject/"+id) ;
   }
 
   //trainersList

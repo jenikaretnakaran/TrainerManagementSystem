@@ -8,8 +8,8 @@ export class AuthService {
 
   constructor(public http:HttpClient) { }
 
-  checkAdmin()
-  {
-    return !!localStorage.getItem('admindata');
-  }
+  // checkAdmin()
+  // {
+  //   return !!localStorage.getItem('admindata');
+  // }
 }

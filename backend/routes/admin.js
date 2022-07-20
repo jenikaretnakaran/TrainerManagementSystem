@@ -60,6 +60,7 @@ app.get('/empSearch/:emp',(req,res)=>{
     res.header("Access-Control-Allow-Origin","*");
     res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE");
     let typeOfEmp=req.params.emp;
+    // console.log(typeOfEmp);
     trainerdata.find({typeOfEmp: typeOfEmp}).then((data)=>{
         res.send(data);
     })
@@ -78,9 +79,10 @@ app.get('/courseSearch/:course',(req,res)=>{
 app.get('/approveRequest/:id', (req, res) => {
 
     const id = req.params.id;
-    enrollmentdata.findOne({ "_id": id })
+    console.log(id);
+    enrollmentdata.findOne({ _id: id })
       .then((request) => {
-        // console.log('approve request ' + request)
+        console.log(request)
         res.send(request);
       });
   })
@@ -163,9 +165,9 @@ app.delete('/reject/:id', (req, res) => {
 
   id = req.params.id;
   console.log(id);
-  enrollmentdata.findByIdAndDelete({ "_id": id })
+  enrollmentdata.findByIdAndDelete({ _id: id })
     .then(() => {
-      console.log('rejected a trainer request')
+      res.json("successfully deleted");
       res.send();
     })
 })
