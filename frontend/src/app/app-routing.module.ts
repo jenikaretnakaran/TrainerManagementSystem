@@ -19,6 +19,7 @@ import { TrainerWaitingComponent } from './trainer-waiting/trainer-waiting.compo
 import { TrainerProfileComponent } from './trainer-profile/trainer-profile.component';
 
 import { AllocateComponent } from './allocate/allocate.component';
+import { TrainerComponent } from './trainer/trainer.component';
 
 const routes: Routes = [
 
@@ -42,11 +43,14 @@ const routes: Routes = [
     {path:"allocate",component:AllocateComponent}
   ]},
 
-    {path:"dashboard",component:AdminDashboardComponent},
-    {path:'trainer',component:TrainerHomeComponent},
+  {path:'trainer',component:TrainerComponent,
+   children:[
+    {path:'',component:TrainerHomeComponent},
     {path:'enrollment',component:TrainerEnrollmentComponent},
     {path:'confirmation',component:TrainerWaitingComponent},
     {path:'profile',component:TrainerProfileComponent}
+  ]},
+    
   ];
                   
 @NgModule({
