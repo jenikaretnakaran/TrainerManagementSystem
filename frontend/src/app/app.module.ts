@@ -25,6 +25,9 @@ import { TrainersListComponent } from './trainers-list/trainers-list.component';
 import { TrainerHomeComponent } from './trainer-home/trainer-home.component';
 import { TrainerEnrollmentComponent } from './trainer-enrollment/trainer-enrollment.component';
 import { TrainerWaitingComponent } from './trainer-waiting/trainer-waiting.component';
+import { AdminService } from './admin.service';
+import { AuthService } from './auth.service';
+import { TrainerService } from './trainer.service';
 
 @NgModule({
   declarations: [
@@ -57,7 +60,7 @@ import { TrainerWaitingComponent } from './trainer-waiting/trainer-waiting.compo
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [AuthService,TrainerService,AdminService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

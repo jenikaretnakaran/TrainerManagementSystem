@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AdminService } from '../admin.service';
+import { trainerDataModel } from '../models/trainerdata.model';
 
 @Component({
   selector: 'app-trainer-request',
@@ -8,14 +9,18 @@ import { AdminService } from '../admin.service';
   styleUrls: ['./trainer-request.component.css']
 })
 export class TrainerRequestComponent implements OnInit {
-
   trainerData=
   [{
-    trainerName:"",
-    qualification:"",
-    companyName:"",
-    designation:"",
-    skillSet:""
+    trainerName:String,
+    email:String,
+    phone:String,
+    address:String,
+    skill:String,
+    qualification:String,
+    companyName:String,
+    designation:String,
+    course:String,
+    image:String
   }]
   constructor(private adminservice:AdminService,private router:Router) { }
 
@@ -29,7 +34,7 @@ export class TrainerRequestComponent implements OnInit {
   rejectTrainer(id)
   {
     this.adminservice.rejectTrainer(id._id)
-    .subscribe((data)=>{
+    .subscribe(()=>{
       this.trainerData=this.trainerData.filter(trainer=>trainer !== id)
     })
   }

@@ -1,8 +1,8 @@
 export class trainerDataModel {
     constructor (
-        public name:String,
-        public skillSet:String,
-        public typeOfTrainer:string,
+        public trainerName:String,
+        public skill:String,
+        public typeOfEmp:string,
         public course:String,
         public _id:any
     ){};
