@@ -21,9 +21,16 @@ export class SignupComponent implements OnInit {
 
 
   signup(){
-      this.usersignup.signup(this.user).subscribe((data)=>{console.log("Success")})
-      this.route.navigate(['/login'])
-  }
+      this.usersignup.signup(this.user).subscribe((res)=>{
+
+        if(res.status){
+          this.route.navigate(['login'])
+         }else{
+          alert("Email already taken")
+          window.location.reload();
+         };
+      });
+  };
 
 
   ngOnInit(): void {

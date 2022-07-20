@@ -20,8 +20,20 @@ export class AdminloginComponent implements OnInit {
 
 
   adminlogin(){
-    this.userlogin.adminlogin(this.admin).subscribe((data)=>{console.log("Success")})
-    this.route.navigate(['/admin'])
+    this.userlogin.adminlogin(this.admin).subscribe((res)=>{
+
+      if(res.status){
+        localStorage.setItem('token' , res.token)
+        this.route.navigate(['/admin'])
+       }else{
+        console.log(res.data)
+        var error = res.data
+        alert(error);
+        //window.location.reload();
+       }
+
+
+    })
   }
 
 

@@ -5,13 +5,18 @@ const app = express();
 const mongoose= require('mongoose');
 const cors=require("cors");
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cors());
+
 const adminRoutes =require("./routes/admin")
+const loginRoutes =require("./routes/login")
 
 const PORT = process.env.PORT || 3000;
 
 //DB Connection
 mongoose
-  .connect("mongodb://localhost:27017/project",{
+  .connect("mongodb+srv://admin:user123@project1.cfkyt.mongodb.net/ICTAK?retryWrites=true&w=majority",{
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -25,22 +30,8 @@ app.use(cors());
 
   //Routes
   app.use("/api", adminRoutes);
+  app.use("/", loginRoutes);
  
-
-
-// app.use(express.static("../../TrainerManagementSystem/frontend"));
-
-// app.get('/*',function(req,res){
-//   res.sendFile(path.join(__dirname+"../../TrainerManagementSystem/frontend/src/index.html"))
-// })
-
-
-// app.get("/" , (req,res)=>{
-//     res.send(`Server Running on PORT ${PORT}`)
-// })
-
-
-
 app.listen(PORT , (req,res)=>{
     console.log(`Server Running on PORT ${PORT}`);
 })

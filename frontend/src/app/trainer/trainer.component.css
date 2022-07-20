@@ -1,0 +1,57 @@
+.sidebar{
+    width: 17%;
+    height: 90vh;
+    position: fixed;
+
+}
+
+.para22{
+    padding: 10px;
+    cursor: pointer;
+    padding-left: 15%;
+    
+}
+.para22:hover{
+    background-color: white;
+}
+
+h4{
+    margin-bottom: 60px;
+}
+.menubar{
+    display: none;
+    
+}
+
+.content{
+    background-color: rgba(119, 136, 153, 0.343);
+    width: 83%;
+    margin-left: 17%;
+  }
+
+@media only screen and (max-width: 860px) {
+    .sidebar ,.headlogout{
+        display: none;
+    }
+    .menubar{
+        display: contents;
+    }
+    .content{
+        width: 100%;
+        margin: 0%;
+    }
+  }
+
+
+  .textdata{
+
+    padding: 15px;
+    padding-left: 40px;
+
+  }
+  .textdata:hover{
+    background-color: white;
+  }
+  .menuwidth{
+    width: 50%;
+  }

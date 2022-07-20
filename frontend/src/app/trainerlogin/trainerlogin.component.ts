@@ -10,17 +10,26 @@ import { LoginService } from '../login.service';
 export class TrainerloginComponent implements OnInit {
 
   user={
-
     email:"",
     password:""
-
   }
+
+
   constructor(private login:LoginService ,private route:Router) { }
 
-  loginuser(){
-    this.login.trainerlogin(this.user).subscribe((data)=>{console.log("Success")})
-    this.route.navigate(['/trainer'])
 
+  loginuser(){
+    this.login.trainerlogin(this.user).subscribe((res)=>{
+
+      if(res.status){
+        localStorage.setItem('token' , res.token)
+        this.route.navigate(['/trainer'])
+       }else{
+        var error = res.data;
+        console.log(error);
+        alert(error);
+       }
+    })
   }
 
 

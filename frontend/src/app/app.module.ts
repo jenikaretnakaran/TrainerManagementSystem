@@ -28,6 +28,7 @@ import { TrainerEnrollmentComponent } from './trainer-enrollment/trainer-enrollm
 import { TrainerWaitingComponent } from './trainer-waiting/trainer-waiting.component';
 import { TrainerProfileComponent } from './trainer-profile/trainer-profile.component';
 import { AllocateComponent } from './allocate/allocate.component';
+import { TrainerComponent } from './trainer/trainer.component';
 
 import { AdminService } from './admin.service';
 import { AuthService } from './auth.service';
@@ -59,7 +60,8 @@ import { TrainerService } from './trainer.service';
     
     TrainerHomeComponent,
     AllocatedlistComponent,
-    AllocateComponent
+    AllocateComponent,
+    TrainerComponent
 
 
   ],
