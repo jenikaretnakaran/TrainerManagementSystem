@@ -169,3 +169,7 @@ nav .sidebar-button i{
    li{
     margin: 10px 0;
   }
+
+  .home{
+    min-height: 90vh;
+  }
