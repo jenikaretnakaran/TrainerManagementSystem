@@ -15,12 +15,12 @@ export class AdminDashboardComponent implements OnInit {
   trainerCount=[];
   ngOnInit(): void 
   {
-    if(!this.authservice.checkAdmin()){
-      this.router.navigate(["/login"]);
-    }
+    // if(!this.authservice.checkAdmin()){
+    //   this.router.navigate(["/login"]);
+    // }
 
     this.adminservice.getTrainers().subscribe((trainers)=>{
-      this.trainersList=(JSON.parse(JSON.stringify(trainers)))
+      this.trainersList=(JSON.parse(JSON.stringify(trainers)));
     })
     this.adminservice.getCount().subscribe((numbers)=>{
       this.trainerCount=JSON.parse(JSON.stringify(numbers));
@@ -53,7 +53,7 @@ export class AdminDashboardComponent implements OnInit {
 searchName()
 {
   this.adminservice.searchByName(this.searchByName).subscribe((search)=>{
-    this.trainersList=JSON.parse(JSON.stringify(search))
+    this.trainersList=JSON.parse(JSON.stringify(search));
   })
 }
 searchSkill()
@@ -75,11 +75,11 @@ searchCourse()
   })
 }
 
-allocate(trainer){
-  localStorage.setItem("getTrainerId",trainer._id.toString());
-  localStorage.setItem("allocatemail",trainer.email);
-  this.router.navigate(["/admin/allocate"])
-}
+// allocate(trainer){
+//   localStorage.setItem("getTrainerId",trainer._id.toString());
+//   localStorage.setItem("allocatemail",trainer.email);
+//   this.router.navigate(["/admin/allocate"])
+// }
 
 
 }

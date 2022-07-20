@@ -1,8 +1,9 @@
+require("dotenv").config();
+
 const express = require("express");
 const app = express();
 const mongoose= require('mongoose');
 const cors=require("cors");
-// const path = require('path');
 
 const adminRoutes =require("./routes/admin")
 
@@ -18,18 +19,25 @@ mongoose
     console.log("DB CONNECTED");
   });
 
-  //Routes
-  app.use("/api", adminRoutes);
- 
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
+  //Routes
+  app.use("/api", adminRoutes);
+ 
 
-app.get("/" , (req,res)=>{
-    res.send(`Server Running on PORT ${PORT}`)
-})
+
+// app.use(express.static("../../TrainerManagementSystem/frontend"));
+
+// app.get('/*',function(req,res){
+//   res.sendFile(path.join(__dirname+"../../TrainerManagementSystem/frontend/src/index.html"))
+// })
+
+
+// app.get("/" , (req,res)=>{
+//     res.send(`Server Running on PORT ${PORT}`)
+// })
 
 
 

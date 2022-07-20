@@ -29,6 +29,9 @@ import { TrainerWaitingComponent } from './trainer-waiting/trainer-waiting.compo
 import { TrainerProfileComponent } from './trainer-profile/trainer-profile.component';
 import { AllocateComponent } from './allocate/allocate.component';
 
+import { AdminService } from './admin.service';
+import { AuthService } from './auth.service';
+import { TrainerService } from './trainer.service';
 
 @NgModule({
   declarations: [
@@ -67,7 +70,7 @@ import { AllocateComponent } from './allocate/allocate.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [AuthService,TrainerService,AdminService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -12,6 +12,7 @@ const enrollmentSchema= new schema({
     designation:String,
     course:String,
     image:String,
+    typeOfEmp:String
 });
 
 var enrollmentData= mongoose.model('enrollmentdata',enrollmentSchema);

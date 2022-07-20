@@ -18,17 +18,17 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
+        <tr *ngFor=" let trainer of trainerData">
+            <td>{{trainer.trainerName}}</td>
+            <td>{{trainer.qualification}}</td>
+            <td>{{trainer.companyName}}</td>
+            <td>{{trainer.designation}}</td>
+            <td>{{trainer.skill}}</td>
             <td>
-                <button type="submit" class="btn btn-success" routerLink="/admin/approval">approve</button>
+                <button class="btn btn-success" routerLink="/admin/approval" (click)="approveRequest(trainer)">approve</button>
             </td>
             <td>
-                <button class="btn btn-danger">reject</button>
+                <button class="btn btn-danger"(click)=rejectTrainer(trainer) >reject</button>
             </td>
         </tr>
     </tbody>
