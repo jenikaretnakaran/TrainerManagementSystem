@@ -22,20 +22,27 @@ export class TrainerProfileComponent implements OnInit {
   imageMargin :number =19;
   ngOnInit(): void {
 //commented to complete page design and backend
-  /*  
+  /* alert(this.authService.checkTrainer());
     if(!this.authService.checkTrainer()){
     this.route.navigate(["/login"]);
     }
-    /*else{
+    else{
       this.route.navigate(["/profile"])
     }
   */
-    let trainerId =localStorage.getItem("trainerId");
+   // let trainerId =localStorage.getItem("trainerId");
+   // let emailId =localStorage.getItem("allocatemail");
+   // console.log("emailId=="+emailId);
+    //let emailId="test1@gmail.com";
+    let trainerId="62d8d7b810e2b01ec2947dfc";
     this.trainerService.getTrainerDetails(trainerId).subscribe((data)=>{
     this.TrainerDetails=JSON.parse(JSON.stringify(data));
-
+console.log(this.TrainerDetails);
     })
 
   }
-   
+  editTrainerDetails()
+  {
+    
+  }
 }
