@@ -1,30 +1,36 @@
+
 const express= require ("express");
 const app= express();
 
 const enrollmentdata=require("../model/enrollmentdata");
 const trainerdata=require("../model/trainerdata.js");
-// const allocateddata=require("../model/allocateddata");
-//dashboard
+const allocateddata=require("../model/allocateddata");
+
+// dashboard
 
 
 app.get('/getTrainers',(req,res)=>{
-    res.header("Access-Control-Allow-Origin","*");
-    res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE");
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
     trainerdata.find().then((trainers)=>{
-        res.send(trainers)
+        res.send(trainers);
+        // console.log(trainers);
     })
 });
 
 app.get('/getCount',(req,res)=>{
-    res.header("Access-Control-Allow-Origin","*");
-    res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE");
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
     var trainerCount=[];
     enrollmentdata.countDocuments().then((number)=>{
         trainerCount.push(number);
         trainerdata.countDocuments().then((number)=>{
          trainerCount.push(number);
-         res.send(trainerCount);
-         console.log(trainerCount)
+          allocateddata.countDocuments().then((number)=>{
+            trainerCount.push(number);
+            res.send(trainerCount);
+            // console.log(trainerCount);
+          })
     })    
     })  
 })
@@ -32,18 +38,20 @@ app.get('/getCount',(req,res)=>{
 app.get('/nameSearch/:name',(req,res)=>{
     res.header("Access-Control-Allow-Origin","*");
     res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE");
-    let regex= new RegExp(req.params.trainerName,"i");
-    trainerdata.find({trainerName: regex}).then((data)=>{
+    let trainerName= req.params.name;
+    console.log(trainerName);
+    trainerdata.find({trainerName:trainerName}).then((data)=>{
         res.send(data);
         console.log(data);
-    })
+      })
+        
 })
 
 app.get('/skillSearch/:skill',(req,res)=>{
     res.header("Access-Control-Allow-Origin","*");
     res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE");
-    let regex= new RegExp(req.params.skill,"i");
-    trainerdata.find({skill: regex}).then((data)=>{
+    let skill= req.params.skill;
+    trainerdata.find({skill: skill}).then((data)=>{
         res.send(data);
     })
 })
@@ -51,8 +59,9 @@ app.get('/skillSearch/:skill',(req,res)=>{
 app.get('/empSearch/:emp',(req,res)=>{
     res.header("Access-Control-Allow-Origin","*");
     res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE");
-    let regex= new RegExp(req.params.typeOfEmp,"i");
-    trainerdata.find({typeOfEmp: regex}).then((data)=>{
+    let typeOfEmp=req.params.emp;
+    // console.log(typeOfEmp);
+    trainerdata.find({typeOfEmp: typeOfEmp}).then((data)=>{
         res.send(data);
     })
 })
@@ -60,18 +69,20 @@ app.get('/empSearch/:emp',(req,res)=>{
 app.get('/courseSearch/:course',(req,res)=>{
     res.header("Access-Control-Allow-Origin","*");
     res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE");
-    let regex= new RegExp(req.params.course,"i");
-    trainerdata.find({course: regex}).then((data)=>{
+    let course= req.params.course;
+    trainerdata.find({course: course}).then((data)=>{
         res.send(data);
     })
-})
+});
 
+//trainerApproval
 app.get('/approveRequest/:id', (req, res) => {
 
     const id = req.params.id;
-    enrollmentdata.findOne({ "_id": id })
+    console.log(id);
+    enrollmentdata.findOne({ _id: id })
       .then((request) => {
-        console.log('approve request ' + request)
+        console.log(request)
         res.send(request);
       });
   })
@@ -115,7 +126,7 @@ app.get('/approveRequest/:id', (req, res) => {
       from: 'jenikav952@gmail.com',
       to: approvedlist.email,
       subject: 'Approved as an ICTAK Trainer',
-      text: `Congratulations ${approvedtrainer.trainerName}.Thank you for being a part of ICT Trainers.You are approved as ${approvedtrainer.typeOfEmp}  Trainer for course ${approvedtrainer.course} and your ID is ${approvedtrainer.id}.
+      text: `Congratulations ${approvedtrainer.trainerName}.Thank you for being a part of ICTAK.You are approved as ${approvedtrainer.typeOfEmp}  Trainer for course ${approvedtrainer.course} and your ID is ${approvedtrainer.id}.
       
       Please contact us regarding any query.
   
@@ -137,5 +148,29 @@ app.get('/approveRequest/:id', (req, res) => {
         res.send();
       })
   });
+
+  //trainerRequests
+
+app.get('/request', function (req, res) {
+  res.header("Access-Control-Allow-Origin", "*")
+  res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
+  enrollmentdata.find()
+    .then(function (requests) {
+      res.send(requests);
+      // console.log(requests);
+    });
+});
+
+app.delete('/reject/:id', (req, res) => {
+
+  id = req.params.id;
+  console.log(id);
+  enrollmentdata.findByIdAndDelete({ _id: id })
+    .then(() => {
+      res.json("successfully deleted");
+      res.send();
+    })
+})
+
 
   module.exports=app;

@@ -6,15 +6,14 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService {
 
-  constructor(private http:HttpClient) { }
-
-  checkAdmin()
-  {
-    return !!localStorage.getItem('admindata');
-  }
+  constructor(public http:HttpClient) { }
 
   checkTrainer()
   {
     return !!localStorage.getItem('trainerdata');
   }
+  // checkAdmin()
+  // {
+  //   return !!localStorage.getItem('admindata');
+  // }
 }

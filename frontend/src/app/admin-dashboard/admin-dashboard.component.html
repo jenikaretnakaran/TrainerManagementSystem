@@ -107,12 +107,13 @@
         </tr>
       </tbody>
       <tbody>
-        <tr *ngFor="let trainer of trainersList" (click)="allocate(trainer)">
-          <td>{{trainer.name}}</td>
-          <td>{{trainer.skillSet}}</td>
-          <td>{{trainer.typeOfTrainer}}</td>
+        <tr *ngFor="let trainer of trainersList">
+          <td scope="row">{{trainer.trainerName}}</td>
+          <td>{{trainer.skill}}</td>
+          <td>{{trainer.typeOfEmp}}</td>
           <td>{{trainer.course}}</td>
         </tr>
       </tbody>
     </table>
   </div>
+  <!-- (click)="allocate(trainer)" -->

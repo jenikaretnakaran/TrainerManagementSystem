@@ -30,6 +30,9 @@ import { TrainerProfileComponent } from './trainer-profile/trainer-profile.compo
 import { AllocateComponent } from './allocate/allocate.component';
 import { TrainerComponent } from './trainer/trainer.component';
 
+import { AdminService } from './admin.service';
+import { AuthService } from './auth.service';
+import { TrainerService } from './trainer.service';
 
 @NgModule({
   declarations: [
@@ -69,7 +72,7 @@ import { TrainerComponent } from './trainer/trainer.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [AuthService,TrainerService,AdminService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
