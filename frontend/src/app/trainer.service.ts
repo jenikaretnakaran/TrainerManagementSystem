@@ -4,19 +4,19 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class TrainerService {
-
+  server_address: string = 'http://localhost:3000';
   constructor(public http:HttpClient) { }
 
-  enrollTrainer(item: any) {
-    // console.log("reached add product in product service"+item);
-     return this.http.post('http://localhost:3000/insert', { item })
-     .subscribe(data => { console.log(data) });
+  enrollTrainer(trainerData) {
+    
+    return this.http.post<any>(`${this.server_address}/trainer/enroll`,trainerData)
+        .subscribe(data => { console.log(data) });
    }
   
-
+  
    getTrainerDetails(id:any)
    {
-    return this.http.get("http://localhost:3000/"+id);
+    return this.http.get(`${this.server_address}/trainer/`+id);
    }
 
 }
