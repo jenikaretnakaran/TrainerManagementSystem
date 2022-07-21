@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as AOS from 'aos';
+import { HomeService } from '../home.service';
 
 
 @Component({
@@ -9,11 +10,25 @@ import * as AOS from 'aos';
 })
 export class CourseComponent implements OnInit {
 
-  constructor() { }
+  courses=[{
+    title:"",
+    description:"",
+    image:"",
+  }]
+
+  constructor(private home:HomeService) { }
 
   ngOnInit(): void {
     AOS.init();
 
+    this.home.getcourse()
+    .subscribe((data)=>{
+    this.courses=JSON.parse(JSON.stringify(data))
+    })
   }
 
-} 
+
+
+  }
+
+ 

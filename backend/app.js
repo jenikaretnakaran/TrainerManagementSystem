@@ -10,8 +10,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 const adminRoutes =require("./routes/admin")
-const loginRoutes =require("./routes/login")
+const loginRoutes =require("./routes/login");
 const trainerRoutes=require("./routes/trainer");
+const courseRoutes =require("./routes/course")
 
 const PORT = process.env.PORT || 3000;
 
@@ -34,6 +35,7 @@ app.use(cors());
   app.use("/api", adminRoutes);
   app.use("/", loginRoutes);
   app.use("/trainer", trainerRoutes);
+  app.use("/home" , courseRoutes);
  
 app.listen(PORT , (req,res)=>{
     console.log(`Server Running on PORT ${PORT}`);
