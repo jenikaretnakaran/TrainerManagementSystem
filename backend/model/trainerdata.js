@@ -2,6 +2,7 @@ const mongoose =require("mongoose");
 const schema=mongoose.Schema;
 
 const trainerSchema= new schema({
+    id:String,
     trainerName:String,
     email:String,
     phone:String,
@@ -12,7 +13,7 @@ const trainerSchema= new schema({
     designation:String,
     course:String,
     image:String,
-    typeOfEmp:String
+    typeOfEmp:String,
 });
 
 var trainerData= mongoose.model('trainerdata',trainerSchema);

@@ -36,7 +36,8 @@ export class AdminService {
     return this.http.get("http://localhost:3000/api/approveRequest/"+id);
   }
   getApprove(trainer){
-    return this.http.post("http://localhost:3000/api/approvedTrainer",trainer);
+    return this.http.post("http://localhost:3000/api/approvedTrainer",trainer)
+    .subscribe((data)=>{console.log(data)});
   }
 
   //trainerRequest

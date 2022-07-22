@@ -1,6 +1,7 @@
-
+require("dotenv").config();
 const express= require ("express");
 const app= express();
+const nodemailer=require("nodemailer");
 
 const enrollmentdata=require("../model/enrollmentdata");
 const trainerdata=require("../model/trainerdata.js");
@@ -14,7 +15,6 @@ app.get('/getTrainers',(req,res)=>{
     res.header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
     trainerdata.find().then((trainers)=>{
         res.send(trainers);
-        // console.log(trainers);
     })
 });
 
@@ -24,12 +24,11 @@ app.get('/getCount',(req,res)=>{
     var trainerCount=[];
     enrollmentdata.countDocuments().then((number)=>{
         trainerCount.push(number);
-        trainerdata.countDocuments().then((number)=>{
+        allocateddata.countDocuments().then((number)=>{
          trainerCount.push(number);
-          allocateddata.countDocuments().then((number)=>{
+          trainerdata.countDocuments().then((number)=>{
             trainerCount.push(number);
             res.send(trainerCount);
-            // console.log(trainerCount);
           })
     })    
     })  
@@ -42,7 +41,6 @@ app.get('/nameSearch/:name',(req,res)=>{
     console.log(trainerName);
     trainerdata.find({trainerName:trainerName}).then((data)=>{
         res.send(data);
-        console.log(data);
       })
         
 })
@@ -60,7 +58,6 @@ app.get('/empSearch/:emp',(req,res)=>{
     res.header("Access-Control-Allow-Origin","*");
     res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE");
     let typeOfEmp=req.params.emp;
-    // console.log(typeOfEmp);
     trainerdata.find({typeOfEmp: typeOfEmp}).then((data)=>{
         res.send(data);
     })
@@ -79,10 +76,8 @@ app.get('/courseSearch/:course',(req,res)=>{
 app.get('/approveRequest/:id', (req, res) => {
 
     const id = req.params.id;
-    console.log(id);
     enrollmentdata.findOne({ _id: id })
       .then((request) => {
-        console.log(request)
         res.send(request);
       });
   })
@@ -109,25 +104,29 @@ app.get('/approveRequest/:id', (req, res) => {
    
     let approvedtrainer = new trainerdata(approvedTrainer);
     approvedtrainer.save();
-    const trainerEmail = await enrollmentdata.findOne({ email: approvedtrainer.email })
-  
+    const trainerEmail =  await enrollmentdata.findOne({ email: approvedtrainer.email })
+
+    //sending approved mail to trainer
+
     var transport = nodemailer.createTransport(
       {
         service: 'gmail',
         auth: {
-          user: 'jenikav952@gmail.com',
-          pass: 'ahngshycdtwaagvc'
+          user: 'ictak2022@gmail.com',
+          pass: 'xxuantsnvdvlqhyo'
         }
       }
     )
   
     var mailOptions = {
   
-      from: 'jenikav952@gmail.com',
-      to: approvedlist.email,
-      subject: 'Approved as an ICTAK Trainer',
-      text: `Congratulations ${approvedtrainer.trainerName}.Thank you for being a part of ICTAK.You are approved as ${approvedtrainer.typeOfEmp}  Trainer for course ${approvedtrainer.course} and your ID is ${approvedtrainer.id}.
-      
+      from: 'ictak2022@gmail.com',
+      to: approvedtrainer.email,
+      subject: 'Approved as ICTAK Trainer',
+      text: `Congratulations ${approvedtrainer.trainerName}.
+               We are very happy to inform you that you have been approved for the position of ${approvedtrainer.typeOfEmp}trainer for course ${approvedtrainer.course} with ICTAK and your ID is ${approvedtrainer.id}.
+              
+      Welcome to ICTAK family. 
       Please contact us regarding any query.
   
       Thanks and Regards,
@@ -142,7 +141,7 @@ app.get('/approveRequest/:id', (req, res) => {
         console.log("email sent " + info.response)
       }
     })
-    enrollmentdata.findOneAndDelete({ "_id": trainerEmail._id })
+    enrollmentdata.findOneAndDelete({ _id: trainerEmail._id })
       .then(() => {
         console.log('successfully deleted from enrollment list')
         res.send();

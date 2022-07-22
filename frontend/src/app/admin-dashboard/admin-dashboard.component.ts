@@ -75,10 +75,16 @@ searchCourse()
   })
 }
 
+searchReload(event){
+  this.adminservice.getTrainers().subscribe((trainers)=>{
+    this.trainersList=(JSON.parse(JSON.stringify(trainers)));
+  })
+}
+
 // allocate(trainer){
 //   localStorage.setItem("getTrainerId",trainer._id.toString());
 //   localStorage.setItem("allocatemail",trainer.email);
-//   this.router.navigate(["/admin/allocate"])
+//   this.router.navigate(["/admin/requests"])
 // }
 
 

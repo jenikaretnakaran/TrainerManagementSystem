@@ -37,6 +37,7 @@ app.use(cors());
   app.use("/trainer", trainerRoutes);
   app.use("/home" , courseRoutes);
  
+
 app.listen(PORT , (req,res)=>{
     console.log(`Server Running on PORT ${PORT}`);
 })
