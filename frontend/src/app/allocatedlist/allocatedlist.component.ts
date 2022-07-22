@@ -7,7 +7,6 @@ import { AdminService } from '../admin.service';
   styleUrls: ['./allocatedlist.component.css']
 })
 export class AllocatedlistComponent implements OnInit {
-
   trainer=[{
     trainerName:"",
     course:"",
@@ -29,3 +28,5 @@ export class AllocatedlistComponent implements OnInit {
   }
 
 }
+  
+
