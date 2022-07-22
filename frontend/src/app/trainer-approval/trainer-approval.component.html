@@ -1,45 +1,52 @@
 <!--navbar-->
 <nav class="navbar navbar-expand-lg navbar-light">
     <i class="fa fa-check-square-o px-2 fs-2" aria-hidden="true"></i>
-    <h4 class="py-2 mt-2">TRAINER REQUESTS</h4>
+    <h4 class="py-2 mt-2">TRAINER APPROVAL</h4>
 </nav>
 
 <!--approvalform-->
-<div class="container rounded  mt-5 mb-5">
-    <div class="row">
-        <div class="col-md-4 border-right">
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src ="{{trainerData.image}}"><h3 class="font-weight-bolder">{{trainerData.trainerName}}</h3></div>
-        </div>
-        <div class="col-md-5 border-right">
-            <div class="p-3 py-5">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h4 class="text-right">TRAINER DETAILS</h4>
+
+    <div class="container rounded  mt-5 mb-5">
+        <form (ngSubmit)="getApprove()">
+            <div class="row">
+                <div class="col-md-4 border-right">
+                    <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src ="{{trainerData.image}}"><h3 class="font-weight-bolder">{{trainerData.trainerName}}</h3></div>
                 </div>
-                <div class="row mt-3">
-                    <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" class="form-control" value="{{trainerData.phone}}"></div>
-                    <div class="col-md-12"><label class="labels">Address</label><input type="text" class="form-control" value="{{trainerData.address}}"></div>
-                    <div class="col-md-12"><label class="labels">Email ID</label><input type="text" class="form-control" value="{{trainerData.email}}"></div>
-                    <div class="col-md-12"><label class="labels">Highest qualification</label><input type="text" class="form-control" value="{{trainerData.qualification}}"></div>
-                    <div class="col-md-12"><label class="labels">Skill set</label><input type="text" class="form-control" value="{{trainerData.skill}}"></div>
-                    <div class="col-md-12"><label class="labels">Current companyname</label><input type="text" class="form-control" value="{{trainerData.companyName}}"></div>
-                    <div class="col-md-12"><label class="labels">Current designation</label><input type="text" class="form-control" value="{{trainerData.designation}}"></div>
-                    <div class="col-md-12"><label class="labels">ICTAK course</label><input type="text" class="form-control" value="{{trainerData.course}}"></div>
-                    <div class="col-md-12">
-                      <label class="labels py-2">Type of employment</label>
-                      <select class ="form-select" required aria-label="select employment" [(ngModel)]="trainerData.typeOfEmp" value="select" required="">
-                        <option value="">select employment</option>
-                        <option value="1">Internal</option>
-                        <option value="2">Empanelled</option>
-                        <option value="3">Industry Expert</option>
-                      </select>
+                <div class="col-md-5 border-right">
+                    <div class="p-3 py-5">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h4 class="text-right">TRAINER DETAILS</h4>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" class="form-control" value="{{trainerData.phone}}"></div>
+                            <div class="col-md-12"><label class="labels">Address</label><input type="text" class="form-control" value="{{trainerData.address}}"></div>
+                            <div class="col-md-12"><label class="labels">Email ID</label><input type="text" class="form-control" value="{{trainerData.email}}"></div>
+                            <div class="col-md-12"><label class="labels">Highest qualification</label><input type="text" class="form-control" value="{{trainerData.qualification}}"></div>
+                            <div class="col-md-12"><label class="labels">Skill set</label><input type="text" class="form-control" value="{{trainerData.skill}}"></div>
+                            <div class="col-md-12"><label class="labels">Current companyname</label><input type="text" class="form-control" value="{{trainerData.companyName}}"></div>
+                            <div class="col-md-12"><label class="labels">Current designation</label><input type="text" class="form-control" value="{{trainerData.designation}}"></div>
+                            <div class="col-md-12"><label class="labels">ICTAK course</label><input type="text" class="form-control" value="{{trainerData.course}}"></div>
+                            <div class="col-md-12">
+                              <label class="labels py-2">Type of employment</label>
+                              <mat-form-field appearance="outline">
+                                <select matNativeControl [(ngModel)]="trainerData.typeOfEmp" name="employment">
+                                  <option value="" selected></option>
+                                  <option *ngFor="let empselect of emp" [value]="empselect.value">
+                                    {{empselect.viewValue}}
+                                </option>
+                                </select>
+                              </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit">APPROVE</button></div>
                     </div>
-                   
                 </div>
-                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit">APPROVE</button></div>
             </div>
-        </div>
-    </div>
-</div>  
+        </form>
+        
+    </div>  
+
+
 
 
 

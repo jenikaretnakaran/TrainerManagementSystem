@@ -27,20 +27,6 @@ app.use(cors());
   app.use("/api", adminRoutes);
  
 
-
-// app.use(express.static("../../TrainerManagementSystem/frontend"));
-
-// app.get('/*',function(req,res){
-//   res.sendFile(path.join(__dirname+"../../TrainerManagementSystem/frontend/src/index.html"))
-// })
-
-
-// app.get("/" , (req,res)=>{
-//     res.send(`Server Running on PORT ${PORT}`)
-// })
-
-
-
 app.listen(PORT , (req,res)=>{
     console.log(`Server Running on PORT ${PORT}`);
 })
