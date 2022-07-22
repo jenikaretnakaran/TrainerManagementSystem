@@ -10,7 +10,7 @@
         <form (ngSubmit)="getApprove()">
             <div class="row">
                 <div class="col-md-4 border-right">
-                    <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src ="{{trainerData.image}}"><h3 class="font-weight-bolder">{{trainerData.trainerName}}</h3></div>
+                    <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src ="{{trainerData.image}}"><h3 class="font-weight-bolder text-uppercase">{{trainerData.trainerName}}</h3></div>
                 </div>
                 <div class="col-md-5 border-right">
                     <div class="p-3 py-5">
@@ -26,12 +26,11 @@
                             <div class="col-md-12"><label class="labels">Current companyname</label><input type="text" class="form-control" value="{{trainerData.companyName}}"></div>
                             <div class="col-md-12"><label class="labels">Current designation</label><input type="text" class="form-control" value="{{trainerData.designation}}"></div>
                             <div class="col-md-12"><label class="labels">ICTAK course</label><input type="text" class="form-control" value="{{trainerData.course}}"></div>
-                            <div class="col-md-12">
+                            <div class="col-md-12" id="formfield">
                               <label class="labels py-2">Type of employment</label>
-                              <mat-form-field appearance="outline">
-                                <select matNativeControl [(ngModel)]="trainerData.typeOfEmp" name="employment">
-                                  <option value="" selected></option>
-                                  <option *ngFor="let empselect of emp" [value]="empselect.value">
+                              <mat-form-field appearance="standard" id="outline">
+                                <select matNativeControl [(ngModel)]="trainerData.typeOfEmp" name="employment" class="p-2" >
+                                  <option *ngFor="let empselect of emp" [value]="empselect.value" >
                                     {{empselect.viewValue}}
                                 </option>
                                 </select>

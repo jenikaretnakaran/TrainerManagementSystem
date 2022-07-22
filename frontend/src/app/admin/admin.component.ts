@@ -1,3 +1,4 @@
+import { ResourceLoader } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -11,8 +12,5 @@ export class AdminComponent implements OnInit {
 
   ngOnInit(): void {
   }
-reloadItem()
-{
-  location.reload();
-}
+
 }
