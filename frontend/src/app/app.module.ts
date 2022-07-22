@@ -33,6 +33,7 @@ import { TrainerComponent } from './trainer/trainer.component';
 import { AdminService } from './admin.service';
 import { AuthService } from './auth.service';
 import { TrainerService } from './trainer.service';
+import { TrainerProfileupdateComponent } from './trainer-profileupdate/trainer-profileupdate.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { TrainerService } from './trainer.service';
     TrainerHomeComponent,
     AllocatedlistComponent,
     AllocateComponent,
-    TrainerComponent
+    TrainerComponent,
+    TrainerProfileupdateComponent
 
 
   ],

@@ -10,11 +10,11 @@
         <div *ngFor="let i of trainer" class="trainerdata shadow-sm mb-4">
             <div class="listbox">
                 <h5>Course:  {{i.course}}</h5>
-                <h5 class="pb-2">Batch:  {{i.batch}}</h5>
-                <h5 class="pb-2 pt-2 mbl">Name:  {{i.name}}</h5>
-                <div>Duration:  {{i.duration}}</div>
+                <h5 class="pb-2">Batch:  {{i.batchId}}</h5>
+                <h5 class="pb-2 pt-2 mbl">Name:  {{i.trainerName}}</h5>
+                <div>Duration:  ({{i.startDate}}) - ({{i.endDate}})</div>
                 <div>Time:  {{i.time}}</div>
-                <div>Meeting Link:  {{i.link}}</div>
+                <div>Meeting Link:  {{i.meetingLink}}</div>
 
 
             </div>

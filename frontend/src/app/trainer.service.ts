@@ -19,4 +19,13 @@ export class TrainerService {
     return this.http.get(`${this.server_address}/trainer/`+id);
    }
 
+
+   getTrainerdata(id:any) {
+    return this.http.get(`${this.server_address}/trainer/trainereditprofile/`+id);
+  }
+
+  updatetrainer(data:any){
+    return this.http.put(`${this.server_address}/trainer/traineredit`  , data);
+
+  }
 }

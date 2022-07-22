@@ -173,4 +173,16 @@ app.delete('/reject/:id', (req, res) => {
 })
 
 
+app.get('/allocatedlist', function (req, res) {
+  
+  res.header("Access-Control-Allow-Origin", "*")
+  res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
+
+  allocateddata.find()
+    .then( (data)=> {
+      res.send(data);
+    });
+});
+
+
   module.exports=app;
