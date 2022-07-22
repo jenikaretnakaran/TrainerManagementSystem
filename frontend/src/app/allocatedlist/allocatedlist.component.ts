@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminService } from '../admin.service';
 
 @Component({
   selector: 'app-allocatedlist',
@@ -8,18 +9,23 @@ import { Component, OnInit } from '@angular/core';
 export class AllocatedlistComponent implements OnInit {
 
   trainer=[{
+    trainerName:"",
     course:"",
-    batch:"",
+    batchId:"",
     name:"",
-    duration:"",
+    startDate:"",
+    endDate:"",
     time:"",
-    link:""
+    meetingLink:""
     
   }]
 
-  constructor() { }
+  constructor(private admin:AdminService) { }
 
   ngOnInit(): void {
+    this.admin.getAllocatedlist().subscribe((data)=>{
+      this.trainer=JSON.parse(JSON.stringify(data));
+    })
   }
 
 }

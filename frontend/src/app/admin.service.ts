@@ -54,6 +54,12 @@ export class AdminService {
  removeTrainer(id){
   return this.http.delete("http://localhost:3000/api/removeTrainer"+id)
  }
+
+ //AllocatedList
+ getAllocatedlist(){
+  return this.http.get("http://localhost:3000/api/allocatedlist");
+}
+
 }
 
 

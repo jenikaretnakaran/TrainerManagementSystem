@@ -1,0 +1,78 @@
+<div class="trainerhome">
+
+    <div class="content">
+      <form (ngSubmit)="updatedata()">
+        <div class="row justify-content-center forms">
+            <div class="col-12 col-sm-6 col-md-5 first">
+
+                <div class="text-center mb-4">
+                    <img src="{{trainer.image}}" alt="image" class="rounded-circle" 
+                                    [style.width.px]='imageWidth'
+                                    [style.margin.px]="imageMargin">
+
+                  <div class="text-center">            
+                    <input type="file" id="image" accept="image/*" class="custom"  required>
+                  </div>                 
+                </div>
+
+                <div class="input-group mb-4">
+                    <span class="input-group-text">ID</span>
+                    <input type="text" class="form-control" #id="ngModel" disabled name="id" [(ngModel)]="trainer.id">
+                  </div>
+
+                  <div class="input-group mb-4">
+                    <span class="input-group-text">Email</span>
+                    <input type="text" class="form-control" #email="ngModel" disabled name="email" [(ngModel)]="trainer.email">
+                  </div>
+
+                  <div class="input-group mb-4">
+                    <span class="input-group-text">Place</span>
+                    <input type="text" class="form-control" #place="ngModel" name="place" [(ngModel)]="trainer.place">
+                  </div>
+                  <div class="input-group mb-4">
+                    <span class="input-group-text">Phone</span>
+                    <input type="number" class="form-control" #phone="ngModel" disabled name="phone" [(ngModel)]="trainer.phone">
+                  </div>
+                
+            </div>
+            <div class="col-12 col-sm-6 col-md-5 second">
+                <div class="mb-3 mt-1">
+                    <label  class="form-label">Address</label>
+                    <input type="string" class="form-control" #address="ngModel" name="address" [(ngModel)]="trainer.address">
+                  </div>
+
+                  <div class="mb-3">
+                    <label  class="form-label">Qualification</label>
+                    <input type="string" class="form-control"  #address="ngModel" name="qualification" [(ngModel)]="trainer.qualification">
+                  </div>
+
+                  <div class="mb-3">
+                    <label  class="form-label">Skills</label>
+                    <input type="string" class="form-control"  #address="ngModel" name="skill" [(ngModel)]="trainer.skill">
+                  </div>
+
+
+                  <div class="mb-3">
+                    <label  class="form-label">Current Company</label>
+                    <input type="string" class="form-control"  #address="ngModel" name="companyName" [(ngModel)]="trainer.companyName">
+                  </div>
+
+                  <div class="mb-3">
+                    <label  class="form-label">Course Handling</label>
+                    <input type="string" class="form-control"  #address="ngModel" disabled name="course" [(ngModel)]="trainer.course">
+                  </div>
+
+                  <div class="form-submit submitme text-center mt-5">
+             
+                    <button type="submit" value="Submit" class="submit" id="submit" >Update</button>
+                   
+                
+                </div>
+                
+            </div>
+
+        </div>
+      </form>
+    </div>
+
+</div>

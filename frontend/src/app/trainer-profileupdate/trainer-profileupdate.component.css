@@ -1,0 +1,65 @@
+.trainerhome{
+    min-height: 90vh;
+}
+.content{
+    padding: 30px;
+    padding-top: 50px;
+}
+.first{
+    padding: 30px;
+    border: 2px solid white;
+    border-right: 0px;
+
+
+}
+.second{
+    padding:30px;
+    border: 2px solid white;
+    border-left: 0px;
+
+
+}
+@media only screen and (max-width: 575px) {
+    .forms {
+        border: 2px solid white;
+    }
+    .second{
+        border: 0px;
+    }
+    .first{
+        border: 0px;
+    }
+  }
+span{
+    width :65px;
+}
+
+.submit {
+    width: 150px;
+    height: 50px;
+    display: inline-block;
+    /* font-family: 'Poppins'; */
+    font-weight: bold;
+    font-size: 14px;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -o-border-radius: 5px;
+    -ms-border-radius: 5px; }
+
+#submit {
+    background: #1161ee;
+    color: rgb(255, 252, 252);
+    margin-right: 25px; 
+    border: 2px solid #1161ee;
+  }
+    
+    #submit:hover {
+      border: 2px solid #1161ee;
+      background: white;
+      color: #1161ee; 
+    }

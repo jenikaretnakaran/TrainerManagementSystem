@@ -51,4 +51,58 @@ app.get("/:id",  (req, res) => {
         });
   })
 
+
+  app.get('/trainereditprofile/:id', (req, res) => {
+
+    const id = req.params.id;
+    trainerdata.findOne({ "_id": id })
+      .then((data) => {
+        res.send(data);
+      });
+  })
+
+
+  app.put("/traineredit" , (req,res)=>{
+
+    console.log(req.body)
+
+    id=req.body._id,
+    trainerName=req.body.trainerName,
+    email=req.body.email,
+    phone=req.body.phone,
+    address=req.body.address,
+    skill=req.body.skill,
+    qualification=req.body.qualification,
+    companyName=req.body.companyName,
+    designation=req.body.designation,
+    course=req.body.course,
+    image=req.body.image,
+    typeOfEmp=req.body.typeOfEmp
+   
+ 
+     console.log(id)
+
+   bookdata.findByIdAndUpdate({"_id":id},
+                                    {$set:{
+                                        "trainerName":trainerName,
+                                        "email":email,
+                                        "phone":phone,
+                                        "address":address,
+                                        "skill":skill,
+                                        "qualification":qualification,
+                                        "companyName":companyName,
+                                        "designation":designation,
+                                        "course":course,
+                                        "image":image,
+                                        "typeOfEmp":typeOfEmp
+                                    }})
+
+    .then((data)=>{
+        res.send(data)
+    })
+
+});
+
+
+
 module.exports=app;
