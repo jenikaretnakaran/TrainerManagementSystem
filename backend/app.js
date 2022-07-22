@@ -19,7 +19,7 @@ const PORT = process.env.PORT || 3000;
 //DB Connection
 
 mongoose
-  .connect("mongodb+srv://admin:user123@project1.cfkyt.mongodb.net/ICTAK?retryWrites=true&w=majority" || "mongodb://localhost:27017/project",{
+  .connect("mongodb+srv://admin:user123@project1.cfkyt.mongodb.net/ICTAK?retryWrites=true&w=majority",{
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
