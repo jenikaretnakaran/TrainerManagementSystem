@@ -20,6 +20,7 @@ import { TrainerProfileComponent } from './trainer-profile/trainer-profile.compo
 
 import { AllocateComponent } from './allocate/allocate.component';
 import { TrainerComponent } from './trainer/trainer.component';
+import { TrainerProfileupdateComponent } from './trainer-profileupdate/trainer-profileupdate.component';
 
 const routes: Routes = [
 
@@ -48,7 +49,8 @@ const routes: Routes = [
     {path:'',component:TrainerHomeComponent},
     {path:'enrollment',component:TrainerEnrollmentComponent},
     {path:'confirmation',component:TrainerWaitingComponent},
-    {path:'profile',component:TrainerProfileComponent}
+    {path:'profile',component:TrainerProfileComponent},
+    {path:'edit',component:TrainerProfileupdateComponent}
   ]},
     
   ];
