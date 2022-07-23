@@ -14,27 +14,27 @@ export class TrainerProfileupdateComponent implements OnInit {
 
   trainer={
 
-    trainerName:"1",
-    id:"1",
-    place:"1",
-    email:"1",
-    phone:"1",
-    address:"1",
-    skill:"1",
-    qualification:"1",
-    companyName:"1",
-    designation:"1",
-    course:"1",
-    image:"1",
-    typeOfEmp:"1"
+    trainerName:"",
+    id:"",
+    place:"",
+    email:"",
+    phone:"",
+    address:"",
+    skill:"",
+    qualification:"",
+    companyName:"",
+    designation:"",
+    course:"",
+    image:"",
+    typeOfEmp:""
 
   }
 
   constructor(private trainerservice:TrainerService ,  private route:Router) { }
 
   ngOnInit(): void {
-    let trainerId = localStorage.getItem("trainerid")
-    this.trainerservice.getTrainerdata(trainerId).subscribe((data)=>{
+    let Id = localStorage.getItem("id")
+    this.trainerservice.getTrainerdata(Id).subscribe((data)=>{
       this.trainer=JSON.parse(JSON.stringify(data))
     })
   }

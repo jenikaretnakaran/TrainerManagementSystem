@@ -20,7 +20,7 @@ const PORT = process.env.PORT || 3000;
 // "mongodb+srv://admin:user123@project1.cfkyt.mongodb.net/ICTAK?retryWrites=true&w=majority" |
 
 mongoose
-  .connect("mongodb://localhost:27017/project",{
+  .connect("mongodb+srv://admin:user123@project1.cfkyt.mongodb.net/ICTAK?retryWrites=true&w=majority",{
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -41,4 +41,4 @@ app.use(cors());
 
 app.listen(PORT , (req,res)=>{
     console.log(`Server Running on PORT ${PORT}`);
-})
+}) 

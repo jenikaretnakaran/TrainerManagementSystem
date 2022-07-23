@@ -59,7 +59,19 @@ app.get("/:id",  (req, res) => {
       .then((data) => {
         res.send(data);
       });
-  })
+  });
+
+
+  app.get("/trainereditprofile/:id" ,(req,res)=>{
+    console.log(req.params.id)
+
+    var id = req.params.id
+    trainerdata.findOne({"id":id})
+    .then((data)=>{
+        console.log(data)
+        res.send(data);
+    });
+  });
 
 
   app.put("/traineredit" , (req,res)=>{
@@ -82,10 +94,9 @@ app.get("/:id",  (req, res) => {
  
      console.log(id)
 
-   bookdata.findByIdAndUpdate({"_id":id},
+   trainerdata.findByIdAndUpdate({"email":email},
                                     {$set:{
                                         "trainerName":trainerName,
-                                        "email":email,
                                         "phone":phone,
                                         "address":address,
                                         "skill":skill,
