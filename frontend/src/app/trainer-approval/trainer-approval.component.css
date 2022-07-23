@@ -5,3 +5,13 @@
 .container{
     background-color:#F1DDBF;
 }
+
+#formfield{
+    display:flex;
+    flex-direction: column;
+}
+
+#outline{
+    background-color: white;
+    height: 33px;
+}

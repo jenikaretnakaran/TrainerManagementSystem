@@ -17,9 +17,10 @@ const courseRoutes =require("./routes/course")
 const PORT = process.env.PORT || 3000;
 
 //DB Connection
+// "mongodb+srv://admin:user123@project1.cfkyt.mongodb.net/ICTAK?retryWrites=true&w=majority" |
 
 mongoose
-  .connect("mongodb+srv://admin:user123@project1.cfkyt.mongodb.net/ICTAK?retryWrites=true&w=majority",{
+  .connect("mongodb://localhost:27017/project",{
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -37,6 +38,7 @@ app.use(cors());
   app.use("/trainer", trainerRoutes);
   app.use("/home" , courseRoutes);
  
+
 app.listen(PORT , (req,res)=>{
     console.log(`Server Running on PORT ${PORT}`);
 })
