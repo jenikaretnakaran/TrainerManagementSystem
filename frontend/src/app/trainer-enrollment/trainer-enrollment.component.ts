@@ -17,7 +17,20 @@ export class TrainerEnrollmentComponent implements OnInit {
   
   ngOnInit(): void {
   }
-  courses: any = [
+  courses=[
+   ('CERTIFIED XR ASSOCIATE'),
+   ('CERTIFIED CYBER SECURITY ANALYST'),
+   ('CERTIFIED SPECIALIST IN FULL STACK DEVELOPMENT'),
+   ('CERTIFIED SPECIALIST INs DATA SCIENCE & ANALYTICS'),
+   ('MICRO SKILLS TRAINING ON ROBOTIC PROCESS AUTOMATION'),
+   ('MICRO SKILLS TRAINING ON DIGITAL MARKETING AND SEO'),
+   ('CERTIFIED SPECIALIST IN MACHINE LEARNING AND ARTIFICIAL INTELLIGENCE'),
+   ('MOODLE'),
+   ('ARM EMBEDDED SYSTEMS'),
+   ('IOT FOR ENGINEERING APPLICATIONS'),
+   ('AWS EDUCATE')
+  ]
+  /*courses: any = [
     {name:'CERTIFIED XR ASSOCIATE', id:1, selected:false}, 
     {name:'CERTIFIED CYBER SECURITY ANALYST', id:2, selected:false},
     {name:'CERTIFIED SPECIALIST IN FULL STACK DEVELOPMENT', id:3, selected:false},  
@@ -30,7 +43,7 @@ export class TrainerEnrollmentComponent implements OnInit {
     {name:'IOT FOR ENGINEERING APPLICATIONS', id:10},
     {name:'AWS EDUCATE', id:11}  
      ]
-
+*/
   trainerName="";
   address="";
   email:any=localStorage.getItem('email');
@@ -55,6 +68,7 @@ export class TrainerEnrollmentComponent implements OnInit {
     
   }
   
+  
   /*isChange(value)
   { 
     console.log(value);
@@ -73,10 +87,7 @@ export class TrainerEnrollmentComponent implements OnInit {
     formdata.append("companyName",this.companyName);
     formdata.append("designation",this.designation);
     formdata.append("course",this.course)
-    /*for(var i=0;i< this.course.length;i++){
-      formdata.append("course",this.course[i]);
-    }*/
-    //formdata.append('course', JSON.stringify([this.course]));
+    
     
     this.trainerService.enrollTrainer(formdata);
    
