@@ -36,7 +36,6 @@ export class TrainerRequestComponent implements OnInit {
     this.adminservice.rejectTrainer(id._id)
     .subscribe((trainer)=>{
       this.trainerData=this.trainerData.filter(p => p !== id);
-      // location.reload();
     })
   }
   approveRequest(id)

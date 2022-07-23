@@ -25,10 +25,10 @@
             <td>{{trainer.designation}}</td>
             <td>{{trainer.skill}}</td>
             <td>
-                <button class="btn btn-success" routerLink="/admin/approval" (click)="approveRequest(trainer)">APPROVE</button>
+                <button class="btn btn-success"(click)="approveRequest(trainer)">APPROVE</button>
             </td>
             <td>
-                <button class="btn btn-danger"(click)=rejectTrainer(trainer) >REJECT</button>
+                <button class="btn btn-danger"(click)="rejectTrainer(trainer)" >REJECT</button>
             </td>
         </tr>
     </tbody>

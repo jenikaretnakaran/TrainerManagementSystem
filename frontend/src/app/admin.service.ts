@@ -60,7 +60,14 @@ export class AdminService {
  getAllocatedlist(){
   return this.http.get("http://localhost:3000/api/allocatedlist");
 }
+//allocate
+getAllocateRequest(id){
+ return this.http.get("http://localhost:3000/api/allocationData/"+id)
+}
 
+dateSchedule(email){
+  return this.http.post("http://localhost:3000/api/dateSchedule",email);
+}
 }
 
 

@@ -17,16 +17,16 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
+        <tr *ngFor="let trainer of trainerData" >
+            <td>{{trainer.trainerName}}</td>
+            <td>{{trainer.email}}</td>
+            <td>{{trainer.typeOfEmp}}</td>
+            <td>{{trainer.course}}</td>
             <td>
-                <button type="submit" class="btn btn-success" routerLink="/admin/allocate">ALLOCATE</button>
+                <button class="btn btn-success" (click)="allocateRequest(trainer)">ALLOCATE</button>
             </td>
             <td>
-                <button class="btn btn-danger">REMOVE</button>
+                <button class="btn btn-danger" (click)="removeTrainer(trainer)">REMOVE</button>
             </td>
         </tr>
     </tbody>
