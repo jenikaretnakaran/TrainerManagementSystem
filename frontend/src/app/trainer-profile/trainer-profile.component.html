@@ -1,13 +1,14 @@
 
 <!--sidebar-->
 <div class="container-fluid">
+   
     <div class="row flex-nowrap">
        
-        <div class="col home pt-5" *ngFor= "let trainer of trainerData" >
+        <div class="col home pt-5"  >
         
             <div class="title ">{{title}}</div><br>
           
-           
+            <form (ngSubmit)="editProfile()">
             <div class="row "  >
                 <div class="col-1 "></div>
                 <div class="col-4 " ><div class="container border">
@@ -16,7 +17,7 @@
                         <div class="col " style="align-items: center; align-content: center; height: 300px; ">
                             <figure class="avatar" style="margin-left: 45%; height: 20vh ; ">   <div >                               
                             
-                                 <img  src="{{imagePath}}/{{trainer.image}}" class="coverview">
+                                 <img  src="{{imagePath}}/{{trainerData.image}}" class="coverview">
                     
                                   <!---  <img *ngIf='isNewImage' [src]="url" class="coverview">-->
                                     </div>
@@ -27,16 +28,16 @@
                                     [style.margin.px]="imageMargin"></div>
                             </div>-->
                             <div class="row  form-group box">
-                                <div class="col" >ID : {{trainer.id}}</div>
+                                <div class="col" >ID : {{trainerData.id}}</div>
                             </div> 
                             <div class="row box">
-                                <div class="col ">Name: {{trainer.trainerName}}
+                                <div class="col ">Name: {{trainerData.trainerName}}
                                     <!--<input class="form-control" type="text" name="trainerName"  #trainerName="ngModel" disabled  [(ngModel)]="TrainerDetails.trainerName"  > -->
                                   
                                 </div>
                             </div>
                             <div class="row box">
-                                <div class="col">Email Id: {{trainer.email}}
+                                <div class="col">Email Id: {{trainerData.email}}
                                     
                                 </div>
                             </div>
@@ -55,21 +56,21 @@
                         <div class="col border">
                            
                             <div class="row box">
-                                <div class="col"><label>Address</label><input type="text" class="form-control" disabled value="{{trainer.address}}"></div>
+                                <div class="col"><label>Address</label><input type="text" class="form-control" disabled value="{{trainerData.address}}"></div>
                             </div>
                             
                             <div class="row box">
-                                <div class="col"><label>Qualification</label><input type="text" class="form-control" disabled value="{{trainer.qualification}}"></div>
+                                <div class="col"><label>Qualification</label><input type="text" class="form-control" disabled value="{{trainerData.qualification}}"></div>
                             </div>
                             <div class="row box">
-                                <div class="col"><label>Skills</label><input type="text" class="form-control" disabled value="{{trainer.skill}}"></div>
+                                <div class="col"><label>Skills</label><input type="text" class="form-control" disabled value="{{trainerData.skill}}"></div>
                             </div>
                             <div class="row box">
-                                <div class="col"><label>Employment Type</label><input type="text" class="form-control" disabled value="{{trainer.typeOfEmp}}"></div>
+                                <div class="col"><label>Employment Type</label><input type="text" class="form-control" disabled value="{{trainerData.typeOfEmp}}"></div>
                             </div>
                             <div class="row box">
                                 <div class="col"><label>Course handling</label>
-                                    <input type="text" class="form-control" disabled value="{{trainer.course}}">
+                                    <input type="text" class="form-control" disabled value="{{trainerData.course}}">
                                     <!--<select *ngFor="let course of {{trainer.course}}">
                                         <option>{{course}}</option>
                                     </select>-->
@@ -94,6 +95,7 @@
             
     </div>
     </div>
+</form>
   </div>
   
   
