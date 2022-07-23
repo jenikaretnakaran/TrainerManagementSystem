@@ -70,13 +70,14 @@ router.post("/trainerlogin" , (req,res)=>{
 
   userdata.findOne({email:trainer.email.trim() , password:trainer.password})
   .then((data)=>{
-
+    //console.log(data.id); 
     if(data===null){
         res.send({ status: false, data: 'Invalid Username and Password'})
     }else if((data.email===trainer.email)&&(data.password===trainer.password)){
-        let payload = {subject:trainer.email+trainer.password};
+        let payload = {subject:data.email};
         let token = jwt.sign(payload , "secretkey")
-        res.send({ status: true, data: 'Success' , token})
+        var email = data.email;
+        res.send({ status: true, data: 'Success', email , token})
     }else{
         res.send({ status: false, data: 'Incorrect Username or Password'})
     }

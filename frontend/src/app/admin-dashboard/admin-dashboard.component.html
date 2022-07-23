@@ -123,8 +123,8 @@
         </tr>
       </tbody>
       <tbody>
-        <tr *ngFor="let trainer of trainersList">
-          <td scope="row" class="text-uppercase" >{{trainer.trainerName}}</td>
+        <tr *ngFor="let trainer of trainersList" (click)="directApprove()" >
+          <td scope="row" class="text-uppercase">{{trainer.trainerName}}</td>
           <td class="text-uppercase">{{trainer.skill}}</td>
           <td class="text-uppercase">{{trainer.typeOfEmp}}</td>
           <td class="text-uppercase">{{trainer.course}}</td>

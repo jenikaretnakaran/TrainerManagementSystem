@@ -42,6 +42,7 @@ export class TrainerProfileComponent implements OnInit {
   typeOfEmp:""
   
 }*/
+Id = localStorage.getItem("token")
   constructor(public route:Router,public trainerService:TrainerService,public authService:AuthService) 
   { 
    
@@ -53,18 +54,20 @@ export class TrainerProfileComponent implements OnInit {
   title:string="PROFILE";
   ngOnInit(): void {
  
- // let id=localStorage.getItem('id');
- // let emailId="akhila8612@gmail.com";
+
  let token = localStorage.getItem("token")
     this.trainerService.getTrainerdata(token)
          .subscribe((data) => {
-        this.trainerData =data;
+        this.trainerData =JSON.parse(JSON.stringify(data))
+      
       })
-      //this.courseHandling  = this.trainerData.course.split(',');
-
+   
     }
 
-  
+    editProfile()
+    {
+      this.route.navigate(['/trainer/edit'])
+    }  
   
   
 

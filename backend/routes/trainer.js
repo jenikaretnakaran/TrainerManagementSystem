@@ -6,6 +6,8 @@ const enrollmentData=require("../model/enrollmentdata");
 const trainerdata=require("../model/trainerdata.js");
 const multer = require('multer');
 const ImageDataURI = require('image-data-uri');
+const jwt = require ("jsonwebtoken");
+
 
 app.use(express.static('public'));
 // const { request } = require("http");
@@ -99,42 +101,50 @@ app.get("/:id",  (req, res) => {
   })
 
 
-app.get('/trainereditprofile/:id', (req, res) => {
 
-    const id = req.params.id;
-    trainerdata.findOne({ "_id": id })
-      .then((data) => {
+//Trainer Profile Edit page get data
+app.get('/trainereditprofile/:id', function (req, res) {
+
+    res.header("Access-Control-Allow-Orgin", "*");
+    res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS");
+  
+    token = req.params.id;
+    payload = jwt.verify(token, 'secretkey');
+    console.log(payload.subject)
+    trainerdata.findOne({ "email": payload.subject })
+      .then(function (data) {
+        console.log("dataa="+data)
         res.send(data);
       });
-  })
+  });
 
-
+//Trainer ProfileEdit page update data
   app.put("/traineredit" , (req,res)=>{
 
-    console.log(req.body)
+    console.log(req.body.data)
 
-    id=req.body._id,
-    trainerName=req.body.trainerName,
-    email=req.body.email,
-    phone=req.body.phone,
-    address=req.body.address,
-    skill=req.body.skill,
-    qualification=req.body.qualification,
-    companyName=req.body.companyName,
-    designation=req.body.designation,
-    course=req.body.course,
-    image=req.body.image,
-    typeOfEmp=req.body.typeOfEmp
+    id=req.body.data._id,
+    trainerName=req.body.data.trainerName,
+    email=req.body.data.email,
+    phone=req.body.data.phone,
+    address=req.body.data.address,
+    skill=req.body.data.skill,
+    qualification=req.body.data.qualification,
+    companyName=req.body.data.companyName,
+    designation=req.body.data.designation,
+    course=req.body.data.course,
+    image=req.body.data.image,
+    typeOfEmp=req.body.data.typeOfEmp
    
  
-     console.log(id)
+     //console.log(id)
 
-   bookdata.findByIdAndUpdate({"_id":id},
+   trainerdata.findByIdAndUpdate({"_id":id},
                                     {$set:{
                                         "trainerName":trainerName,
-                                        "email":email,
                                         "phone":phone,
                                         "address":address,
+                                        "email":email,
                                         "skill":skill,
                                         "qualification":qualification,
                                         "companyName":companyName,

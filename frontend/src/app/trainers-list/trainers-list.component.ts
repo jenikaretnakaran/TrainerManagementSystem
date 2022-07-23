@@ -23,12 +23,15 @@ export class TrainersListComponent implements OnInit {
       this.trainerData=JSON.parse(JSON.stringify(data));
     })
   }
-
-  allocate(trainer){
-    localStorage.setItem("getTrainerId",trainer._id.tostring());
-    localStorage.setItem('mail',trainer.email);
-    this.router.navigate(["/admin"]) ///edit
+  
+  allocateRequest(id)
+  {
+    localStorage.setItem("allocateRequestId",id._id.toString());
+    localStorage.setItem('trainerEmail',id.email);
+    this.router.navigate(["/admin/allocate"]);
   }
+
+
   removeTrainer(trainer){
     this.adminservice.removeTrainer(trainer._id)
     .subscribe((data)=>{

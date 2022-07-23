@@ -82,7 +82,7 @@ app.get('/approveRequest/:id', (req, res) => {
       });
   })
 
-  app.post('/approvedTrainer', async function (req, res) {
+  app.post('/approvedTrainer', async (req, res)=> {
 
     let trainerName = req.body.trainerName;
     let typeOfEmp = req.body.typeOfEmp;
@@ -150,11 +150,11 @@ app.get('/approveRequest/:id', (req, res) => {
 
   //trainerRequests
 
-app.get('/request', function (req, res) {
+app.get('/request', (req, res) =>{
   res.header("Access-Control-Allow-Origin", "*")
   res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
   enrollmentdata.find()
-    .then(function (requests) {
+    .then((requests)=> {
       res.send(requests);
       // console.log(requests);
     });
@@ -172,7 +172,7 @@ app.delete('/reject/:id', (req, res) => {
 })
 
 
-app.get('/allocatedlist', function (req, res) {
+app.get('/allocatedlist',(req, res)=> {
   
   res.header("Access-Control-Allow-Origin", "*")
   res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
@@ -182,6 +182,35 @@ app.get('/allocatedlist', function (req, res) {
       res.send(data);
     });
 });
+
+//trainersList
+
+app.get("/getTrainersList",(req,res)=>{
+  res.header("Access-Control-Allow-Origin", "*")
+  res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
+  trainerdata.find().then((trainers)=>{
+    res.send(trainers);
+  })
+
+ //allocate
+ app.get("/allocationData/:id",(req,res)=>{
+  res.header("Access-Control-Allow-Origin", "*")
+  res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
+    const id = req.params.id;
+    trainerdata.findOne({ _id: id })
+      .then((request) => {
+        res.send(request);
+      });
+ }) 
+
+ app.post('/dateSchedule',(req,res)=>{
+  email=req.body.email;
+  allocateddata.find({email:email}).then((data)=>{
+    res.send(data);
+  })
+ })
+
+})
 
 
   module.exports=app;

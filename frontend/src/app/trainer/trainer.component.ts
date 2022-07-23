@@ -12,7 +12,9 @@ export class TrainerComponent implements OnInit {
 
 
   btnclk1(){
-    this.route.navigate(['/trainer/enrollment'])
+    this.route.navigate(['/trainer/enrollment']).then(() => {
+      window.location.reload();
+    })  
   }
 
   btnclk2(){
