@@ -10,7 +10,9 @@
 }
 
 @media (max-width :768px) {
-    #dashboard{
+    #dashboard,
+    #search,
+    #reload {
         display: none;
     }
 }
