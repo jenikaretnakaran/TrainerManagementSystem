@@ -58,13 +58,13 @@
             <div class="row form-group box">
                 <div class="col-1 "></div>
                 <div class="col-3 "><label for="skill">Skill Set</label></div>
-               <!-----------------------------------------------------------------------> 
+              
                <div class="col-5 form-input">
                  <input type="text" class="form-control" name="skill" id="skill" ng-model="skill" [(ngModel)]="skill"  required/>
                  
                                      
                 </div>
-                <!------------------------------------------------------------------->
+            
                 <div class="col-3 "></div>     
             </div>
                     
@@ -86,10 +86,13 @@
                 <div class="col-1"></div>
                 <div class="col-3 "><label for="course">ICTAK Courses Handling</label></div>
                 <div class="col-6 ">
-                    <select class="selectpicker form-control" multiple aria-label="size 3 select example">
+                    <select class="selectpicker form-control" required multiple aria-label="size 3 select example" name="course" [(ngModel)]="course">
                         
-                        <option *ngFor="let i of courses" value="{{i.name}}">{{i.name}}</option>                   
+                        <option *ngFor="let i of courses"  [ngValue]="i">{{i}}</option>                   
                     </select>
+                    
+                    
+             
                        <!--- <label class="form-check-label">
                             <input type="checkbox" class="form-check-input"  name="course"  value="{{course.name}}" [(ngModel)]="course.selected" #course="ngModel"  >{{course.name}}
                         </label>-->

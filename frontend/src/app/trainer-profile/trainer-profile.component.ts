@@ -26,6 +26,7 @@ export class TrainerProfileComponent implements OnInit {
   trainerData:any;
   mypic="";
   emailId="";
+  courseHandling=[];
   /*
   {
   trainerName:"",
@@ -51,16 +52,15 @@ export class TrainerProfileComponent implements OnInit {
   }
   title:string="PROFILE";
   ngOnInit(): void {
-  //  this.token = this.gettoken.getToken();
-  
-  let id=localStorage.getItem('id');
- // let emailId="testuser@gmail.com";
-    this.trainerService.getTrainerDetails(id)
+ 
+ // let id=localStorage.getItem('id');
+  let emailId="akhila8612@gmail.com";
+    this.trainerService.getTrainerDetails(emailId)
          .subscribe((data) => {
         this.trainerData =data;
-      })// data;
-       // alert(emailId)
-       // console.log("in ts--"+this.trainer);
+      })
+      //this.courseHandling  = this.trainerData.course.split(',');
+
     }
 
   
