@@ -113,7 +113,7 @@ app.get('/trainereditprofile/:id', function (req, res) {
     console.log(payload.subject)
     trainerdata.findOne({ "email": payload.subject })
       .then(function (data) {
-        console.log(data)
+        console.log("dataa="+data)
         res.send(data);
       });
   });
