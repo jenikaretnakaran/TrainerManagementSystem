@@ -17,7 +17,8 @@ const courseRoutes =require("./routes/course")
 const PORT = process.env.PORT || 3000;
 
 //DB Connection
-// "mongodb+srv://admin:user123@project1.cfkyt.mongodb.net/ICTAK?retryWrites=true&w=majority" |
+// "mongodb+srv://admin:user123@project1.cfkyt.mongodb.net/ICTAK?retryWrites=true&w=majority" 
+// "mongodb://localhost:27017/project"
 
 mongoose
   .connect("mongodb+srv://admin:user123@project1.cfkyt.mongodb.net/ICTAK?retryWrites=true&w=majority",{

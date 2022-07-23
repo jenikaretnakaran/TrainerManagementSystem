@@ -3,6 +3,9 @@ import {TrainerModel} from '../models/trainer.model';
 import { TrainerService } from '../trainer.service';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
+import { environment } from 'src/environments/environment';
+
+
 
 @Component({
   selector: 'app-trainer-profile',
@@ -11,38 +14,58 @@ import { AuthService } from '../auth.service';
 })
 
 export class TrainerProfileComponent implements OnInit {
+  
+  
+  token: any;
+  imagePath: string;
+  isEditProfile: boolean = false;
+  editProfileForm: any;
+  url:any="./assets/images/trainer.jpg";
+  isNewImage: boolean;
+  local: any;
+  trainerData:any;
+  mypic="";
+  emailId="";
+  /*
+  {
+  trainerName:"",
+  email:"",
+  phone:"",
+  address:"",
+  skill:"",
+  qualification:"",
+  companyName:"",
+  designation:"",
+  course:"",
+  image:"",
+  typeOfEmp:""
+  
+}*/
+  constructor(public route:Router,public trainerService:TrainerService,public authService:AuthService) 
+  { 
+   
+    this.imagePath = environment.imagePath;
+    this.isNewImage = false;
+  
+    console.log("image path==="+this.imagePath);
+  }
+  title:string="PROFILE";
+  ngOnInit(): void {
+  //  this.token = this.gettoken.getToken();
+  
+  let id=localStorage.getItem('id');
+ // let emailId="testuser@gmail.com";
+    this.trainerService.getTrainerDetails(id)
+         .subscribe((data) => {
+        this.trainerData =data;
+      })// data;
+       // alert(emailId)
+       // console.log("in ts--"+this.trainer);
+    }
 
   
-  constructor(public route:Router,public trainerService:TrainerService,public authService:AuthService) { }
-  title:String="Trainer Profile";
-  TrainerDetails: TrainerModel[] | any;
+  
+  
 
-  url:any="./assets/images/trainer.jpg";//given for page design
-  imageWidth : number =120;
-  imageMargin :number =19;
-  ngOnInit(): void {
-//commented to complete page design and backend
-  /* alert(this.authService.checkTrainer());
-    if(!this.authService.checkTrainer()){
-    this.route.navigate(["/login"]);
-    }
-    else{
-      this.route.navigate(["/profile"])
-    }
-  */
-   // let trainerId =localStorage.getItem("trainerId");
-   // let emailId =localStorage.getItem("allocatemail");
-   // console.log("emailId=="+emailId);
-    //let emailId="test1@gmail.com";
-    let trainerId="62d8d7b810e2b01ec2947dfc";
-    this.trainerService.getTrainerDetails(trainerId).subscribe((data)=>{
-    this.TrainerDetails=JSON.parse(JSON.stringify(data));
-console.log(this.TrainerDetails);
-    })
-
-  }
-  editTrainerDetails()
-  {
-    
-  }
 }
+

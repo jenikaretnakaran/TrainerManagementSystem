@@ -1,16 +1,43 @@
 const express= require ("express");
 const app= express();
+const cors = require('cors');
 app.use(express.json());
 const enrollmentData=require("../model/enrollmentdata");
 const trainerdata=require("../model/trainerdata.js");
+const multer = require('multer');
+const ImageDataURI = require('image-data-uri');
+const jwt = require ("jsonwebtoken");
+
+
+app.use(express.static('public'));
+// const { request } = require("http");
+app.use(cors());
+
+//save image
+var storage = multer.diskStorage({
+    destination: function (req, res, cb) {
+      cb(null, './public/images/requests')
+    },
+    filename: function (req, file, cb) {
+      cb(null, file.originalname)
+    }
+  });
+
 
 //save enrollment details
 app.post('/enroll',function (req, res) {
     
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
-    //console.log("-w/o details-"+req.body.address);
-
+    
+    var upload = multer({ storage: storage }).single('image');
+    upload(req, res, (err) => {
+  
+      if (err) {
+        console.log(err);
+      }
+      else {
+        if (req.file) {
     var trainerDetails = {
         trainerName:req.body.trainerName,
         email:req.body.email,
@@ -20,15 +47,37 @@ app.post('/enroll',function (req, res) {
         qualification:req.body.qualification,
         companyName:req.body.companyName,
         designation:req.body.designation,
+        course:req.body.course, 
+        image:req.file.filename
+    }
+}
+else {
+    trainerDetails = {
+        trainerName:req.body.trainerName,
+        email:req.body.email,
+        phone:req.body.phone,
+        address:req.body.address,
+        skill:req.body.skill,
+        qualification:req.body.qualification,
+        companyName:req.body.companyName,
+        designation:req.body.designation,
         course:req.body.course,
-        image:req.body.image
+        image:''
        
     }
-    //console.log(trainerDetails.email);
+    
+  console.log("error in saving the image")
+}
+    console.log("email-"+trainerDetails.email);
+    console.log("name--"+trainerDetails.trainerName);
+    console.log("address--"+trainerDetails.address)
+    console.log("img--"+trainerDetails.image)
     var enrollmentdata = new enrollmentData(trainerDetails);
     enrollmentdata.save();
+      }
+    })
+});
 
-})
 
 app.get('/getTrainerData',(req,res)=>{
     res.header("Access-Control-Allow-Origin","*");
@@ -45,60 +94,57 @@ app.get("/:id",  (req, res) => {
    
 
        const id = req.params.id;
-       trainerdata.find({_id: id}).then((data)=>{
+       trainerdata.find({email: id}).then((data)=>{
         res.send(data);
         console.log(data);
         });
   })
 
 
-  app.get('/trainereditprofile/:id', (req, res) => {
 
-    const id = req.params.id;
-    trainerdata.findOne({ "_id": id })
-      .then((data) => {
+//Trainer Profile Edit page get data
+app.get('/trainereditprofile/:id', function (req, res) {
+
+    res.header("Access-Control-Allow-Orgin", "*");
+    res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS");
+  
+    token = req.params.id;
+    payload = jwt.verify(token, 'secretkey');
+    console.log(payload.subject)
+    trainerdata.findOne({ "email": payload.subject })
+      .then(function (data) {
+        console.log(data)
         res.send(data);
       });
   });
 
-
-  app.get("/trainereditprofile/:id" ,(req,res)=>{
-    console.log(req.params.id)
-
-    var id = req.params.id
-    trainerdata.findOne({"id":id})
-    .then((data)=>{
-        console.log(data)
-        res.send(data);
-    });
-  });
-
-
+//Trainer ProfileEdit page update data
   app.put("/traineredit" , (req,res)=>{
 
-    console.log(req.body)
+    console.log(req.body.data)
 
-    id=req.body._id,
-    trainerName=req.body.trainerName,
-    email=req.body.email,
-    phone=req.body.phone,
-    address=req.body.address,
-    skill=req.body.skill,
-    qualification=req.body.qualification,
-    companyName=req.body.companyName,
-    designation=req.body.designation,
-    course=req.body.course,
-    image=req.body.image,
-    typeOfEmp=req.body.typeOfEmp
+    id=req.body.data._id,
+    trainerName=req.body.data.trainerName,
+    email=req.body.data.email,
+    phone=req.body.data.phone,
+    address=req.body.data.address,
+    skill=req.body.data.skill,
+    qualification=req.body.data.qualification,
+    companyName=req.body.data.companyName,
+    designation=req.body.data.designation,
+    course=req.body.data.course,
+    image=req.body.data.image,
+    typeOfEmp=req.body.data.typeOfEmp
    
  
-     console.log(id)
+     //console.log(id)
 
-   trainerdata.findByIdAndUpdate({"email":email},
+   trainerdata.findByIdAndUpdate({"_id":id},
                                     {$set:{
                                         "trainerName":trainerName,
                                         "phone":phone,
                                         "address":address,
+                                        "email":email,
                                         "skill":skill,
                                         "qualification":qualification,
                                         "companyName":companyName,

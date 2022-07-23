@@ -12,6 +12,8 @@ export class TrainerProfileupdateComponent implements OnInit {
   imageWidth : number =110;
   imageMargin :number =15;
 
+  tempdata = localStorage.getItem("email")
+
   trainer={
 
     trainerName:"",
@@ -30,11 +32,12 @@ export class TrainerProfileupdateComponent implements OnInit {
 
   }
 
+  Id = localStorage.getItem("token")
+
   constructor(private trainerservice:TrainerService ,  private route:Router) { }
 
   ngOnInit(): void {
-    let Id = localStorage.getItem("id")
-    this.trainerservice.getTrainerdata(Id).subscribe((data)=>{
+    this.trainerservice.getTrainerdata(this.Id).subscribe((data)=>{
       this.trainer=JSON.parse(JSON.stringify(data))
     })
   }

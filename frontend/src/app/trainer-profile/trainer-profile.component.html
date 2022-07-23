@@ -3,39 +3,46 @@
 <div class="container-fluid">
     <div class="row flex-nowrap">
        
-        <div class="col home pt-5">
+        <div class="col home pt-5" *ngFor= "let trainer of trainerData" >
         
             <div class="title ">{{title}}</div><br>
           
            
-            <div class="row " *ngFor="let trainer of TrainerDetails" >
+            <div class="row "  >
                 <div class="col-1 "></div>
                 <div class="col-4 " ><div class="container border">
                     <h1 class="text-center display-4"></h1>
                     <div class="row" >
-                        <div class="col ">
-                            <div class="row " style="margin-left: 20%;">
+                        <div class="col " style="align-items: center; align-content: center; height: 300px; ">
+                            <figure class="avatar" style="margin-left: 45%; height: 20vh ; ">   <div >                               
+                            
+                                 <img  src="{{imagePath}}/{{trainer.image}}" class="coverview">
+                    
+                                  <!---  <img *ngIf='isNewImage' [src]="url" class="coverview">-->
+                                    </div>
+                                  </figure>
+                            <!--<div class="row " style="margin-left: 20%;">
                                 <div class="col"> <img [src]="url" alt="image" class="rounded-circle" 
                                     [style.width.px]='imageWidth'
                                     [style.margin.px]="imageMargin"></div>
-                            </div>
+                            </div>-->
                             <div class="row  form-group box">
-                                <div class="col"><input class="form-control" type="text" name="" id="" disabled value="ID" ></div>
+                                <div class="col" >ID : {{trainer.id}}</div>
                             </div>
                             <div class="row box">
-                                <div class="col ">
+                                <div class="col ">Name: {{trainer.trainerName}}
                                     <!--<input class="form-control" type="text" name="trainerName"  #trainerName="ngModel" disabled  [(ngModel)]="TrainerDetails.trainerName"  > -->
-                                    <input class="form-control" type="text" name="" id="" disabled value="{{trainer.trainerName}}" >
+                                  
+                                </div>
+                            </div>
+                            <div class="row box">
+                                <div class="col">Email Id: {{trainer.email}}
+                                    
                                 </div>
                             </div>
                             <div class="row box">
                                 <div class="col">
-                                    <input class="form-control" type="text" name="" id="" disabled value="{{trainer.email}}" >
-                                </div>
-                            </div>
-                            <div class="row box">
-                                <div class="col">
-                                    <input class=" form-control" type="text" name="" id="" disabled value="{{trainer.phone}}">
+                                   
                                 </div>
                             </div>
                         </div>
@@ -58,12 +65,15 @@
                                 <div class="col"><label>Skills</label><input type="text" class="form-control" disabled value="{{trainer.skill}}"></div>
                             </div>
                             <div class="row box">
-                                <div class="col"><label>Current company</label><input type="text" class="form-control" disabled value="{{trainer.companyName}}"></div>
+                                <div class="col"><label>Employment Type</label><input type="text" class="form-control" disabled value="{{trainer.typeOfEmp}}"></div>
                             </div>
                             <div class="row box">
                                 <div class="col"><label>Course handling</label><input type="text" class="form-control" disabled value="{{trainer.course}}">
-                            
-                            
+                                 <!--- <select name="course"  value="select" style="padding: 5px;" class="form-control" id="formGroupExampleInput">
+                                    <option>---Select one---</option>
+                                  <option  *ngFor=" let course of {{trainer.companyName}}"> {{course}}</option>
+                                  </select>
+                                -->
                         </div>
                     </div>
                 </div></div>
@@ -81,5 +91,6 @@
             
     </div>
     </div>
-</div>
-
+  </div>
+  
+  

@@ -23,7 +23,7 @@ export class TrainerloginComponent implements OnInit {
 
       if(res.status){
         localStorage.setItem('token' , res.token)
-        localStorage.setItem('id' , res.id)
+        localStorage.setItem('email' , res.email)
         this.route.navigate(['/trainer'])
        }else{
         var error = res.data;

@@ -74,11 +74,10 @@ router.post("/trainerlogin" , (req,res)=>{
     if(data===null){
         res.send({ status: false, data: 'Invalid Username and Password'})
     }else if((data.email===trainer.email)&&(data.password===trainer.password)){
-        let payload = {subject:trainer.email};
+        let payload = {subject:data.email};
         let token = jwt.sign(payload , "secretkey")
-        var id = data._id;
-        console.log(id)
-        res.send({ status: true, data: 'Success', id , token})
+        var email = data.email;
+        res.send({ status: true, data: 'Success', email , token})
     }else{
         res.send({ status: false, data: 'Incorrect Username or Password'})
     }

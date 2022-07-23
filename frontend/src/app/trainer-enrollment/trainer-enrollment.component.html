@@ -1,170 +1,126 @@
 
-  
 <div class="back">
-
-<form #form="ngForm" (ngSubmit)="form.valid&&addTrainer()">
     <div class="row">
         <div class="col-12 title">{{title}}</div>
-        
-    </div>
-   
-   
-   
-    <div class="row">
-        <div class="col-1"></div>
-        <div class="col-7"><div class="Image " >
-            <img [src]="url" class="rounded mx-auto d-block pic"  name="image"  alt="..." width="150vh" height="150vh" ><br>
-            <input type="file" id="image" accept="image/*" class="custom" (change)="onFileSelected($event)" required>
-                        </div></div>
-        
-        <div class="col-4"></div>
-    </div>
-<div class="row form-group box">
-    <div class="col-1 "></div>
-    <div class="col-3 "><label class="form-label" for="trainerName"> Name
-        <small class="text-danger">*</small>
-    </label></div>
-    <div class="col-5 "><input type="text" class="form-control" required #trainerName="ngModel"  name="trainerName"  placeholder="Name" id="trainerName"  [(ngModel)]="TrainerItem.trainerName">
-        <small class="text-danger" *ngIf="form.submitted&&trainerName.errors?.['required']">*Enter your Name</small>
-        <small class="text-danger" *ngIf="form.submitted&&trainerName.errors?.['pattern']">*Enter valid Name</small>      
-   </div>
-    <div class="col-3 "></div>
-</div>
-
-    <div class="row form-group box">
-    <div class="col-1 "></div>
-    <div class="col-3 "><label class="form-label" for="emailId">Email
-        <small class="text-danger">*</small>
-    </label></div>
-    <div class="col-5"><input type="email" #email="ngModel"  class="form-control" placeholder="Email ID" id="email" required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" [(ngModel)] = "TrainerItem.email" name="email">
-        <small class="text-danger" *ngIf="form.submitted&&email.errors?.['required']">*Enter your Email address</small>
-        <small class="text-danger" *ngIf="form.submitted&&email.errors?.['pattern']">*Enter valid email address</small>      
-    </div>
-    <div class="col-3 "></div>
-    </div>
-
-<div class="row form-group box">
-    <div class="col-1 "></div>
-    <div class="col-3 "><label for="phone">Phone
-        <small class="text-danger">*</small>
-    </label></div>
-        <div class="col-5"><input type="number" #phone="ngModel" class="form-control" id="phone" placeholder="Phone Number" required minlength = '10' maxlength="10" pattern="^[0-9()\-+\s]+$"  [(ngModel)] = "TrainerItem.phone" name="phone" >
-        <small class="text-danger" *ngIf="form.submitted&&phone.errors?.['required']">*Enter your Contact Number</small>
-        <small class="text-danger" *ngIf="form.submitted&&phone.errors?.['pattern']">*Enter valid Mobile Number</small>      
-      </div> 
-    <div class="col-3 "></div>
-        </div>
-
-        <div class="row form-group box">
-            <div class="col-1 "></div>
-            <div class="col-3 "><label for="address">Address
-                <small class="text-danger">*</small>
-            </label></div>
-            <div class="col-5 "> <input type="text" #address="ngModel" class="form-control" placeholder="Address" id="address" required [(ngModel)]="TrainerItem.address" name="address">
-            <small class="text-danger" *ngIf="form.submitted&&address.errors?.['required']">*Enter your Address</small></div>
-            <div class="col-3 "></div>
-        </div>
-
-        <div class="row form-group box">
-            <div class="col-1 "></div>
-            <div class="col-3 "><label for="qualification">Highest Qualification
-                <small class="text-danger">*</small>
-            </label></div>
-            <div class="col-5 "> <input type="text" #qualification="ngModel" class="form-control" placeholder="Highest Qualification" id="qualification" required [(ngModel)]="TrainerItem.qualification" name="qualification">
-            <small class="text-danger" *ngIf="form.submitted&&qualification.errors?.['required']">*Enter your Higest Qualification</small></div>
-            <div class="col-3 "></div>
-        </div>
-   
-        <div class="row form-group box">
-            <div class="col-1 "></div>
-            <div class="col-3 "><label for="skill">Skill Set
-                <small class="text-danger">*</small>
-            </label></div>
-            <div class="col-5 "> <input type="text" #skill="ngModel" class="form-control" placeholder="Skill Set" id="skill" required [(ngModel)]="TrainerItem.skill" name="skill">
-            <small class="text-danger" *ngIf="form.submitted&&skill.errors?.['required']">*Enter Skill</small></div>
-            <div class="col-3 "></div>
-        </div>
-        
-        <div class="row form-group box">
-            <div class="col-1 "></div>
-            <div class="col-3 "><label for="companyName">Current Company Name</label></div>
-            <div class="col-5 "><input type="text" #companyName="ngModel" class="form-control" placeholder="Current Company Name" id="companyName"  [(ngModel)]="TrainerItem.companyName" name="companyName"></div>
+     </div>
+        <div class="home-content">
+        <div class="signup-form">
+        <form (ngSubmit)="addRequest()" class="register-form"  #trainerEnroll="ngForm" ngNativeValidate>
             
-            <div class="col-3 "></div>
-        </div>
-
-        <div class="row form-group box">
-            <div class="col-1 "></div>
-            <div class="col-3 "><label for="designation">Current Designation</label></div>
-            <div class="col-5 "><input type="text" #designation="ngModel" class="form-control" id="designation" placeholder="Current Designation"  [(ngModel)]="TrainerItem.designation" name="designation"></div>
-            <div class="col-3 "></div>
-        </div>
-        <div class="row form-group box">
-            <div class="col-1"></div>
-            <div class="col-3 "><label for="course">ICTAK Courses Handling</label></div>
-            <div class="col-6 ">
-               <div *ngFor="let course of courses; let i = index">
-                    <label class="form-check-label">
-                        <input type="checkbox" class="form-check-input"  name="course"  value="{{course.name}}" [(ngModel)]="course.checked">{{course.name}}
-                    </label>
-                </div>
+            <div class="row form-group box">
+                <div class="col-1 "></div>
+                <div class="col-7"> <div class="Image" >
+                    <img [src]="url" class="rounded mx-auto d-block" width="150vh" name="image" id="image" height="150vh" ngDefaultControl [(ngModel)]="image" alt="..." style="margin-left: 20%;" >
+                    <label for="file" class="required" id="image" style="margin-left: 41%;">
+                      </label >
+                     <input type="file"  name="trainerName" class="custom" id="image" accept="image/*"  (change)="onFileSelected($event)" /> 
+                </div></div>
+                <div class="col-4 "></div>
+             </div> 
             
-           <!---
-                <div class="form-check" *ngFor="let selection of courses">
-                  <input class="form-check-input" name="course"  required type="checkbox" #course="ngModel"  [(ngModel)]="TrainerItem.course" value="{{selection.name}}" unchecked />
-                  <label class="form-check-label" for="course">{{selection.name}}</label>
-                </div>
-                <small class="text-danger" *ngIf="form.submitted&&skill.errors?.['required']">*Select Any course</small>
             
-            -->
-<!--
-                <div *ngFor="let course of courses" >
-                    <input 
-                        type="checkbox"
-                        ngModel
-                        name="courses"
-                        [value]="course.name">
-                    <label>{{course.name}}</label>
-                </div>
-            -->
-
-
+             <div class="row form-group box">
+                <div class="col-1 "></div>
+                <div class="col-3 "><label for="trainerName" class="required">Name</label></div>
+                <div class="col-5 form-input"> <input type="text" class="form-control" name="trainerName" id="trainerName" [(ngModel)]="trainerName" required/></div>
+                <div class="col-3 "></div>
             </div>
-            <div class="col-2 "></div>
-        </div>
-
-<!--
-    <div class="row form-group box">
-    <div class="col-2 "></div>
-    <div class="col-2 "><label for="course">ICTAK Courses Handling</label></div>
-    <div class="col-4 "><div class="form-check checkbx"  *ngFor="let course of courses; let i = index">
-        <label class="form-check-label">
-          <input type="checkbox" class="form-check-input" required
-          ngModel name="{{course.id}}">
-          {{course.name}}
-       </label></div></div>
-    <div class="col-4 "></div>
-</div>
---> 
-     <!--   <div class="form-submit submitme">
-             
-            <button type="submit" value="Submit" class="submit" id="submit" name="submit" >Submit</button>
-            <button type="reset"  value="Reset"  class="submit" id="reset" name="reset">Cancel</button>
+    
+            <div class="row form-group box">
+                <div class="col-1 "></div>
+                <div class="col-3 "><label for="email" class="required">Email</label></div>
+                <div class="col-5 form-input"><input type="email" class="form-control" name="email" id="email" [(ngModel)]="email"  required/></div>
+                <div class="col-3 "></div>
+            </div>
+    
+            <div class="row form-group box">
+                <div class="col-1 "></div>
+                <div class="col-3 "><label for="phone" class="required">Phone number</label></div>
+                <div class="col-5 form-input"><input type="text" class="form-control" pattern="^((\\+91-?)|0)?[0-9]{10}$" name="phone" id="phone" [(ngModel)]="phone" required #phnField="ngModel"/>
+                    <span style="color: Red; background-color: rgb(255, 217, 215); padding: 6px; margin-top: 5%;" *ngIf="trainerEnroll.submitted&&phnField.errors">Give a valid Phone No!</span></div>
+                <div class="col-3 "></div>
+            </div> 
+    
+            <div class="row form-group box">
+                <div class="col-1 "></div>
+                <div class="col-3 "><label for="company" class="required">Address</label></div>
+                <div class="col-5 form-input"><input type="address" class="form-control" name="address" id="address" [(ngModel)]="address" required/></div>
+                <div class="col-3 "></div>
+            </div>
            
-        </div>-->
-
-        <div class="row form-group box">
-            <div class="col-2 "></div>
-            <div class="col-6 "><div class="form-submit submitme">
-             
-                <button type="submit" value="Submit" class="submit" id="submit" name="submit" >Submit</button>
-                <button type="reset"  value="Reset"  class="submit" id="reset" name="reset">Cancel</button>
-               
-            </div></div>
-            
-            <div class="col-4 "></div>
-        </div>
-
-
-</form>
-</div>
+                   
+            <div class="row form-group box">
+                <div class="col-1 "></div>
+                <div class="col-3 "> <label for="qualification" class="required">Highest Qualification</label></div>
+                <div class="col-5 form-input"> <input type="text" class="form-control" name="qualification" id="qualification" [(ngModel)]="qualification" required/></div>
+                <div class="col-3 "></div>
+            </div>
+            <div class="row form-group box">
+                <div class="col-1 "></div>
+                <div class="col-3 "><label for="skill">Skill Set</label></div>
+               <!-----------------------------------------------------------------------> 
+               <div class="col-5 form-input">
+                 <input type="text" class="form-control" name="skill" id="skill" ng-model="skill" [(ngModel)]="skill"  required/>
+                 
+                                     
+                </div>
+                <!------------------------------------------------------------------->
+                <div class="col-3 "></div>     
+            </div>
+                    
+            <div class="row form-group box">
+                <div class="col-1 "></div>
+                <div class="col-3 "><label for="companyName">Current Company</label></div>
+                <div class="col-5 form-input"><input type="text" class="form-control" name="companyName" id="companyName" [(ngModel)]="companyName" required/></div>
+                <div class="col-3 "></div>
+            </div>
+            <div class="row form-group box">
+                <div class="col-1 "> </div>
+                <div class="col-3 "> <label for="designation">Current Designation</label></div>
+                <div class="col-5 form-input"><input type="text" class="form-control" name="designation" id="designation" [(ngModel)]="designation" required/></div>
+                <div class="col-3 "></div>
+            </div>
+    
+           
+            <div class="row form-group box">
+                <div class="col-1"></div>
+                <div class="col-3 "><label for="course">ICTAK Courses Handling</label></div>
+                <div class="col-6 ">
+                    <select class="selectpicker form-control" multiple aria-label="size 3 select example">
+                        
+                        <option *ngFor="let i of courses" value="{{i.name}}">{{i.name}}</option>                   
+                    </select>
+                       <!--- <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input"  name="course"  value="{{course.name}}" [(ngModel)]="course.selected" #course="ngModel"  >{{course.name}}
+                        </label>-->
+                    
+                </div>
+                <div class="col-2 "></div>
+            </div>
+    
+    
+            <div class="row form-group box">
+                <div class="col-2 "></div>
+                <div class="col-6 "><div class="form-submit submitme">
+                 
+                    <button type="submit" value="Submit" class="submit" id="submit" name="submit" >Submit</button>
+                    <button type="reset"  value="Reset"  class="submit" id="reset" name="reset">Cancel</button>
+                   
+                </div></div>
+                
+                <div class="col-4 "></div>
+            </div>
+    
+    <!--        <div class="form-submit ">
+                <div class="col-1 "></div>
+                <div class="col-5 submitme " ><button type="submit" value="Submit" [disabled]="trainerEnroll.form.invalid" click="validate()" class="submit" id="submit" name="submit">Submit</button></div>
+                <div class="col-5 cancleme" > <input type="reset" value="Reset"  class="submit" id="reset" name="reset" /></div>
+                <div class="col-1 "></div>
+            </div>-->
+              </form>   
+                </div>
+                    </div>
+      
+    </div>
+    
+    

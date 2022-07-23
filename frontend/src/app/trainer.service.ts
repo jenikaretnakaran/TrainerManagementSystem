@@ -25,7 +25,7 @@ export class TrainerService {
   }
 
   updatetrainer(data:any){
-    return this.http.put(`${this.server_address}/trainer/traineredit`  , data);
+    return this.http.put(`${this.server_address}/trainer/traineredit` , {data:data});
 
   }
 }
