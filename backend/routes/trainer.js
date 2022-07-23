@@ -1,16 +1,41 @@
 const express= require ("express");
 const app= express();
+const cors = require('cors');
 app.use(express.json());
 const enrollmentData=require("../model/enrollmentdata");
 const trainerdata=require("../model/trainerdata.js");
+const multer = require('multer');
+const ImageDataURI = require('image-data-uri');
+
+app.use(express.static('public'));
+// const { request } = require("http");
+app.use(cors());
+
+//save image
+var storage = multer.diskStorage({
+    destination: function (req, res, cb) {
+      cb(null, './public/images/requests')
+    },
+    filename: function (req, file, cb) {
+      cb(null, file.originalname)
+    }
+  });
+
 
 //save enrollment details
 app.post('/enroll',function (req, res) {
     
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
-    //console.log("-w/o details-"+req.body.address);
-
+    
+    var upload = multer({ storage: storage }).single('image');
+    upload(req, res, (err) => {
+  
+      if (err) {
+        console.log(err);
+      }
+      else {
+        if (req.file) {
     var trainerDetails = {
         trainerName:req.body.trainerName,
         email:req.body.email,
@@ -20,15 +45,37 @@ app.post('/enroll',function (req, res) {
         qualification:req.body.qualification,
         companyName:req.body.companyName,
         designation:req.body.designation,
+        course:req.body.course, 
+        image:req.file.filename
+    }
+}
+else {
+    trainerDetails = {
+        trainerName:req.body.trainerName,
+        email:req.body.email,
+        phone:req.body.phone,
+        address:req.body.address,
+        skill:req.body.skill,
+        qualification:req.body.qualification,
+        companyName:req.body.companyName,
+        designation:req.body.designation,
         course:req.body.course,
-        image:req.body.image
+        image:''
        
     }
-    //console.log(trainerDetails.email);
+    
+  console.log("error in saving the image")
+}
+    console.log("email-"+trainerDetails.email);
+    console.log("name--"+trainerDetails.trainerName);
+    console.log("address--"+trainerDetails.address)
+    console.log("img--"+trainerDetails.image)
     var enrollmentdata = new enrollmentData(trainerDetails);
     enrollmentdata.save();
+      }
+    })
+});
 
-})
 
 app.get('/getTrainerData',(req,res)=>{
     res.header("Access-Control-Allow-Origin","*");
@@ -45,7 +92,7 @@ app.get("/:id",  (req, res) => {
    
 
        const id = req.params.id;
-       trainerdata.find({_id: id}).then((data)=>{
+       trainerdata.find({email: id}).then((data)=>{
         res.send(data);
         console.log(data);
         });

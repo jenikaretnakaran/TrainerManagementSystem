@@ -10,37 +10,37 @@ import { TrainerService } from '../trainer.service';
   styleUrls: ['./trainer-enrollment.component.css']
 })
 export class TrainerEnrollmentComponent implements OnInit {
-
+  //courseselctd: string | undefined;
+  //course: Array<{name: string}> = [];
   constructor(public route:Router,public trainerService:TrainerService) {   }
   title:string="ENROLLMENT FORM";
-  TrainerItem:any =new TrainerModel("","",0,"","","","","","","");
+  
   ngOnInit(): void {
   }
   courses: any = [
-    {name:'CERTIFIED XR ASSOCIATE', id:1}, 
-    {name:'CERTIFIED CYBER SECURITY ANALYST', id:2},
-    {name:'CERTIFIED SPECIALIST IN FULL STACK DEVELOPMENT', id:3},  
-    {name:'CERTIFIED SPECIALIST INs DATA SCIENCE & ANALYTICS', id:4},
-    {name:'MICRO SKILLS TRAINING ON ROBOTIC PROCESS AUTOMATION', id:5}, 
-    {name:'MICRO SKILLS TRAINING ON DIGITAL MARKETING AND SEO', id:6},
-    {name:'CERTIFIED SPECIALIST IN MACHINE LEARNING AND ARTIFICIAL INTELLIGENCE', id:7},  
+    {name:'CERTIFIED XR ASSOCIATE', id:1, selected:false}, 
+    {name:'CERTIFIED CYBER SECURITY ANALYST', id:2, selected:false},
+    {name:'CERTIFIED SPECIALIST IN FULL STACK DEVELOPMENT', id:3, selected:false},  
+    {name:'CERTIFIED SPECIALIST INs DATA SCIENCE & ANALYTICS', id:4, selected:false},
+    {name:'MICRO SKILLS TRAINING ON ROBOTIC PROCESS AUTOMATION', id:5, selected:false}, 
+    {name:'MICRO SKILLS TRAINING ON DIGITAL MARKETING AND SEO', id:6, selected:false},
+    {name:'CERTIFIED SPECIALIST IN MACHINE LEARNING AND ARTIFICIAL INTELLIGENCE', id:7, selected:false},  
     {name:'MOODLE', id:8},
     {name:'ARM EMBEDDED SYSTEMS', id:9}, 
     {name:'IOT FOR ENGINEERING APPLICATIONS', id:10},
     {name:'AWS EDUCATE', id:11}  
      ]
 
-  fname="";
-  lname="";
+  trainerName="";
   address="";
   email:any=localStorage.getItem('email');
-  phno="";
-  qual="";
+  phone="";
+  qualification="";
   skill="";
-  comp="";
-  desgn="";
-  course=[];
-  img:any;
+  companyName="";
+  designation="";
+ course="";
+  image:any;
   url:any="./assets/images/trainer.jpg"
 
   onFileSelected(event:any){
@@ -50,30 +50,40 @@ export class TrainerEnrollmentComponent implements OnInit {
       reader.onload=(e:any)=>{
         this.url=e.target.result;
       }
-      this.img=event.target.files[0];
+      this.image=event.target.files[0];
     }
     
   }
-  get selectedOptions() {
-    return this.courses
-        .filter(opt => opt['checked'])
-        .map(opt => opt.Id);
-}
-
-  addTrainer()
-  {
+  
+  /*isChange(value)
+  { 
+    console.log(value);
+         this.course.push({ name: value });
+        value = "";
+  }*/
+  addRequest(){
+    var formdata=new FormData();
+    formdata.append("image",this.image);
+    formdata.append("trainerName",this.trainerName);
+    formdata.append("phone",this.phone);
+    formdata.append("email",this.email);
+    formdata.append("address",this.address);
+    formdata.append("qualification",this.qualification);
+    formdata.append("skill",this.skill);
+    formdata.append("companyName",this.companyName);
+    formdata.append("designation",this.designation);
+    formdata.append("course",this.course)
+    /*for(var i=0;i< this.course.length;i++){
+      formdata.append("course",this.course[i]);
+    }*/
+    //formdata.append('course', JSON.stringify([this.course]));
     
-    this.trainerService.enrollTrainer(this.TrainerItem);
-    // alert("You are Enrolled");
-    this.route.navigate(['trainer/confirmation']);
-
+    this.trainerService.enrollTrainer(formdata);
    
+    
+    this.route.navigate(['/trainer/confirmation'])
+
   }
-  /*
-  get selectedOptions() {
-    return this.orderService.order.Products
-        .filter(opt => opt['checked'])
-        .map(opt => opt.Id);
-}
- */
+
+
 }
