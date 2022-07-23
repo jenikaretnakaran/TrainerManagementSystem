@@ -81,11 +81,16 @@ searchReload(event){
   })
 }
 
-// allocate(trainer){
-//   localStorage.setItem("getTrainerId",trainer._id.toString());
-//   localStorage.setItem("allocatemail",trainer.email);
-//   this.router.navigate(["/admin/requests"])
-// }
+reloadPage(){
+  this.adminservice.getTrainers().subscribe((trainers)=>{
+    this.trainersList=(JSON.parse(JSON.stringify(trainers)));
+    this.searchByName="";
+    this.searchBySkill="";
+    this.searchByEmp="";
+    this.searchByCourse="";
+  
+  })
 
+}
 
 }

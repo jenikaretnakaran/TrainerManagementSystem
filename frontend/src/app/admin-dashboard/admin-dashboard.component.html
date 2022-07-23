@@ -13,8 +13,8 @@
               <div class="card-body">
                 <i class=" fa fa-envelope-open" style="font-size:60px;color:#293462;"></i>
                 <div class="float-end">
-                  <h3>{{trainerCount[0]}}</h3>
-                  <span>Trainer Requests</span>
+                  <h2>{{trainerCount[0]}}</h2>
+                  <h5>Trainer Requests</h5>
                 </div>
               </div>
             </div>
@@ -26,8 +26,8 @@
               <div class="card-body">
                 <i class="fa fa-user-circle-o" style="font-size:60px;color:#243D25;"></i>
                 <div class="float-end">
-                  <h3>{{trainerCount[1]}}</h3>
-                  <span>allocated trainers</span>
+                  <h2>{{trainerCount[1]}}</h2>
+                  <h5>Allocated Trainers</h5>
                 </div>
               </div>
             </div>
@@ -40,7 +40,7 @@
                 <i class="fa fa-address-card-o" style="font-size:60px;color:violet;"></i>
                 <div class="float-end">
                   <h3>{{trainerCount[2]}}</h3>
-                  <span>Trainers</span>
+                  <h5> ICTAK Trainers</h5>
                 </div>
               </div>
             </div>
@@ -66,40 +66,56 @@
         <tr>
           <td>
             <div class="input-group">
-              <div class="form-outline  d-inline-flex px-2">
-                <input type="search" id="form1" class="form-control" (change)="changeName($event)" />
-                <button type="button" class="btn btn-primary" (click)="searchName()">
+              <div class="form-outline  d-inline-flex">
+                <input type="search" id="form1" class="form-control" (change)="changeName($event)"
+                  [(ngModel)]="searchByName" />
+                <button type="button" class="btn btn-primary ms-1" (click)="searchName()" id="search">
                   <i class="fa fa-search"></i>
+                </button>
+                <button type="button" class="btn btn-outline-primary ms-1" id="reload">
+                  <i class="fa fa-refresh" aria-hidden="true" (click)="reloadPage()"></i>
                 </button>
               </div>
             </div>
           </td>
           <td>
             <div class="input-group">
-              <div class="form-outline  d-inline-flex px-2">
-                <input type="search" id="form1" class="form-control" (change)="changeSkill($event)"  />
-                <button type="button" class="btn btn-primary" (click)="searchSkill()">
+              <div class="form-outline  d-inline-flex">
+                <input type="search" id="form1" class="form-control" (change)="changeSkill($event)"
+                  [(ngModel)]="searchBySkill" />
+                <button type="button" class="btn btn-primary ms-1" (click)="searchSkill()" id="search">
                   <i class="fa fa-search"></i>
+                </button>
+                <button type="button" class="btn btn-outline-primary ms-1" id="reload">
+                  <i class="fa fa-refresh" aria-hidden="true" (click)="reloadPage()"></i>
                 </button>
               </div>
             </div>
           </td>
           <td>
             <div class="input-group">
-              <div class="form-outline  d-inline-flex px-2">
-                <input type="search" id="form1" class="form-control" (change)="changeEmp($event)"  />
-                <button type="button" class="btn btn-primary" (click)="searchEmp()">
+              <div class="form-outline  d-inline-flex">
+                <input type="search" id="form1" class="form-control" (change)="changeEmp($event)"
+                  [(ngModel)]="searchByEmp" />
+                <button type="button" class="btn btn-primary ms-1" (click)="searchEmp()" id="search">
                   <i class="fa fa-search"></i>
+                </button>
+                <button type="button" class="btn btn-outline-primary ms-1" id="reload">
+                  <i class="fa fa-refresh" aria-hidden="true" (click)="reloadPage()"></i>
                 </button>
               </div>
             </div>
           </td>
           <td>
             <div class="input-group">
-              <div class="form-outline  d-inline-flex px-2">
-                <input type="search" id="form1" class="form-control" (change)="changeCourse($event)"  />
-                <button type="button" class="btn btn-primary" (click)="searchCourse()">
+              <div class="form-outline  d-inline-flex">
+                <input type="search" id="form1" class="form-control" (change)="changeCourse($event)"
+                  [(ngModel)]="searchByCourse" />
+                <button type="button" class="btn btn-primary ms-1" (click)="searchCourse()" id="search">
                   <i class="fa fa-search"></i>
+                </button>
+                <button type="button" class="btn btn-outline-primary ms-1" id="reload">
+                  <i class="fa fa-refresh" aria-hidden="true" (click)="reloadPage()"></i>
                 </button>
               </div>
             </div>
@@ -107,11 +123,11 @@
         </tr>
       </tbody>
       <tbody>
-        <tr *ngFor="let trainer of trainersList" >
-          <td scope="row">{{trainer.trainerName}}</td>
-          <td>{{trainer.skill}}</td>
-          <td>{{trainer.typeOfEmp}}</td>
-          <td>{{trainer.course}}</td>
+        <tr *ngFor="let trainer of trainersList">
+          <td scope="row" class="text-uppercase" >{{trainer.trainerName}}</td>
+          <td class="text-uppercase">{{trainer.skill}}</td>
+          <td class="text-uppercase">{{trainer.typeOfEmp}}</td>
+          <td class="text-uppercase">{{trainer.course}}</td>
         </tr>
       </tbody>
     </table>
