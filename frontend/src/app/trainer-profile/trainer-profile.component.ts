@@ -54,8 +54,9 @@ export class TrainerProfileComponent implements OnInit {
   ngOnInit(): void {
  
  // let id=localStorage.getItem('id');
-  let emailId="akhila8612@gmail.com";
-    this.trainerService.getTrainerDetails(emailId)
+ // let emailId="akhila8612@gmail.com";
+ let token = localStorage.getItem("token")
+    this.trainerService.getTrainerdata(token)
          .subscribe((data) => {
         this.trainerData =data;
       })

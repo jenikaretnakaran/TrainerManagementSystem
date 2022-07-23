@@ -86,7 +86,7 @@
                 <div class="col-1"></div>
                 <div class="col-3 "><label for="course">ICTAK Courses Handling</label></div>
                 <div class="col-6 ">
-                    <select class="selectpicker form-control" required multiple aria-label="size 3 select example" name="course" [(ngModel)]="course">
+                    <select class="selectpicker" required multiple aria-label="size 3 select example" name="course" [(ngModel)]="course">
                         
                         <option *ngFor="let i of courses"  [ngValue]="i">{{i}}</option>                   
                     </select>
