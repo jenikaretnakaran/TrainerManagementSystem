@@ -93,8 +93,8 @@ reloadPage(){
 
 }
 
-directApprove(){
-  this.router.navigate(['/admin/allocate'])
-}
+// directApprove(){
+//   this.router.navigate(['/admin/allocate'])
+// }
 
 }

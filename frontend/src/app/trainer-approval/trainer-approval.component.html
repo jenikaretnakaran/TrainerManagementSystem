@@ -25,7 +25,13 @@
                             <div class="col-md-12"><label class="labels">Skill set</label><input type="text" class="form-control" value="{{trainerData.skill}}"></div>
                             <div class="col-md-12"><label class="labels">Current companyname</label><input type="text" class="form-control" value="{{trainerData.companyName}}"></div>
                             <div class="col-md-12"><label class="labels">Current designation</label><input type="text" class="form-control" value="{{trainerData.designation}}"></div>
-                            <div class="col-md-12"><label class="labels">ICTAK course</label><input type="text" class="form-control" value="{{trainerData.course}}"></div>
+                            <!-- <div class="col-md-12"><label class="labels">ICTAK course</label><input type="text" class="form-control" value="{{trainerData.course}}"></div> -->
+                            <div class="col-md-12" id="formfield">
+                                <label class="labels py-2">Courses</label>
+                                <select class="selectpicker" class="form-control" required multiple aria-label="size 3 select example" name="course" [(ngModel)]="courses">
+                                    <option *ngFor="let i of courses"  [ngValue]="i">{{i}}</option>                   
+                                </select>
+                              </div>
                             <div class="col-md-12" id="formfield">
                               <label class="labels py-2">Type of employment</label>
                               <mat-form-field appearance="standard" id="outline">

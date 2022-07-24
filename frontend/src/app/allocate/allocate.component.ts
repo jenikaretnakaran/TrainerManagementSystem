@@ -54,7 +54,6 @@ allocateData=[];
     this.adminservice.dateSchedule(email).subscribe((data)=>{
       this.allocateData=JSON.parse(JSON.stringify(data));
       console.log(this.allocateData);
-      let length=this.allocateData.length;
     })
   }
 

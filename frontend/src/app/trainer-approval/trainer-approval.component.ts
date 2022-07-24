@@ -36,6 +36,8 @@ export class TrainerApprovalComponent implements OnInit {
     {value:"industryexpert", viewValue:"IndustryExpert"}
   ];
 
+  courses:any=[];
+
   constructor(private adminservice:AdminService,private router:Router) { }
 
   ngOnInit(): void 
@@ -43,6 +45,8 @@ export class TrainerApprovalComponent implements OnInit {
     let approveId=localStorage.getItem("approveRequestId");
     this.adminservice.getRequest(approveId).subscribe((data)=>{
       this.trainerData=JSON.parse(JSON.stringify(data));
+      this.courses=(this.trainerData.course).split(",");
+      console.log(this.courses);
     })
   }
 
