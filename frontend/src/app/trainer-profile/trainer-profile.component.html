@@ -11,34 +11,43 @@
             <form (ngSubmit)="editProfile()">
             <div class="row "  >
                 <div class="col-1 "></div>
-                <div class="col-4 " ><div class="container border">
+                <div class="col-4 " ><div class="container ">
                     <h1 class="text-center display-4"></h1>
                     <div class="row" >
-                        <div class="col " style="align-items: center; align-content: center; height: 300px; ">
-                            <figure class="avatar" style="margin-left: 45%; height: 20vh ; ">   <div >                               
+                        <div class="col " style="align-items: center; align-content: center;  ">
+                          <!--  <figure class="avatar" style="margin-left: 15vh; height: 25vh ; ">   <div >                               
                             
-                                 <img  src="{{imagePath}}/{{trainerData.image}}" class="coverview">
+                                 <img  src="{{imagePath}}/{{trainerData.image}}" class="coverview" alt="image">
                     
-                                  <!---  <img *ngIf='isNewImage' [src]="url" class="coverview">-->
-                                    </div>
-                                  </figure>
+                                   <img *ngIf='isNewImage' [src]="url" class="coverview">-->
+                                  <!--  </div>
+                                  </figure>-->
                             <!--<div class="row " style="margin-left: 20%;">
                                 <div class="col"> <img [src]="url" alt="image" class="rounded-circle" 
                                     [style.width.px]='imageWidth'
                                     [style.margin.px]="imageMargin"></div>
                             </div>-->
+                            <div class="text-center mb-4">
+                                <img src="{{trainerData.image}}" alt="image" class="rounded-circle" 
+                                                [style.width.px]='imageWidth'
+                                                [style.margin.px]="imageMargin">
+            
+                                              
+                            </div>
+<div style=" text-align: center;">
                             <div class="row  form-group box">
-                                <div class="col" >ID : {{trainerData.id}}</div>
+                                <div class="col" ><strong>ID  : </strong> {{trainerData.id}}</div>
                             </div> 
                             <div class="row box">
-                                <div class="col ">Name: {{trainerData.trainerName}}
+                                <div class="col "><strong>Name : </strong> {{trainerData.trainerName}}
                                     <!--<input class="form-control" type="text" name="trainerName"  #trainerName="ngModel" disabled  [(ngModel)]="TrainerDetails.trainerName"  > -->
                                   
                                 </div>
                             </div>
                             <div class="row box">
-                                <div class="col">Email Id: {{trainerData.email}}
+                                <div class="col"><strong>Email Id :</strong> {{trainerData.email}}
                                     
+                                </div>
                                 </div>
                             </div>
                             <div class="row box">
@@ -69,7 +78,7 @@
                                 <div class="col"><label>Employment Type</label><input type="text" class="form-control" disabled value="{{trainerData.typeOfEmp}}"></div>
                             </div>
                             <div class="row box">
-                                <div class="col"><label>Course handling</label>
+                                <div class="col"><label>Course Handling</label>
                                     <input type="text" class="form-control" disabled value="{{trainerData.course}}">
                                     <!--<select *ngFor="let course of {{trainer.course}}">
                                         <option>{{course}}</option>
@@ -84,8 +93,8 @@
                
                 <div class="col-2 "></div>
                 
-            </div>
-            <div class="form-submit submitme">
+            </div><br>
+            <div class="form-submit submitme ">
              
                 <button type="submit" value="Submit" class="submit" id="submit" name="submit"  >Edit Profile</button>
                
