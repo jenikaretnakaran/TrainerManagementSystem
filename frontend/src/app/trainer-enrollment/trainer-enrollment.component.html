@@ -4,7 +4,7 @@
         <div class="col-12 title">{{title}}</div>
      </div>
         <div class="home-content">
-        <div class="signup-form">
+        <div class="signup-form" >
         <form (ngSubmit)="addRequest()" class="register-form"  #trainerEnroll="ngForm" ngNativeValidate>
             
             <div class="row form-group box">
@@ -19,14 +19,14 @@
              </div> 
             
             
-             <div class="row form-group box">
+             <div class="row form-group box" >
                 <div class="col-1 "></div>
                 <div class="col-3 "><label for="trainerName" class="required">Name</label></div>
                 <div class="col-5 form-input"> <input type="text" class="form-control" name="trainerName" id="trainerName" [(ngModel)]="trainerName" required/></div>
                 <div class="col-3 "></div>
             </div>
     
-            <div class="row form-group box">
+            <div class="row form-group box" >
                 <div class="col-1 "></div>
                 <div class="col-3 "><label for="email" class="required">Email</label></div>
                 <div class="col-5 form-input"><input type="email" class="form-control" name="email" id="email" [(ngModel)]="email" disabled  required/></div>

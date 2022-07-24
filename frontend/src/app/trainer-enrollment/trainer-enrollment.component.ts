@@ -18,32 +18,17 @@ export class TrainerEnrollmentComponent implements OnInit {
   ngOnInit(): void {
   }
   courses=[
-   ('CERTIFIED XR ASSOCIATE'),
-   ('CERTIFIED CYBER SECURITY ANALYST'),
-   ('CERTIFIED SPECIALIST IN FULL STACK DEVELOPMENT'),
-   ('CERTIFIED SPECIALIST INs DATA SCIENCE & ANALYTICS'),
-   ('MICRO SKILLS TRAINING ON ROBOTIC PROCESS AUTOMATION'),
-   ('MICRO SKILLS TRAINING ON DIGITAL MARKETING AND SEO'),
-   ('CERTIFIED SPECIALIST IN MACHINE LEARNING AND ARTIFICIAL INTELLIGENCE'),
-   ('MOODLE'),
-   ('ARM EMBEDDED SYSTEMS'),
-   ('IOT FOR ENGINEERING APPLICATIONS'),
-   ('AWS EDUCATE')
+   ('Certified Specialist in ML-AI'),
+   ('Certified Specialist In FSD (MEAN)'),
+   ('Certified Specialist in Software Testing'),
+   ('Certified Specialist in Data Science & Analytics'),
+   ('Certified Specialist in Robotic Process Automation'),
+   ('Certified Cyber Security Analyst'),
+   ('Certified Specialist in Digital Marketing'),
+   ('Certified Specialist In FSD (MERN)'),
+   
   ]
-  /*courses: any = [
-    {name:'CERTIFIED XR ASSOCIATE', id:1, selected:false}, 
-    {name:'CERTIFIED CYBER SECURITY ANALYST', id:2, selected:false},
-    {name:'CERTIFIED SPECIALIST IN FULL STACK DEVELOPMENT', id:3, selected:false},  
-    {name:'CERTIFIED SPECIALIST INs DATA SCIENCE & ANALYTICS', id:4, selected:false},
-    {name:'MICRO SKILLS TRAINING ON ROBOTIC PROCESS AUTOMATION', id:5, selected:false}, 
-    {name:'MICRO SKILLS TRAINING ON DIGITAL MARKETING AND SEO', id:6, selected:false},
-    {name:'CERTIFIED SPECIALIST IN MACHINE LEARNING AND ARTIFICIAL INTELLIGENCE', id:7, selected:false},  
-    {name:'MOODLE', id:8},
-    {name:'ARM EMBEDDED SYSTEMS', id:9}, 
-    {name:'IOT FOR ENGINEERING APPLICATIONS', id:10},
-    {name:'AWS EDUCATE', id:11}  
-     ]
-*/
+  
   trainerName="";
   address="";
   email:any=localStorage.getItem('email');

@@ -42,7 +42,11 @@ export class TrainerProfileComponent implements OnInit {
   typeOfEmp:""
   
 }*/
-Id = localStorage.getItem("token")
+Id = localStorage.getItem("token");
+imageWidth : number =180;
+imageMargin :number =25;
+
+
   constructor(public route:Router,public trainerService:TrainerService,public authService:AuthService) 
   { 
    
