@@ -86,7 +86,7 @@ app.get('/approveRequest/:id', (req, res) => {
 
     let trainerName = req.body.trainerName;
     let typeOfEmp = req.body.typeOfEmp;
-    let id =  Math.random().toString(16) + "_"+ trainerName.concat(typeOfEmp).toUpperCase()+Math.random().toString(16);
+    let id = Math.floor(Math.random().toString(16) )+ "_"+ trainerName.concat(typeOfEmp).toUpperCase();
     let approvedTrainer = {
       trainerName: req.body.trainerName,
       address: req.body.address,
@@ -94,7 +94,7 @@ app.get('/approveRequest/:id', (req, res) => {
       phone: req.body.phone,
       qualification: req.body.qualification,
       skill: req.body.skill,
-      company: req.body.company,
+      companyName: req.body.companyName,
       designation: req.body.designation,
       course: req.body.course,
       image: req.body.image,
