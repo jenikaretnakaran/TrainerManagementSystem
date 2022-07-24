@@ -28,9 +28,11 @@
                             <!-- <div class="col-md-12"><label class="labels">ICTAK course</label><input type="text" class="form-control" value="{{trainerData.course}}"></div> -->
                             <div class="col-md-12" id="formfield">
                                 <label class="labels py-2">Courses</label>
-                                <select class="selectpicker" class="form-control" required multiple aria-label="size 3 select example" name="course" [(ngModel)]="courses">
-                                    <option *ngFor="let i of courses"  [ngValue]="i">{{i}}</option>                   
-                                </select>
+                                <select   [(ngModel)]="trainerData.course" aria-label="size 3 select example" name="course" class="p-2" >
+                                    <option *ngFor="let course of trainerData.course?.split(',')"  [value]="course">
+                                      {{course}}
+                                  </option>
+                                  </select>
                               </div>
                             <div class="col-md-12" id="formfield">
                               <label class="labels py-2">Type of employment</label>
@@ -49,7 +51,9 @@
             </div>
         </form>
         
-    </div>  
+    </div>   <!-- <select class="selectpicker" class="form-control" required multiple aria-label="size 3 select example" name="course" [(ngModel)]="courses">
+        <option *ngFor="let i of courses"  [ngValue]="i">{{i}}</option>                   
+    </select> -->
 
 
 

@@ -86,7 +86,7 @@ app.get('/approveRequest/:id', (req, res) => {
 
     let trainerName = req.body.trainerName;
     let typeOfEmp = req.body.typeOfEmp;
-    let id = Math.floor(Math.random().toString(16) )+ "_"+ trainerName.concat(typeOfEmp).toUpperCase();
+    let id = Math.random().toString(16)+ "_"+ trainerName.concat(typeOfEmp).toUpperCase();
     let approvedTrainer = {
       trainerName: req.body.trainerName,
       address: req.body.address,
