@@ -7,6 +7,9 @@ const trainerdata=require("../model/trainerdata.js");
 const multer = require('multer');
 const ImageDataURI = require('image-data-uri');
 const jwt = require ("jsonwebtoken");
+const path= require("path");
+
+app.use(express.json({ limit: '50mb'}));
 
 
 app.use(express.static('public'));
@@ -19,7 +22,7 @@ var storage = multer.diskStorage({
       cb(null, './public/images/requests')
     },
     filename: function (req, file, cb) {
-      cb(null, file.originalname)
+      cb(null, Date.now() + path.extname(file.originalname))
     }
   });
 

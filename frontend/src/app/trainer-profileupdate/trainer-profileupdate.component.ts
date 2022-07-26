@@ -9,10 +9,15 @@ import { TrainerService } from '../trainer.service';
 })
 export class TrainerProfileupdateComponent implements OnInit {
 
-  imageWidth : number =110;
+  isNewImage: boolean = false;
+  imageWidth : number =150;
   imageMargin :number =15;
+  url:any="";
 
-  tempdata = localStorage.getItem("email")
+  tempdata = localStorage.getItem("email");
+
+  imagePath = "http://localhost:3000/images/requests"; 
+
 
   trainer={
 
@@ -28,13 +33,32 @@ export class TrainerProfileupdateComponent implements OnInit {
     designation:"",
     course:"",
     image:"",
-    typeOfEmp:""
+    typeOfEmp:"",
+    url:"",
 
   }
 
   Id = localStorage.getItem("token")
 
   constructor(private trainerservice:TrainerService ,  private route:Router) { }
+
+  onFileSelected(event: any) {
+    if (event.target.files) {
+      var reader = new FileReader();
+      this.isNewImage = true;
+      reader.readAsDataURL(event.target.files[0]);
+      reader.onload = (e: any) => {
+        this.trainer.url = e.target.result;
+        console.log(this.trainer.url);
+        this.isNewImage = true;
+
+      }
+
+    }
+
+  }
+
+
 
   ngOnInit(): void {
     this.trainerservice.getTrainerdata(this.Id).subscribe((data)=>{

@@ -30,6 +30,8 @@ export class TrainerApprovalComponent implements OnInit {
     
   }
 
+  path= "http://localhost:3000/images/requests";
+
   emp: employment[]=[
     {value:"internal", viewValue:"Internal"},
     {value:"empanelled", viewValue:"Empanelled"},

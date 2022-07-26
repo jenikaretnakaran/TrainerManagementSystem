@@ -4,10 +4,15 @@ const express = require("express");
 const app = express();
 const mongoose= require('mongoose');
 const cors=require("cors");
+const path = require("path")
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
+
+app.use(express.static(path.join(__dirname, 'public')))
+app.use('/public', express.static('public'));
 
 const adminRoutes =require("./routes/admin")
 const loginRoutes =require("./routes/login");
