@@ -5,7 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input'
 import { MatSelectModule } from '@angular/material/select'
 import { MatFormFieldModule} from '@angular/material/form-field';
-import { BrowserAnimationsModule} from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -37,6 +38,7 @@ import { AdminService } from './admin.service';
 import { AuthService } from './auth.service';
 import { TrainerService } from './trainer.service';
 import { TrainerProfileupdateComponent } from './trainer-profileupdate/trainer-profileupdate.component';
+import { CreateEventComponent } from './create-event/create-event.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +68,8 @@ import { TrainerProfileupdateComponent } from './trainer-profileupdate/trainer-p
     AllocatedlistComponent,
     AllocateComponent,
     TrainerComponent,
-    TrainerProfileupdateComponent
+    TrainerProfileupdateComponent,
+    CreateEventComponent
 
 
   ],
@@ -78,7 +81,8 @@ import { TrainerProfileupdateComponent } from './trainer-profileupdate/trainer-p
     HttpClientModule,
     MatInputModule,
     MatSelectModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    NgMultiSelectDropDownModule.forRoot()
   ],
   providers: [AuthService,TrainerService,AdminService],
   bootstrap: [AppComponent]

@@ -8,7 +8,7 @@ const allocatedSchema= new schema({
     phone:String,
     startDate:String,
     endDate:String,
-    time:String,
+    Time:String,
     course:String,
     courseId:String,
     batchId:String,

@@ -6,6 +6,7 @@ const nodemailer=require("nodemailer");
 const enrollmentdata=require("../model/enrollmentdata");
 const trainerdata=require("../model/trainerdata.js");
 const allocateddata=require("../model/allocateddata");
+const coursedata=require("../model/coursedata")
 
 // dashboard
 
@@ -86,6 +87,7 @@ app.get('/approveRequest/:id', (req, res) => {
 
     let trainerName = req.body.trainerName;
     let typeOfEmp = req.body.typeOfEmp;
+    let course=req.body.course;
     let id = Math.random().toString(16)+ "_"+ trainerName.concat(typeOfEmp).toUpperCase();
     let approvedTrainer = {
       trainerName: req.body.trainerName,
@@ -141,11 +143,27 @@ app.get('/approveRequest/:id', (req, res) => {
         console.log("email sent " + info.response)
       }
     })
-    enrollmentdata.findOneAndDelete({ _id: trainerEmail._id })
-      .then(() => {
-        console.log('successfully deleted from enrollment list')
-        res.send();
-      })
+    // enrollmentdata.findOneAndDelete({ _id: trainerEmail._id })
+    //   .then(() => {
+    //     console.log('successfully deleted from enrollment list')
+    //     res.send();
+    //   })
+
+    enrollmentdata.findOne({ _id: trainerEmail._id })
+    .then((data)=>{
+        let courseList=data.course.split(",");
+        console.log(courseList);
+        courseList=courseList.filter(p => p!==approvedtrainer.course).join(",");
+        console.log(courseList);
+        data.course=courseList;
+        console.log(data.course);
+        let newApprovedTrainer= new enrollmentdata(data);
+        newApprovedTrainer.save();
+        res.send(data);
+
+
+    })
+
   });
 
   //trainerRequests
@@ -203,13 +221,39 @@ app.get("/getTrainersList",(req,res)=>{
       });
  }) 
 
- app.post('/dateSchedule',(req,res)=>{
-  email=req.body.email;
-  allocateddata.find({email:email}).then((data)=>{
+ app.get('/dateSchedule/:email',(req,res)=>{
+  res.header("Access-Control-Allow-Origin", "*")
+  res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
+  let email=req.params.email;
+  let course=req.body.course;
+  console.log(email);
+  allocateddata.findOne({email: email})
+  .then((data)=>{
     res.send(data);
   })
  })
 
+})
+
+//eventcreate
+app.get('/getCourses',(req,res)=>{
+  res.header("Access-Control-Allow-Origin", "*")
+  res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
+  coursedata.find({},{title:1,_id:0})
+  .then((data)=>{
+    res.send(data);
+  })
+})
+
+app.get('/selectedCourse/:course',(req,res)=>{
+  res.header("Access-Control-Allow-Origin", "*")
+  res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
+  courseid=req.params.course;
+  console.log(courseid);
+  trainerdata.find({course:courseid},{trainerName:1,_id:0})
+  .then((data)=>{
+    res.send(data)
+  })
 })
 
 
