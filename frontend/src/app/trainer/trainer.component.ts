@@ -26,7 +26,7 @@ export class TrainerComponent implements OnInit {
   }
 
   btnclk4(){
-    this.route.navigate(['/trainer/'])
+    this.route.navigate(['/trainer/schedule'])
   }
 
   btnclk5(){

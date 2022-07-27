@@ -124,7 +124,7 @@ app.get('/trainereditprofile/:id', function (req, res) {
 //Trainer ProfileEdit page update data
   app.put("/traineredit" , (req,res)=>{
 
-    console.log(req.body.data)
+    console.log(req.body)
 
     id=req.body.data._id,
     trainerName=req.body.data.trainerName,
@@ -138,10 +138,9 @@ app.get('/trainereditprofile/:id', function (req, res) {
     course=req.body.data.course,
     image=req.body.data.image,
     typeOfEmp=req.body.data.typeOfEmp
-   
- 
-     //console.log(id)
 
+  
+ 
    trainerdata.findByIdAndUpdate({"_id":id},
                                     {$set:{
                                         "trainerName":trainerName,
