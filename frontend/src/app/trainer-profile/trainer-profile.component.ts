@@ -20,18 +20,22 @@ export class TrainerProfileComponent implements OnInit {
   imagePath: string;
   isEditProfile: boolean = false;
   editProfileForm: any;
-  url:any="./assets/images/trainer.jpg";
+ // url:any="./assets/images/trainer.jpg";
   isNewImage: boolean;
   local: any;
-  trainerData:any;
+ // trainerData:any;
   mypic="";
   emailId="";
   courseHandling=[];
-  /*
-  {
+
+Id = localStorage.getItem("token");
+imageWidth : number =180;
+imageMargin :number =25;
+trainerData={
   trainerName:"",
-  email:"",
+  id:"",
   phone:"",
+  email:"",
   address:"",
   skill:"",
   qualification:"",
@@ -39,13 +43,10 @@ export class TrainerProfileComponent implements OnInit {
   designation:"",
   course:"",
   image:"",
-  typeOfEmp:""
-  
-}*/
-Id = localStorage.getItem("token");
-imageWidth : number =180;
-imageMargin :number =25;
+  typeOfEmp:"",
+ // url:"",
 
+}
 
   constructor(public route:Router,public trainerService:TrainerService,public authService:AuthService) 
   { 
@@ -53,7 +54,7 @@ imageMargin :number =25;
     this.imagePath = environment.imagePath;
     this.isNewImage = false;
   
-    console.log("image path==="+this.imagePath);
+   // console.log("image path==="+this.imagePath);
   }
   title:string="PROFILE";
   ngOnInit(): void {
@@ -63,7 +64,7 @@ imageMargin :number =25;
     this.trainerService.getTrainerdata(token)
          .subscribe((data) => {
         this.trainerData =JSON.parse(JSON.stringify(data))
-      
+       
       })
    
     }
