@@ -7,17 +7,11 @@
 
                 <div class="text-center mb-4">
 
-                  <img *ngIf='!isNewImage' src="{{imagePath}}/{{trainer.image}}" alt="image" class="rounded-circle" name="image" id="image" height="150vh" ngDefaultControl [(ngModel)]="trainer.image"
+                  <img src="{{imagePath}}/{{trainer.image}}" alt="image" class="rounded-circle" name="image" id="image" height="150vh"  
                   [style.width.px]='imageWidth'
                   [style.margin.px]="imageMargin">
 
-                  <img *ngIf='isNewImage' [src]="trainer.url" name="image" id="image" class="rounded-circle" 
-                  [style.width.px]='imageWidth'
-                  [style.margin.px]="imageMargin">
-
-
-                  <div class="text-center">            
-                    <input type="file"  name="trainerName" class="custom" id="image" accept="image/*"  (change)="onFileSelected($event)">                  </div>                 
+                                 
                 </div>
 
                 <div class="input-group mb-4">
