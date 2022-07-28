@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+// import { AnyARecord } from 'dns';
 
 @Injectable({
   providedIn: 'root'
@@ -66,8 +67,33 @@ getAllocateRequest(id){
 }
 
 dateSchedule(email){
-  return this.http.post("http://localhost:3000/api/dateSchedule",email);
+  return this.http.get("http://localhost:3000/api/dateSchedule/"+email);
 }
+
+// checkslot(data:any)
+// {
+// return this.http.post("http://localhost:3000/checkslot",data);
+// }
+//eventcreate
+getCourses(){
+  return this.http.get("http://localhost:3000/api/getCourses");
+}
+selectedCourse(course){
+  return this.http.get("http://localhost:3000/api/selectedCourse/"+course);
+}
+getDate(){
+  return this.http.get("http://localhost:3000/api/getDate")
+}
+getEndDate(){
+  return this.http.get("http://localhost:3000/api/getEndDate")
+}
+// getEmail(course){
+//   return this.http.get("http://localhost:3000/api/getEmail/"+course);
+// }
+allocatedData(data){
+  return this.http.post("http://localhost:3000/api/allocated",data)
+}
+
 }
 
 

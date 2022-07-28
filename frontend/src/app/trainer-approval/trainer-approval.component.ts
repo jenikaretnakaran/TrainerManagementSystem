@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AdminService } from '../admin.service';
-
-interface employment {
-  value: string;
-  viewValue: string;
-}
+import { IDropdownSettings } from 'ng-multiselect-dropdown';
+import { trainerDataModel } from '../models/trainerdata.model';
 
 @Component({
   selector: 'app-trainer-approval',
@@ -31,14 +28,9 @@ export class TrainerApprovalComponent implements OnInit {
   }
 
   path= "http://localhost:3000/images/requests";
-
-  emp: employment[]=[
-    {value:"internal", viewValue:"Internal"},
-    {value:"empanelled", viewValue:"Empanelled"},
-    {value:"industryexpert", viewValue:"IndustryExpert"}
-  ];
-
   courses:any=[];
+  employment:any=["Internal","Empanelled","Industry Expert"];
+  newList:any;
 
   constructor(private adminservice:AdminService,private router:Router) { }
 
@@ -48,12 +40,14 @@ export class TrainerApprovalComponent implements OnInit {
     this.adminservice.getRequest(approveId).subscribe((data)=>{
       this.trainerData=JSON.parse(JSON.stringify(data));
       this.courses=(this.trainerData.course).split(",");
-      console.log(this.courses);
+      this.trainerData.course='';
+      this.trainerData.typeOfEmp='Internal';  
     })
   }
 
   getApprove()
-  {
+  { 
+    this.trainerData.course=this.newList;
     this.adminservice.getApprove(this.trainerData);
     alert("Trainer Approved");
     this.router.navigate(['/admin']);

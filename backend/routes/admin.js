@@ -6,6 +6,9 @@ const nodemailer=require("nodemailer");
 const enrollmentdata=require("../model/enrollmentdata");
 const trainerdata=require("../model/trainerdata.js");
 const allocateddata=require("../model/allocateddata");
+const coursedata=require("../model/coursedata");
+const eventdata=require("../model/eventdata");
+// const eventData = require("../model/eventdata");
 
 // dashboard
 
@@ -38,7 +41,7 @@ app.get('/nameSearch/:name',(req,res)=>{
     res.header("Access-Control-Allow-Origin","*");
     res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE");
     let trainerName= req.params.name;
-    console.log(trainerName);
+    // console.log(trainerName);
     trainerdata.find({trainerName:trainerName}).then((data)=>{
         res.send(data);
       })
@@ -86,6 +89,7 @@ app.get('/approveRequest/:id', (req, res) => {
 
     let trainerName = req.body.trainerName;
     let typeOfEmp = req.body.typeOfEmp;
+    let course=req.body.course;
     let id = Math.random().toString(16)+ "_"+ trainerName.concat(typeOfEmp).toUpperCase();
     let approvedTrainer = {
       trainerName: req.body.trainerName,
@@ -141,11 +145,27 @@ app.get('/approveRequest/:id', (req, res) => {
         console.log("email sent " + info.response)
       }
     })
-    enrollmentdata.findOneAndDelete({ _id: trainerEmail._id })
-      .then(() => {
-        console.log('successfully deleted from enrollment list')
-        res.send();
-      })
+    // enrollmentdata.findOneAndDelete({ _id: trainerEmail._id })
+    //   .then(() => {
+    //     console.log('successfully deleted from enrollment list')
+    //     res.send();
+    //   })
+
+    enrollmentdata.findOne({ _id: trainerEmail._id })
+    .then((data)=>{
+        let courseList=data.course.split(",");
+        // console.log(courseList);
+        courseList=courseList.filter(p => p!==approvedtrainer.course).join(",");
+        // console.log(courseList);
+        data.course=courseList;
+        // console.log(data.course);
+        let newApprovedTrainer= new enrollmentdata(data);
+        newApprovedTrainer.save();
+        res.send(data);
+
+
+    })
+
   });
 
   //trainerRequests
@@ -203,14 +223,165 @@ app.get("/getTrainersList",(req,res)=>{
       });
  }) 
 
- app.post('/dateSchedule',(req,res)=>{
-  email=req.body.email;
-  allocateddata.find({email:email}).then((data)=>{
+ app.get('/dateSchedule/:email',(req,res)=>{
+  res.header("Access-Control-Allow-Origin", "*")
+  res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
+  let email=req.params.email;
+  let course=req.body.course;
+  console.log(email);
+  allocateddata.findOne({email: email})
+  .then((data)=>{
     res.send(data);
   })
  })
 
 })
 
+//eventcreate
+app.get('/getCourses',(req,res)=>{
+  res.header("Access-Control-Allow-Origin", "*")
+  res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
+  coursedata.find({},{title:1,_id:0})
+  .then((data)=>{
+    res.send(data);
+  })
+})
+
+app.get('/selectedCourse/:course',(req,res)=>{
+  res.header("Access-Control-Allow-Origin", "*")
+  res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
+  courseid=req.params.course;
+  // console.log(courseid);
+  trainerdata.find({course:courseid},{trainerName:1,_id:0})
+  .then((data)=>{
+    res.send(data)
+  })
+})
+
+
+app.get('/getDate',(req,res)=>{
+  res.header("Access-Control-Allow-Origin", "*")
+  res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
+  eventdata.find({},{startDate:1,_id:0})
+  .then((data)=>{
+    res.send(data);
+  })
+})
+
+app.get('/getEndDate',(req,res)=>{
+  res.header("Access-Control-Allow-Origin", "*")
+  res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
+  eventdata.find({},{endDate:1,_id:0})
+  .then((data)=>{
+    res.send(data);
+  })
+})
+
+
+app.post('/allocated', async (req,res)=>{
+  res.header("Access-Control-Allow-Origin", "*")
+  res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
+  let allocatedData={
+    trainer:req.body.trainer,
+    associative:req.body.associative,
+    startDate:req.body.startDateTime,
+    endDate:req.body.endDateTime,
+    courseId:req.body.courseId,
+    batchId:req.body.batchId,
+    meetingLink:req.body.meetingLink,
+    course:req.body.course,
+    eStart:req.body.eStart,
+    eEnd:req.body.eEnd
+  }
+
+  let approvedSession=  new eventdata(allocatedData);
+  approvedSession.save();
+
+  let traineremail= await trainerdata.findOne({trainerName:allocatedData.trainer},{email:1,_id:0});
+  let associativemail= await trainerdata.findOne({trainerName:allocatedData.associative},{email:1,_id:0});
+ 
+  tEmail=String(traineremail['email']);
+  aEmail=String(associativemail['email']);
+
+  var transport = nodemailer.createTransport(
+    {
+      service: 'gmail',
+      auth: {
+        user: 'ictak2022@gmail.com',
+        pass: 'xxuantsnvdvlqhyo'
+      }
+    }
+  )
+
+  var mailOptions = {
+
+    from: 'ictak2022@gmail.com',
+    to: tEmail,
+    subject: 'Session Schedule',
+    text: `Mr/Ms. ${approvedSession.trainer}
+             
+    Training Session Details
+
+              COURSE:${approvedSession.course}
+              DATE & TIME: ${approvedSession.eStart} to  ${approvedSession.eEnd}
+              ASSOCIATIVE TRAINER:${approvedSession.associative}
+              COURSEID: ${approvedSession.courseId};
+              BATCHID: ${approvedSession.batchId};
+              MEETINGLINK: ${approvedSession.meetingLink}
+            
+    Happy Teaching...              
+    Please contact us regarding any query.
+
+    Thanks and Regards,
+    ICTAK TEAM
+    `
+  }
+  transport.sendMail(mailOptions, function (error, info) {
+    if (error) {
+      console.log(error + " error in senting email")
+    }
+    else {
+      console.log("email sent " + info.response)
+    }
+  })
+
+  var mailOptionsTrainer = {
+
+    from: 'ictak2022@gmail.com',
+    to: aEmail,
+    subject: 'Session Schedule',
+    text: `Mr/Ms. ${approvedSession.associative}
+             
+    Training Session Details
+    
+              COURSE: ${approvedSession.course}
+              DATE & TIME: ${approvedSession.eStart} to  ${approvedSession.eEnd}
+              TRAINER: ${approvedSession.trainer}
+              COURSEID: ${approvedSession.courseId}
+              BATCHID: ${approvedSession.batchId}
+              MEETINGLINK: ${approvedSession.meetingLink}
+
+    Happy Teaching...              
+    Please contact us regarding any query.
+
+    Thanks and Regards,
+    ICTAK TEAM
+    `
+  }
+  transport.sendMail(mailOptionsTrainer, function (error, info) {
+    if (error) {
+      console.log(error + " error in senting email")
+    }
+    else {
+      console.log("email sent " + info.response)
+    }
+  })
+
+  eventdata.find(approvedSession)
+  .then((data)=>{
+    res.send(data);
+  })
+
+})
 
   module.exports=app;

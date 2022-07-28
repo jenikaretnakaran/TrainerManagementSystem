@@ -5,10 +5,12 @@ import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input'
 import { MatSelectModule } from '@angular/material/select'
 import { MatFormFieldModule} from '@angular/material/form-field';
-import { BrowserAnimationsModule} from '@angular/platform-browser/animations'
+// import { BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import { FullCalendarModule } from '@fullcalendar/angular';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction'; 
+import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -47,6 +49,7 @@ FullCalendarModule.registerPlugins([
   dayGridPlugin,
   interactionPlugin
 ]);
+import { CreateEventComponent } from './create-event/create-event.component';
 
 @NgModule({
   declarations: [
@@ -77,7 +80,8 @@ FullCalendarModule.registerPlugins([
     AllocateComponent,
     TrainerComponent,
     TrainerProfileupdateComponent,
-    ScheduleComponent
+    ScheduleComponent,
+    CreateEventComponent
 
 
   ],
@@ -90,7 +94,8 @@ FullCalendarModule.registerPlugins([
     MatInputModule,
     MatSelectModule,
     MatFormFieldModule,
-    FullCalendarModule
+    FullCalendarModule,
+    NgMultiSelectDropDownModule.forRoot()
   ],
   providers: [AuthService,TrainerService,AdminService],
   bootstrap: [AppComponent]

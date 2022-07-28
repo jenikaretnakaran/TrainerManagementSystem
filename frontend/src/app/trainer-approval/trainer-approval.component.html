@@ -18,31 +18,30 @@
                             <h4 class="text-right">TRAINER DETAILS</h4>
                         </div>
                         <div class="row mt-3">
-                            <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" class="form-control" value="{{trainerData.phone}}"></div>
-                            <div class="col-md-12"><label class="labels">Address</label><input type="text" class="form-control" value="{{trainerData.address}}"></div>
-                            <div class="col-md-12"><label class="labels">Email ID</label><input type="text" class="form-control" value="{{trainerData.email}}"></div>
-                            <div class="col-md-12"><label class="labels">Highest qualification</label><input type="text" class="form-control" value="{{trainerData.qualification}}"></div>
-                            <div class="col-md-12"><label class="labels">Skill set</label><input type="text" class="form-control" value="{{trainerData.skill}}"></div>
-                            <div class="col-md-12"><label class="labels">Current companyname</label><input type="text" class="form-control" value="{{trainerData.companyName}}"></div>
-                            <div class="col-md-12"><label class="labels">Current designation</label><input type="text" class="form-control" value="{{trainerData.designation}}"></div>
-                            <!-- <div class="col-md-12"><label class="labels">ICTAK course</label><input type="text" class="form-control" value="{{trainerData.course}}"></div> -->
+                            <div class="col-md-12"><label class="labels">MOBILE NUMBER</label><input type="text" class="form-control" value="{{trainerData.phone}}"></div>
+                            <div class="col-md-12"><label class="labels">ADDRESS</label><input type="text" class="form-control" value="{{trainerData.address}}"></div>
+                            <div class="col-md-12"><label class="labels">EMAIL ID</label><input type="text" class="form-control" value="{{trainerData.email}}"></div>
+                            <div class="col-md-12"><label class="labels">QUALIFICATION</label><input type="text" class="form-control" value="{{trainerData.qualification}}"></div>
+                            <div class="col-md-12"><label class="labels">SKILL SET</label><input type="text" class="form-control" value="{{trainerData.skill}}"></div>
+                            <div class="col-md-12"><label class="labels">CURRENT COMPANYNAME</label><input type="text" class="form-control" value="{{trainerData.companyName}}"></div>
+                            <div class="col-md-12"><label class="labels">CURRENT DESIGNATION</label><input type="text" class="form-control" value="{{trainerData.designation}}"></div>
                             <div class="col-md-12" id="formfield">
-                                <label class="labels py-2">Courses</label>
-                                <select   [(ngModel)]="trainerData.course" aria-label="size 3 select example" name="course" class="p-2" >
-                                    <option *ngFor="let course of trainerData.course?.split(',')"  [value]="course">
-                                      {{course}}
+                                <label class="labels py-2">COURSES</label>
+                                <select [(ngModel)]="newList" class="p-2" [ngModelOptions]="{standalone: true}" #course="ngModel" required >
+                                    <option *ngFor="let course of courses" [ngValue]="course">
+                                    {{course}}
                                   </option>
                                   </select>
+                                  
                               </div>
+
                             <div class="col-md-12" id="formfield">
-                              <label class="labels py-2">Type of employment</label>
-                              <mat-form-field appearance="standard" id="outline">
-                                <select matNativeControl [(ngModel)]="trainerData.typeOfEmp" name="employment" class="p-2" >
-                                  <option *ngFor="let empselect of emp" [value]="empselect.value" >
-                                    {{empselect.viewValue}}
-                                </option>
-                                </select>
-                              </mat-form-field>
+                                <label class="labels py-2">TYPE OF EMPLOYMENT</label>
+                                <select [(ngModel)]="trainerData.typeOfEmp" class="p-2" required  #emp="ngModel" [ngModelOptions]="{standalone: true}">
+                                    <option *ngFor="let emp of employment" [ngValue]="emp">
+                                    {{emp}}
+                                    </option>
+                              </select>
                             </div>
                         </div>
                         <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit">APPROVE</button></div>
@@ -51,10 +50,7 @@
             </div>
         </form>
         
-    </div>   <!-- <select class="selectpicker" class="form-control" required multiple aria-label="size 3 select example" name="course" [(ngModel)]="courses">
-        <option *ngFor="let i of courses"  [ngValue]="i">{{i}}</option>                   
-    </select> -->
-
+    </div>   
 
 
 

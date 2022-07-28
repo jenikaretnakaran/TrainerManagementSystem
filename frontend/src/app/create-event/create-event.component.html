@@ -1,0 +1,90 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+    <i class="fa fa-th-list px-2 fs-2" aria-hidden="true"></i>
+    <h4 class="py-2 mt-2">CREATE SESSION</h4>
+</nav>
+
+<div class="d-flex justify-content-center">
+    <div class="formdata">
+        <form class="p-5" #session="ngForm" (ngSubmit)="onSubmit()">
+
+            <div>
+                <div class="row justify-content-around">
+
+                    <div class="col-11 col-md-5 mb-4 ">
+                        <label class="form-label">select course</label>
+                        <select  [(ngModel)]="eventdata.course"  class="form-select" aria-label="course selection" value="select" required name="courses" (click)="onCourseSelect(eventdata.course)" >
+                            <option *ngFor="let course of courses" [ngValue]="course">{{course}}</option>
+                        </select>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="row justify-content-around">
+
+                    <div class="col-11 col-md-5 mb-4 mx-3">
+                        <label class="form-label">select Trainer</label>
+                        <select [(ngModel)]="eventdata.trainer"  class="form-select" aria-label="Default select example" value="select" required name="trainer">
+                            <option *ngFor="let trainer of trainerdata" [ngValue]="trainer" >{{trainer}}</option>
+                        </select>
+                    </div>
+                    <div class="col-11 col-md-5 mb-4 mx-3">
+                        <label class="form-label">select Associate Trainer</label>
+                        <select [(ngModel)]="eventdata.associative"  class="form-select" aria-label="Default select example" value="select" required name="trainer">
+                            <option *ngFor="let trainer of trainerdata" [ngValue]="trainer" >{{trainer}}</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <form (ngSubmit)="checkDate()">
+                    <div class="row justify-content-around">
+
+                        <div class="col-11 col-md-5 mb-4 mx-3">
+                            <label class="form-label">Start Date</label>
+                            <input type="datetime-local" class="form-control" name="startDate" [(ngModel)]="startDate">
+                        </div>
+                        <div class="col-11 col-md-5 mb-4 mx-3">
+                            <label class="form-label">End Date</label>
+                            <input type="datetime-local" class="form-control" name="endDate" [(ngModel)]="endDate">
+                        </div>
+                        <div class="text-center mt-2">
+                            <button class="btn btn-primary profile-button me-2" type="submit" [disabled]="err">check availability</button>
+                            <button class="btn btn-primary profile-button" type="submit" (click)="reload()"><i class="fa-solid fa-arrows-rotate"></i></button>
+                        </div>
+                        <div class="text-center text-danger">{{errorMsg}}</div>
+                    </div>
+                   
+                </form>
+              
+                <div class="row justify-content-around">
+                    <div class="col-11 col-md-5 mb-4 mx-3">
+                        <label class="form-label">Batch ID</label>
+                        <select [(ngModel)]="eventdata.batchId"  class="form-select" aria-label="batch" value="batch" required name="batch" >
+                            <option *ngFor="let batch of batchIds" [ngValue]="batch" >{{batch}}</option>
+                        </select>
+                    </div>
+                    <div class="col-11 col-md-5 mb-4 mx-3">
+                        <label class="form-label">Course ID</label>
+                        <select [(ngModel)]="eventdata.courseId"  class="form-select" aria-label="batch" value="course" required name="course" >
+                            <option *ngFor="let course of courseIds" [ngValue]="course" >{{course}}</option>
+                        </select>
+                    </div>
+
+                </div>
+                 <div class="row justify-content-around">
+                    <div class="col-11 col-md-5 mb-4 mx-3">
+                        <label class="form-label">Meeting Link</label>
+                        <input type="text" class="form-control" name="meetingLink" [(ngModel)]="eventdata.meetingLink">
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="text-center mt-5">
+                <button class="btn btn-primary profile-button" type="submit" [disabled]="err">SUBMIT</button>
+            </div>
+
+        </form>
+    </div>
+
+</div>
+
