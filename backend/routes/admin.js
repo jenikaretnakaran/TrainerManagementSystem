@@ -6,7 +6,9 @@ const nodemailer=require("nodemailer");
 const enrollmentdata=require("../model/enrollmentdata");
 const trainerdata=require("../model/trainerdata.js");
 const allocateddata=require("../model/allocateddata");
-const coursedata=require("../model/coursedata")
+const coursedata=require("../model/coursedata");
+const eventdata=require("../model/eventdata");
+// const eventData = require("../model/eventdata");
 
 // dashboard
 
@@ -256,5 +258,42 @@ app.get('/selectedCourse/:course',(req,res)=>{
   })
 })
 
+// app.get('/getDate/:date',(req,res)=>{
+//   res.header("Access-Control-Allow-Origin", "*")
+//   res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
+//   startdate=req.params.date;
+//   eventdata.find({startDate:startdate},{startDate:1,_id:0})
+//   .then((data)=>{
+//     res.send(data);
+//   })
+// })
+
+// app.get('/getEndDate/:date',(req,res)=>{
+//   res.header("Access-Control-Allow-Origin", "*")
+//   res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
+//   enddate=req.params.date;
+//   eventdata.find({endDate:enddate},{endDate:1,_id:0})
+//   .then((data)=>{
+//     res.send(data);
+//   })
+// })
+
+app.get('/getDate',(req,res)=>{
+  res.header("Access-Control-Allow-Origin", "*")
+  res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
+  eventdata.find({},{startDate:1,_id:0})
+  .then((data)=>{
+    res.send(data);
+  })
+})
+
+app.get('/getEndDate',(req,res)=>{
+  res.header("Access-Control-Allow-Origin", "*")
+  res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
+  eventdata.find({},{endDate:1,_id:0})
+  .then((data)=>{
+    res.send(data);
+  })
+})
 
   module.exports=app;

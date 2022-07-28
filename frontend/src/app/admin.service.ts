@@ -81,6 +81,12 @@ getCourses(){
 selectedCourse(course){
   return this.http.get("http://localhost:3000/api/selectedCourse/"+course);
 }
+getDate(){
+  return this.http.get("http://localhost:3000/api/getDate")
+}
+getEndDate(){
+  return this.http.get("http://localhost:3000/api/getEndDate")
+}
 
 }
 
