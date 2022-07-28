@@ -87,6 +87,12 @@ getDate(){
 getEndDate(){
   return this.http.get("http://localhost:3000/api/getEndDate")
 }
+// getEmail(course){
+//   return this.http.get("http://localhost:3000/api/getEmail/"+course);
+// }
+allocatedData(data){
+  return this.http.post("http://localhost:3000/api/allocated",data)
+}
 
 }
 

@@ -18,8 +18,16 @@ export class CreateEventComponent implements OnInit {
   eventdata={
     trainer:"",
     associative:"",
+    tEmail:"",
+    aEmail:"",
     startDateTime:"",
-    endDateTime:""
+    endDateTime:"",
+    courseId:"",
+    batchId:"",
+    meetingLink:"",
+    course:"",
+    eStart:"",
+    eEnd:""
   }
   startDate;
   endDate;
@@ -30,7 +38,20 @@ export class CreateEventComponent implements OnInit {
   startstamp;
   endstamp;
   errorMsg;
-  err=false;
+  err;
+  email;
+
+  courseIds=[
+    "01_DSA",
+    "02_FSD",
+    "03_RPA"
+  ]
+
+  batchIds=[
+    "DSA001",
+    "DSA002",
+    "FSD001"
+  ]
   constructor(private adminservice:AdminService,private router:Router) { }
 
   ngOnInit(): void {
@@ -39,72 +60,88 @@ export class CreateEventComponent implements OnInit {
       this.coursedata=JSON.parse(JSON.stringify(data));
       this.courses=this.coursedata.map(({title})=>title);
     })
-  }
-onCourseSelect(course){
-  this.adminservice.selectedCourse(course)
-  .subscribe((data)=>{
-    this.trainers=JSON.parse(JSON.stringify(data));
-    // console.log(this.trainers);
-    this.trainerdata=this.trainers.map(({trainerName})=>trainerName)
-    // console.log(this.trainerdata);
-  })
-}
-checkDate(){
-  this.startstamp = Date.parse(this.startDate)
-  this.endstamp= Date.parse(this.endDate);
-  // console.log(this.startstamp);
-  // console.log(this.endstamp);
 
-//fetching startdate
+    //fetching startdate
   this.adminservice.getDate()
   .subscribe((data)=>{
     this.bookedStart=(JSON.parse(JSON.stringify(data))).map(({startDate})=>startDate);
     this.length=this.bookedStart.length;
-    // console.log(this.length);
   })
 
-  //fetching enddate
-  this.adminservice.getEndDate()
+   //fetching enddate
+   this.adminservice.getEndDate()
+   .subscribe((data)=>{
+     this.bookedEnd=(JSON.parse(JSON.stringify(data))).map(({endDate})=>endDate);
+   })
+
+  }
+
+onCourseSelect(course){
+  this.adminservice.selectedCourse(course)
   .subscribe((data)=>{
-    this.bookedEnd=(JSON.parse(JSON.stringify(data))).map(({endDate})=>endDate);
+    this.trainers=JSON.parse(JSON.stringify(data));
+    this.trainerdata=this.trainers.map(({trainerName})=>trainerName)
   })
-  // validatedates
-  if(this.startstamp===this.endstamp){
+  
+}
+checkDate(){
+  this.startstamp = Date.parse(this.startDate)
+  this.endstamp= Date.parse(this.endDate);
+  console.log("startstamp"+this.startstamp);
+  console.log("endstamp"+this.endstamp);
+
+// validatedates
+  if(this.startstamp===this.endstamp)
+  {
       this.errorMsg="Start date and End date should not be same";
       this.err=true;
-  } else if (this.startstamp>this.endstamp){
+  }
+   else if (this.startstamp>this.endstamp)
+  {
       this.errorMsg="invalid date and time"
       this.err=true;
-  } else if(this.startstamp<this.endstamp){
+  } 
+    else if(this.startstamp<this.endstamp){
 
         for( let len=0;len<this.length;len++)
         {
-            if(this.startstamp==this.bookedStart[len]){
-              this.errorMsg="slot unavailable1";
+          
+            if(this.startstamp===this.bookedStart[len]){
+              this.errorMsg="slot unavailable";
               this.err=true;
-            }else if (this.bookedStart[len]<this.startstamp<this.bookedEnd[len]){
-              this.errorMsg="slot unavailable2";
+            }
+            else if (this.startstamp>this.bookedStart[len] && this.startstamp<this.bookedEnd[len]){
+              this.errorMsg="slot unavailable";
               this.err=true;
-            }else if ((this.endstamp-this.startstamp)<3600000){
-              this.errorMsg="minimum 1 hr";
+            }
+            else if ((this.endstamp-this.startstamp)<3600000){
+              this.errorMsg=" session should be minimum of 1 hour";
               this.err=true;
-            }else {
-              console.log(this.startstamp);
-              console.log(this.endstamp);
+            }
+            else {
+              this.eventdata.startDateTime=this.startstamp;
+              this.eventdata.endDateTime=this.endstamp;
+              this.eventdata.eStart=this.startDate;
+              this.eventdata.eEnd=this.endDate;
             }
         }
+
   }   
-  // } else if (this.startunixtimestamp==this.bookedStart || this.endunixtimestamp==this.bookedEnd){
-  //     this.errorMsg="slot not available"
-  //     this.err=true;
-  // } else if (this.startunixtimestamp>this.bookedStart || this.startunixtimestamp<this.bookedEnd){
-  //     this.errorMsg="slot not available"
-  //     this.err=true;
-  // } else if((this.endunixtimestamp-this.startunixtimestamp)<3600000){
-  //     this.errorMsg="session should be minimum of 1 hour"
-  //     this.err=true;
-  // } else {
-  //    this.err=false;
+}
+reload(){
+  this.startDate="";
+  this.endDate="";
+  this.err=false;
+  this.errorMsg="";
+}
+
+onSubmit(){
+this.adminservice.allocatedData(this.eventdata)
+.subscribe((data)=>{
+  console.log(data);
+  alert("session created");
+  this.router.navigate(['/admin'])
+})
 }
 
 }
