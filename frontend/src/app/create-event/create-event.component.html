@@ -11,7 +11,7 @@
                 <div class="row justify-content-around">
 
                     <div class="col-11 col-md-5 mb-4 ">
-                        <label class="form-label">select course</label>
+                        <label class="form-label">SELECT COURSE</label>
                         <select  [(ngModel)]="eventdata.course"  class="form-select" aria-label="course selection" value="select" required name="courses" (click)="onCourseSelect(eventdata.course)" >
                             <option *ngFor="let course of courses" [ngValue]="course">{{course}}</option>
                         </select>
@@ -21,14 +21,14 @@
                 <div class="row justify-content-around">
 
                     <div class="col-11 col-md-5 mb-4 mx-3">
-                        <label class="form-label">select Trainer</label>
-                        <select [(ngModel)]="eventdata.trainer"  class="form-select" aria-label="Default select example" value="select" required name="trainer">
+                        <label class="form-label">SELECT TRAINER</label>
+                        <select [(ngModel)]="eventdata.trainer"  class="form-select" aria-label="Default select example" value="select" required name="trainer" required>
                             <option *ngFor="let trainer of trainerdata" [ngValue]="trainer" >{{trainer}}</option>
                         </select>
                     </div>
                     <div class="col-11 col-md-5 mb-4 mx-3">
-                        <label class="form-label">select Associate Trainer</label>
-                        <select [(ngModel)]="eventdata.associative"  class="form-select" aria-label="Default select example" value="select" required name="trainer">
+                        <label class="form-label">SELECT ASSOCIATE TRAINER</label>
+                        <select [(ngModel)]="eventdata.associative"  class="form-select" aria-label="Default select example" value="select" required name="trainer" >
                             <option *ngFor="let trainer of trainerdata" [ngValue]="trainer" >{{trainer}}</option>
                         </select>
                     </div>
@@ -39,15 +39,15 @@
                     <div class="row justify-content-around">
 
                         <div class="col-11 col-md-5 mb-4 mx-3">
-                            <label class="form-label">Start Date</label>
+                            <label class="form-label">START DATE&TIME</label>
                             <input type="datetime-local" class="form-control" name="startDate" [(ngModel)]="startDate">
                         </div>
                         <div class="col-11 col-md-5 mb-4 mx-3">
-                            <label class="form-label">End Date</label>
+                            <label class="form-label">END DATE&TIME</label>
                             <input type="datetime-local" class="form-control" name="endDate" [(ngModel)]="endDate">
                         </div>
                         <div class="text-center mt-2">
-                            <button class="btn btn-primary profile-button me-2" type="submit" [disabled]="err">check availability</button>
+                            <button class="btn btn-primary profile-button me-2" type="submit" [disabled]="err">Check Availability</button>
                             <button class="btn btn-primary profile-button" type="submit" (click)="reload()"><i class="fa-solid fa-arrows-rotate"></i></button>
                         </div>
                         <div class="text-center text-danger">{{errorMsg}}</div>
@@ -57,13 +57,13 @@
               
                 <div class="row justify-content-around">
                     <div class="col-11 col-md-5 mb-4 mx-3">
-                        <label class="form-label">Batch ID</label>
+                        <label class="form-label">BATCH ID</label>
                         <select [(ngModel)]="eventdata.batchId"  class="form-select" aria-label="batch" value="batch" required name="batch" >
                             <option *ngFor="let batch of batchIds" [ngValue]="batch" >{{batch}}</option>
                         </select>
                     </div>
                     <div class="col-11 col-md-5 mb-4 mx-3">
-                        <label class="form-label">Course ID</label>
+                        <label class="form-label">COURSE ID</label>
                         <select [(ngModel)]="eventdata.courseId"  class="form-select" aria-label="batch" value="course" required name="course" >
                             <option *ngFor="let course of courseIds" [ngValue]="course" >{{course}}</option>
                         </select>
@@ -72,7 +72,7 @@
                 </div>
                  <div class="row justify-content-around">
                     <div class="col-11 col-md-5 mb-4 mx-3">
-                        <label class="form-label">Meeting Link</label>
+                        <label class="form-label">MEETING LINK</label>
                         <input type="text" class="form-control" name="meetingLink" [(ngModel)]="eventdata.meetingLink">
                     </div>
 

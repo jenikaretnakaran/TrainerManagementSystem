@@ -54,7 +54,7 @@ export class AdminService {
    return this.http.get("http://localhost:3000/api/getTrainersList");
  }
  removeTrainer(id){
-  return this.http.delete("http://localhost:3000/api/removeTrainer"+id)
+  return this.http.delete("http://localhost:3000/api/removeTrainer/"+id)
  }
 
  //AllocatedList
@@ -70,11 +70,6 @@ dateSchedule(email){
   return this.http.get("http://localhost:3000/api/dateSchedule/"+email);
 }
 
-// checkslot(data:any)
-// {
-// return this.http.post("http://localhost:3000/checkslot",data);
-// }
-//eventcreate
 getCourses(){
   return this.http.get("http://localhost:3000/api/getCourses");
 }
@@ -87,9 +82,7 @@ getDate(){
 getEndDate(){
   return this.http.get("http://localhost:3000/api/getEndDate")
 }
-// getEmail(course){
-//   return this.http.get("http://localhost:3000/api/getEmail/"+course);
-// }
+
 allocatedData(data){
   return this.http.post("http://localhost:3000/api/allocated",data)
 }
