@@ -52,14 +52,9 @@ export class TrainerEnrollmentComponent implements OnInit {
     }
     
   }
+ 
   
   
-  /*isChange(value)
-  { 
-    console.log(value);
-         this.course.push({ name: value });
-        value = "";
-  }*/
   addRequest(){
     var formdata=new FormData();
     formdata.append("image",this.image);
@@ -79,6 +74,12 @@ export class TrainerEnrollmentComponent implements OnInit {
     
     this.route.navigate(['/trainer/confirmation'])
 
+  }
+
+  reload()
+  {
+    window.location.reload();
+ 
   }
 
 
