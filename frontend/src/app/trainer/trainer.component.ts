@@ -36,6 +36,7 @@ export class TrainerComponent implements OnInit {
 
 
   ngOnInit(): void {
+    let token = localStorage.getItem("email")
   }
 
 }
