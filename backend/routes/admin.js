@@ -309,6 +309,7 @@ app.post('/allocated', async (req,res)=>{
     eEnd:req.body.eEnd
   }
 
+  console.log(req.body);
 
   let traineremail= await trainerdata.findOne({trainerName:allocatedData.trainer},{email:1,_id:0});
  
@@ -419,7 +420,7 @@ app.post('/allocated', async (req,res)=>{
  
   await eventdata.find(approvedSession)
   .then((data)=>{
-    res.send(d);
+    res.send();
   })
 
 })
