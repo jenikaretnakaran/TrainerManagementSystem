@@ -197,7 +197,7 @@ app.get('/allocatedlist',(req, res)=> {
   res.header("Access-Control-Allow-Origin", "*")
   res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
 
-  allocateddata.find()
+  eventdata.find()
     .then( (data)=> {
       res.send(data);
     });

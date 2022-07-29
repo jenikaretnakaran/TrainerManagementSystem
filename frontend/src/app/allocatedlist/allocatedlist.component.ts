@@ -7,23 +7,32 @@ import { AdminService } from '../admin.service';
   styleUrls: ['./allocatedlist.component.css']
 })
 export class AllocatedlistComponent implements OnInit {
-  trainer=[{
-    trainerName:"",
+  trainerData=[{
+    trainer:"",
     course:"",
     batchId:"",
     name:"",
     startDate:"",
     endDate:"",
     time:"",
-    meetingLink:""
+    meetingLink:"",
+    eStart:"",
+    eEnd:"",
+    associative:""
     
   }]
-
+  sDate: any[] = [];
+  eDate: any[] = [];
   constructor(private admin:AdminService) { }
 
   ngOnInit(): void {
     this.admin.getAllocatedlist().subscribe((data)=>{
-      this.trainer=JSON.parse(JSON.stringify(data));
+      this.trainerData=JSON.parse(JSON.stringify(data));
+      var length=this.trainerData.length;
+      for(let i=0;i<length;i++){
+        this.sDate=this.trainerData[i].eStart.split("T");
+        this.eDate=this.trainerData[i].eEnd.split("T");
+      }
     })
   }
 
