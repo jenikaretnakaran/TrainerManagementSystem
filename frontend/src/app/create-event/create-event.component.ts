@@ -15,6 +15,9 @@ export class CreateEventComponent implements OnInit {
   course;
   trainers=[];
   trainerdata;
+  emaildata;
+  email;
+
   eventdata={
     trainer:"",
     associative:"",
@@ -39,7 +42,7 @@ export class CreateEventComponent implements OnInit {
   endstamp;
   errorMsg;
   err;
-  email;
+
 
   courseIds=[
     "01_DSA",
@@ -81,9 +84,12 @@ onCourseSelect(course){
   .subscribe((data)=>{
     this.trainers=JSON.parse(JSON.stringify(data));
     this.trainerdata=this.trainers.map(({trainerName})=>trainerName)
+    // console.log(this.trainerdata);
+
   })
   
 }
+
 checkDate(){
   this.startstamp = Date.parse(this.startDate)
   this.endstamp= Date.parse(this.endDate);
@@ -140,7 +146,7 @@ this.adminservice.allocatedData(this.eventdata)
 .subscribe((data)=>{
   console.log(data);
   alert("session created");
-  this.router.navigate(['/admin'])
+  this.router.navigate(['/admin/allocated-trainers'])
 })
 }
 

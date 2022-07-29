@@ -11,7 +11,9 @@ const eventSchema= new schema({
     meetingLink:String,
     course:String,
     eStart:String,
-    eEnd:String
+    eEnd:String,
+    tEmail:String,
+    aEmail:String
 });
 
 var eventData= mongoose.model('eventdata',eventSchema);
