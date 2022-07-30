@@ -28,11 +28,7 @@ export class AllocatedlistComponent implements OnInit {
   ngOnInit(): void {
     this.admin.getAllocatedlist().subscribe((data)=>{
       this.trainerData=JSON.parse(JSON.stringify(data));
-     /* var length=this.trainerData.length;
-      for(let i=0;i<length;i++){
-        this.sDate=this.trainerData[i].eStart.split("T");
-        this.eDate=this.trainerData[i].eEnd.split("T");
-      }*/
+     
     })
   }
 

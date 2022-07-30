@@ -1,7 +1,7 @@
 <div class="trainerhome">
 
     <div class="content">
-      <form (ngSubmit)="updatedata()" class="update-form"  #updateForm="ngForm" ngNativeValidate>
+      <form (ngSubmit)="form.valid&&updatedata()" class="update-form"  #form="ngForm" >
         <div class="row justify-content-center forms">
             <div class="col-12 col-sm-6 col-md-5 first">
 
@@ -28,22 +28,15 @@
                     <span class="input-group-text">Type</span>
                     <input type="text" class="form-control" #place="ngModel" disabled name="place" [(ngModel)]="trainer.typeOfEmp">
                   </div>
-                  <div class="input-group mb-4">
-                    <span class="input-group-text">Phone</span>
-                    <div class="col-5 form-input">
-                   <!-- 
-                      <div class="col-5 form-input"><input type="text" class="form-control" pattern="^((\\+91-?)|0)?[0-9]{10}$" name="phone" id="phone" [(ngModel)]="phone" required #phnField="ngModel"/>
-                        <span style="color: Red; background-color: rgb(255, 217, 215); padding: 6px; margin-top: 5%;" *ngIf="trainerEnroll.submitted&&phnField.errors">Give a valid Phone No!</span></div>
-                   
-                      -->
-
-
-                    
-                       <input type="number" class="form-control"  name="phone" [(ngModel)]="trainer.phone" maxlength="10" minlength="10"  required #phnField="ngModel">
-                    </div>
-   
+                  <div class="mb-4">
+                  <div class="input-group ">
+                      <span class="input-group-text">Phone</span>
+                       <input type="number" class="form-control"  name="phone" [(ngModel)]="trainer.phone" pattern="^[0-9]{10}$" maxlength="10" required #phone="ngModel">  
                   </div>
-                
+                  <small class="text-danger" *ngIf="form.submitted&&phone.errors?.['required']">*Phone Number required</small>
+                  <small class="text-danger" *ngIf="form.submitted&&phone.errors?.['pattern']">*Invalid Phone Number</small>
+                  <small class="text-danger" *ngIf="form.submitted&&phone.errors?.['maxlength']">*Phone number must be 10 digit</small>
+                </div>
             </div>
             <div class="col-12 col-sm-6 col-md-5 second">
                 <div class="mb-3 mt-1">
@@ -74,7 +67,7 @@
                 -->
                   <div class="form-submit submitme text-center mt-5">
              
-                    <button type="submit" value="Submit" class="submit" id="submit" >Update</button>
+                    <button type="submit"  class="submit" id="submit" >Update</button>
                    
                 
                 </div>

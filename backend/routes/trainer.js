@@ -4,6 +4,7 @@ const cors = require('cors');
 app.use(express.json());
 const enrollmentData=require("../model/enrollmentdata");
 const trainerdata=require("../model/trainerdata.js");
+const eventdata =require("../model/eventdata");
 const multer = require('multer');
 const ImageDataURI = require('image-data-uri');
 const jwt = require ("jsonwebtoken");
@@ -161,6 +162,24 @@ app.get('/trainereditprofile/:id', function (req, res) {
     })
 
 });
+
+
+app.get('/scheduledata/:id', function (req, res) {
+
+  res.header("Access-Control-Allow-Orgin", "*");
+  res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS");
+
+  token = req.params.id;
+  payload = jwt.verify(token, 'secretkey');
+  console.log(payload.subject)
+  eventdata.find({ "tEmail": payload.subject })
+    .then(function (data) {
+      console.log("data="+data)
+      res.send(data);
+    });
+});
+
+
 
 
 

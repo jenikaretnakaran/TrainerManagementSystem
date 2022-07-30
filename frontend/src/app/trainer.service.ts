@@ -28,4 +28,8 @@ export class TrainerService {
     return this.http.put(`${this.server_address}/trainer/traineredit` , {data:data});
 
   }
+
+  scheduledata(id:any){
+    return this.http.get(`${this.server_address}/trainer/scheduledata/`+id)
+  }
 }
