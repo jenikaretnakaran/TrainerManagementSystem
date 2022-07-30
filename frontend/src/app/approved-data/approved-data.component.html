@@ -1,0 +1,31 @@
+
+<!--navbar-->
+<section>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <i class="fa fa-th-list px-2 fs-2" aria-hidden="true"></i>
+        <h4 class="py-2 mt-2">APPROVED COURSES</h4>
+    </nav>
+</section>
+
+
+<!--table-->
+<section class=" table py-2  ">
+    <table class="table table-hover table-responsive py-5 ">
+        <thead>
+            <tr>
+                <th scope="col">Course</th>
+                <th scope="col">ID</th>
+                <th scope="col">Type of employment</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr  *ngFor="let trainer of approvedData" >
+                <td>{{trainer.course}}</td>
+                <td>{{trainer.id}}</td>
+                <td>{{trainer.typeOfEmp}}</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    
+</section>

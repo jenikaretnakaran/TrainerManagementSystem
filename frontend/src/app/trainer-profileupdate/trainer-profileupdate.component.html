@@ -37,8 +37,10 @@
                    
                       -->
 
-                       <input type="number" class="form-control"  name="phone" [(ngModel)]="trainer.phone" max="10" min="10" pattern="^((\\+91-?)|0)?[0-9]{10}$" required #phnField="ngModel">
-                    <span style="color: Red; background-color: rgb(255, 217, 215); padding: 6px; margin-top: 5%;" *ngIf="updateForm.submitted&&phnField.errors">Give a valid Phone No!</span></div>
+
+                    
+                       <input type="number" class="form-control"  name="phone" [(ngModel)]="trainer.phone" maxlength="10" minlength="10"  required #phnField="ngModel">
+                    </div>
    
                   </div>
                 

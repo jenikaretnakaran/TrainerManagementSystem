@@ -439,4 +439,15 @@ app.delete("/removeEvent/:id",(req,res)=>{
 
 
 
+//approveddata to trainer
+app.get("/approvedData/:email",(req,res)=>{
+  res.header("Access-Control-Allow-Origin", "*")
+  res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
+  const email=req.params.email;
+  trainerdata.find({email:email})
+  .then((data)=>{
+    res.send(data);
+  })
+})
+
   module.exports=app;
