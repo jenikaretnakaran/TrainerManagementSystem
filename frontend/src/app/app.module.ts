@@ -39,6 +39,7 @@ import { AuthService } from './auth.service';
 import { TrainerService } from './trainer.service';
 import { TrainerProfileupdateComponent } from './trainer-profileupdate/trainer-profileupdate.component';
 import { CreateEventComponent } from './create-event/create-event.component';
+import { ApprovedDataComponent } from './approved-data/approved-data.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import { CreateEventComponent } from './create-event/create-event.component';
     AllocateComponent,
     TrainerComponent,
     TrainerProfileupdateComponent,
-    CreateEventComponent
+    CreateEventComponent,
+    ApprovedDataComponent
 
 
   ],

@@ -22,6 +22,7 @@ import { AllocateComponent } from './allocate/allocate.component';
 import { TrainerComponent } from './trainer/trainer.component';
 import { TrainerProfileupdateComponent } from './trainer-profileupdate/trainer-profileupdate.component';
 import { CreateEventComponent } from './create-event/create-event.component';
+import { ApprovedDataComponent } from './approved-data/approved-data.component';
 
 const routes: Routes = [
 
@@ -52,7 +53,8 @@ const routes: Routes = [
     {path:'enrollment',component:TrainerEnrollmentComponent},
     {path:'confirmation',component:TrainerWaitingComponent},
     {path:'profile',component:TrainerProfileComponent},
-    {path:'edit',component:TrainerProfileupdateComponent}
+    {path:'edit',component:TrainerProfileupdateComponent},
+    {path:'approvedata',component:ApprovedDataComponent}
   ]},
     
   ];

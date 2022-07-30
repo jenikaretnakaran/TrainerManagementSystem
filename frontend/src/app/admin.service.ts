@@ -87,6 +87,10 @@ allocatedData(data){
   return this.http.post("http://localhost:3000/api/allocated",data)
 }
 
+//approved data to trainer
+approvedData(email){
+  return this.http.get("http://localhost:3000/api/approvedData/"+email);
+}
 }
 
 
