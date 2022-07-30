@@ -37,8 +37,11 @@
                    
                       -->
 
-                    <input type="number"  class="form-control"  name="phone" [(ngModel)]="trainer.phone"  required #phone="ngModel">
-                  
+
+                    
+                       <input type="number" class="form-control"  name="phone" [(ngModel)]="trainer.phone" maxlength="10" minlength="10"  required #phnField="ngModel">
+                    </div>
+   
                   </div>
                 
             </div>
@@ -77,7 +80,7 @@
                 </div>
                 
             </div>
-            </div>
+
         </div>
       </form>
     </div>
