@@ -178,7 +178,7 @@ nav .sidebar-button i{
     min-height: 90vh;
 }
 .content{
-    padding: 30px;
+    padding: 0px;
     padding-top: 50px;
 }
 .first{
@@ -186,15 +186,20 @@ nav .sidebar-button i{
     border: 2px solid white;
     border-right: 0px;
     text-align: center;
-    
+    color: slategray;
 
 }
 .second{
-    padding:30px;
+    padding:10px;
     border: 2px solid white;
     border-left: 0px;
+    color: slategray;
+ 
 
-
+}
+.f-style{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: medium;
 }
 @media only screen and (max-width: 575px) {
     .forms {
