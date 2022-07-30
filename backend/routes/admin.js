@@ -8,6 +8,7 @@ const trainerdata=require("../model/trainerdata.js");
 const allocateddata=require("../model/allocateddata");
 const coursedata=require("../model/coursedata");
 const eventdata=require("../model/eventdata");
+const enrollmentData = require("../model/enrollmentdata");
 
 
 // dashboard
@@ -88,7 +89,6 @@ app.get('/approveRequest/:id', (req, res) => {
 
     let trainerName = req.body.trainerName;
     let typeOfEmp = req.body.typeOfEmp;
-    let course=req.body.course;
     let id = Math.random().toString(16)+ "_"+ trainerName.concat(typeOfEmp).toUpperCase();
     let approvedTrainer = {
       trainerName: req.body.trainerName,
@@ -145,22 +145,22 @@ app.get('/approveRequest/:id', (req, res) => {
       }
     })
 
-    enrollmentdata.findOne({ _id: trainerEmail._id })
-    .then((data)=>{
-        let courseList=data.course.split(",");
-        // console.log(courseList);
-        courseList=courseList.filter(p => p!==approvedtrainer.course).join(",");
-        // console.log(courseList);
-        data.course=courseList;
-        // console.log(data.course);
-        let newApprovedTrainer= new enrollmentdata(data);
-        newApprovedTrainer.save();
-        res.send(data);
+  enrollmentdata.findOne({ _id: trainerEmail._id })
+  .then((data)=>{
+      let courseList=data.course.split(",");
+      // console.log(courseList);
+      courseList=courseList.filter(p => p!==approvedtrainer.course).join(",");
+      // console.log(courseList);
+      data.course=courseList;
+      // console.log(data.course);
+      let newApprovedTrainer= new enrollmentdata(data);
+      newApprovedTrainer.save();
+      res.send(data);
 
 
-    })
+  })
 
-  });
+  });  
 
   //trainerRequests
 
@@ -361,7 +361,7 @@ app.post('/allocated', async (req,res)=>{
 
   //sending mail to associate trainer about session details
 
-   if(allocatedData.associative!=="")
+   if(allocatedData.associative!=="" || allocatedData.associative!=="nil")
   {
     let associativemail= await trainerdata.findOne({trainerName:allocatedData.associative},{email:1,_id:0});
     aEmail=String(associativemail['email']);

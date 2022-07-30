@@ -17,12 +17,11 @@ export class CreateEventComponent implements OnInit {
   trainerdata;
   emaildata;
   email;
+  associate;
 
   eventdata={
     trainer:"",
     associative:"",
-    tEmail:"",
-    aEmail:"",
     startDateTime:"",
     endDateTime:"",
     courseId:"",
@@ -42,6 +41,7 @@ export class CreateEventComponent implements OnInit {
   endstamp;
   errorMsg;
   err;
+  isEmpty;
 
 
   courseIds=[
@@ -62,6 +62,8 @@ export class CreateEventComponent implements OnInit {
     .subscribe((data)=>{
       this.coursedata=JSON.parse(JSON.stringify(data));
       this.courses=this.coursedata.map(({title})=>title);
+      this.eventdata.courseId=this.courseIds[0];
+      this.eventdata.batchId=this.batchIds[0];
     })
 
     //fetching startdate
@@ -79,16 +81,23 @@ export class CreateEventComponent implements OnInit {
 
   }
 
-onCourseSelect(course){
+onCourseSelect(course)
+{
   this.adminservice.selectedCourse(course)
   .subscribe((data)=>{
     this.trainers=JSON.parse(JSON.stringify(data));
-    this.trainerdata=this.trainers.map(({trainerName})=>trainerName)
-    // console.log(this.trainerdata);
+    this.trainerdata=this.trainers.map(({trainerName})=>trainerName);
+    console.log(this.trainerdata);
 
   })
   
 }
+
+onTrainerSelect(){
+  console.log(this.eventdata.trainer);
+  this.associate=this.trainerdata.filter((p=> p!==this.eventdata.trainer));
+}
+
 
 checkDate(){
   this.startstamp = Date.parse(this.startDate)
@@ -99,41 +108,35 @@ checkDate(){
 // validatedates
   if(this.startstamp===this.endstamp)
   {
-      this.errorMsg="Start date and End date should not be same";
+      this.errorMsg="SESSION START AND END SHOULD NOT BE SAME";
       this.err=true;
   }
    else if (this.startstamp>this.endstamp)
   {
-      this.errorMsg="invalid date and time"
+      this.errorMsg="INVALID DATE AND TIME"
       this.err=true;
-  } 
-    else if(this.startstamp<this.endstamp){
+  } else if (this.startstamp=="" ||this.endstamp=="")
+  {
+      this.errorMsg="INVALID DATES"
+  }
+    else {
 
         for( let len=0;len<this.length;len++)
         {
           
-            if(this.startstamp===this.bookedStart[len]){
-              this.errorMsg="slot unavailable";
-              this.err=true;
-            }
-            else if (this.startstamp>this.bookedStart[len] && this.startstamp<this.bookedEnd[len]){
-              this.errorMsg="slot unavailable";
+            if (this.startstamp>=this.bookedStart[len] && this.startstamp<=this.bookedEnd[len]){
+              this.errorMsg="SLOT UNAVAILABLE";
               this.err=true;
             }
             else if ((this.endstamp-this.startstamp)<3600000){
-              this.errorMsg=" session should be minimum of 1 hour";
+              this.errorMsg=" SESSION TIME SHOULD BE MINIMUM OF ONE HOUR";
               this.err=true;
-            }
-            else {
-              this.eventdata.startDateTime=this.startstamp;
-              this.eventdata.endDateTime=this.endstamp;
-              this.eventdata.eStart=this.startDate;
-              this.eventdata.eEnd=this.endDate;
             }
         }
 
   }   
 }
+
 reload(){
   this.startDate="";
   this.endDate="";
@@ -141,13 +144,34 @@ reload(){
   this.errorMsg="";
 }
 
-onSubmit(){
-this.adminservice.allocatedData(this.eventdata)
-.subscribe((data)=>{
-  console.log(data);
-  alert("session created");
-  this.router.navigate(['/admin/allocated-trainers'])
-})
+onSubmit()
+{
+  this.eventdata.startDateTime=this.startstamp;
+  this.eventdata.endDateTime=this.endstamp;
+  this.eventdata.eStart=this.startDate;
+  this.eventdata.eEnd=this.endDate;
+  // console.log(this.eventdata);
+  this.isEmpty = Object.values(this.eventdata).some(x => (x === null || x === '')); 
+  // console.log(this.isEmpty);
+
+if(this.isEmpty===true){
+  alert("Fields should not be empty");
+  this.err=true;
+  console.log(this.eventdata);
+  location.reload();
+  
+}
+else 
+{
+  this.adminservice.allocatedData(this.eventdata)
+  .subscribe((data)=>{
+    console.log(data);
+    alert("session created");
+    this.router.navigate(['/admin/allocated-trainers'])
+  })
 }
 
 }
+
+}
+
