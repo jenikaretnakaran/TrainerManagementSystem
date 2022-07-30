@@ -27,12 +27,10 @@
                             <div class="col-md-12"><label class="labels">CURRENT DESIGNATION</label><input type="text" class="form-control" value="{{trainerData.designation}}"></div>
                             <div class="col-md-12" id="formfield">
                                 <label class="labels py-2">COURSES</label>
-                                <select [(ngModel)]="newList" class="p-2" [ngModelOptions]="{standalone: true}" #course="ngModel" required >
-                                    <option *ngFor="let course of courses" [ngValue]="course">
-                                    {{course}}
-                                  </option>
-                                  </select>
-                                  
+                                  <select [(ngModel)]="trainerData.course"  class="form-select" aria-label="course" value="course" name="course" required >
+                                    <option value="" selected disabled> Select Course</option>
+                                    <option *ngFor="let course of courses" [ngValue]="course"  >{{course}}</option>
+                                </select>
                               </div>
 
                             <div class="col-md-12" id="formfield">
