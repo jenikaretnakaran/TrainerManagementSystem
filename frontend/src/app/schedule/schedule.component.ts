@@ -20,21 +20,10 @@ export class ScheduleComponent implements OnInit {
     meetingLink:""
   }
 
+
+  eventss:any=[];
+
   constructor(private trainerservice:TrainerService) { }
-
-
-  calendarOptions: CalendarOptions = {
-    initialView: 'dayGridMonth',
-    dateClick: this.handleDateClick.bind(this), 
-    events: [
-      { title: 'HappyBirthday', start: '2022-07-27' , end:'2022-08-02' ,  },
-      { title: 'Holiday', date: '2022-07-28', color:'red'}
-    ]
-  };
-
-  handleDateClick(arg) {
-    alert(arg.dateStr)
-  }
 
 
 
@@ -43,11 +32,29 @@ export class ScheduleComponent implements OnInit {
     let token = localStorage.getItem("token")
     this.trainerservice.scheduledata(token)
     .subscribe((data)=>{
-      console.log(data)
     this.trainerdata=JSON.parse(JSON.stringify(data))
-    
-    
   })
-   }
+
+  this.trainerservice.scheduledata(token)
+    .subscribe((data:any)=>{
+      this.eventss = data.map((e: any) => ({ title: e.batchId, start: e.eStart , end: e.eEnd , url: e.meetingLink}))
+      console.log(this.eventss)
+  })
+
+    
+  }
+
+
+  calendarOptions: CalendarOptions = {
+  initialView: 'dayGridMonth',
+  dateClick: this.handleDateClick.bind(this), 
+  events:this.eventss
+   
+  };
+
+  handleDateClick(arg) {
+    alert(arg.dateStr)
+  }
+
 
   }
