@@ -15,10 +15,10 @@
                 <h5 class="pb-2 pt-2 mbl">Name :  {{i.trainer}}</h5>
                 <h6>Associate : {{i.associative}}</h6>
                 <div  > 
-                <div>Start Date&nbsp; &nbsp;&nbsp;Time: &nbsp; {{i.eStart}}
+                <div>Start Date:&nbsp; {{i.eStart | date:'mediumDate'}} &nbsp;&nbsp;Time: &nbsp; {{i.eStart | date:'shortTime'}}
                     <!--Duration:  ({{i.startDate}}) - ({{i.endDate}})-->
                 </div>
-                <div> End Date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Time:&nbsp; {{i.eEnd}}</div>
+                <div> End Date:&nbsp;&nbsp;  {{i.eStart | date:'mediumDate'}} &nbsp;&nbsp;&nbsp;Time:&nbsp; {{i.eEnd | date:'shortTime'}}</div>
                 </div>
                 <div>Meeting Link&nbsp;: &nbsp; {{i.meetingLink}}</div>
             </div>
