@@ -424,5 +424,19 @@ app.post('/allocated', async (req,res)=>{
   })
 
 })
+// delete an event 
+app.delete("/removeEvent/:id",(req,res)=>{
+  res.header("Access-Control-Allow-Origin", "*")
+  res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
+  id=req.params.id;
+  eventdata.findByIdAndDelete({_id:id})
+  .then(()=>{
+    res.json("successfully deleted the Event");
+    res.send();
+  })
+})  
+
+
+
 
   module.exports=app;

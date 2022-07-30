@@ -87,6 +87,11 @@ allocatedData(data){
   return this.http.post("http://localhost:3000/api/allocated",data)
 }
 
+//delete an event
+removeEvent(id){
+  return this.http.delete("http://localhost:3000/api/removeEvent/"+id)
+ }
+
 }
 
 
