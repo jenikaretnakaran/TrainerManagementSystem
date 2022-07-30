@@ -29,8 +29,10 @@ export class TrainerProfileComponent implements OnInit {
   courseHandling=[];
 
 Id = localStorage.getItem("token");
-imageWidth : number =180;
-imageMargin :number =25;
+imageWidth : number =150;
+imageMargin :number =15;
+//imageWidth : number =180;
+//imageMargin :number =25;
 trainerData={
   trainerName:"",
   id:"",

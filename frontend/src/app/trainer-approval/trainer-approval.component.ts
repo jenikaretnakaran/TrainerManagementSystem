@@ -30,7 +30,7 @@ export class TrainerApprovalComponent implements OnInit {
   path= "http://localhost:3000/images/requests";
   courses:any=[];
   employment:any=["Internal","Empanelled","Industry Expert"];
-  newList:any;
+  // newList:any;
 
   constructor(private adminservice:AdminService,private router:Router) { }
 
@@ -39,6 +39,7 @@ export class TrainerApprovalComponent implements OnInit {
     let approveId=localStorage.getItem("approveRequestId");
     this.adminservice.getRequest(approveId).subscribe((data)=>{
       this.trainerData=JSON.parse(JSON.stringify(data));
+      // console.log(this.trainerData);
       this.courses=(this.trainerData.course).split(",");
       this.trainerData.course='';
       this.trainerData.typeOfEmp='Internal';  
@@ -47,7 +48,8 @@ export class TrainerApprovalComponent implements OnInit {
 
   getApprove()
   { 
-    this.trainerData.course=this.newList;
+    // this.trainerData.course=this.newList;
+    console.log(this.trainerData);
     this.adminservice.getApprove(this.trainerData);
     alert("Trainer Approved");
     this.router.navigate(['/admin']);

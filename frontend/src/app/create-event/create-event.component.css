@@ -2,7 +2,7 @@
     width: 90%;
 }
 form{
-    background-color: #DC8665;
+    background-color: #EDBF69;
     margin-bottom: 35px;
 }
 .formdata .row .form-label{
@@ -11,5 +11,9 @@ form{
 }
 .formdata .row .btn{
     border-radius: 25px;
-    background-color: navy;
+    background-color: #383CC1;
+}
+.formdata .row .text-center>span{
+    color: #B4161B;
+    font-weight: bold;
 }
