@@ -21,8 +21,8 @@ export class AllocatedlistComponent implements OnInit {
     associative:""
     
   }]
-  sDate: any[] = [];
-  eDate: any[] = [];
+  //sDate: any[] = [];
+  //eDate: any[] = [];
   constructor(private admin:AdminService) { }
 
   ngOnInit(): void {
@@ -32,6 +32,16 @@ export class AllocatedlistComponent implements OnInit {
     })
   }
 
-}
+  removeEvent(trainer){
+    this.admin.removeEvent(trainer._id)
+    .subscribe((data)=>{
+      this.trainerData=this.trainerData.filter(t => t !== trainer)
+    })
+  }
+  }
+
+ 
+
+
   
 

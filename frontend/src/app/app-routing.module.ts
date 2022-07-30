@@ -23,6 +23,7 @@ import { TrainerComponent } from './trainer/trainer.component';
 import { TrainerProfileupdateComponent } from './trainer-profileupdate/trainer-profileupdate.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { CreateEventComponent } from './create-event/create-event.component';
+import { ApprovedDataComponent } from './approved-data/approved-data.component';
 
 const routes: Routes = [
 
@@ -54,7 +55,8 @@ const routes: Routes = [
     {path:'confirmation',component:TrainerWaitingComponent},
     {path:'profile',component:TrainerProfileComponent},
     {path:'edit',component:TrainerProfileupdateComponent},
-    {path:'schedule',component:ScheduleComponent}
+    {path:'schedule',component:ScheduleComponent},
+    {path:'approvedata',component:ApprovedDataComponent}
   ]},
     
   ];
