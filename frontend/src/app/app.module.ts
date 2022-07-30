@@ -50,6 +50,7 @@ FullCalendarModule.registerPlugins([
   interactionPlugin
 ]);
 import { CreateEventComponent } from './create-event/create-event.component';
+import { ApprovedDataComponent } from './approved-data/approved-data.component';
 
 @NgModule({
   declarations: [
@@ -81,7 +82,8 @@ import { CreateEventComponent } from './create-event/create-event.component';
     TrainerComponent,
     TrainerProfileupdateComponent,
     ScheduleComponent,
-    CreateEventComponent
+    CreateEventComponent,
+    ApprovedDataComponent
 
 
   ],

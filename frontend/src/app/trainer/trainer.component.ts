@@ -33,6 +33,9 @@ export class TrainerComponent implements OnInit {
     localStorage.removeItem("token") 
     this.route.navigate(['login'])
   }
+  btnclk6(){
+    this.route.navigate(['/trainer/approvedata'])
+  }
 
 
   ngOnInit(): void {
