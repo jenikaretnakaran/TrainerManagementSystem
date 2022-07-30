@@ -1,8 +1,8 @@
 <div class="trainerhome">
 
-    <div class="content">
+    <div class="content" >
         <form (ngSubmit)="editProfile()">
-            <div class="row justify-content-center forms">
+            <div class="row justify-content-center forms" >
             <div class="col-12 col-sm-6 col-md-5 first ">
                 <div class="text-center mb-4">
                   <img *ngIf='!isNewImage' src="{{imagePath}}/{{trainerData.image}}" alt="image" class="rounded-circle" name="image" id="image" height="150vh" ngDefaultControl [(ngModel)]="trainerData.image"
@@ -12,67 +12,50 @@
                     <input type="file"  name="trainerName" class="custom" id="image" accept="image/*"  (change)="onFileSelected($event)">                 
                  </div>  -->               
                 </div>
-
-                <div class="input-group mb-4" style="text-align: center;">
-                    <span >ID</span>
-                  <strong> {{trainerData.id}} </strong> 
-                  </div>
-
-                  <div class="input-group mb-4" style="margin-left: 7vh;"> 
+                <div class="input-group mb-4 f-style" style="margin-left: 7vh;"> 
                     <span >Email</span>
                     <strong>{{trainerData.email}}</strong>
                   </div>
 
                  
-                  <div class="input-group mb-4" style="margin-left: 9vh;">
+                  <div class="input-group mb-4 f-style" style="margin-left: 10vh;">
                     <span >Phone</span>
                     <strong>{{trainerData.phone}}</strong>
                   </div>
+                  <div class="input-group mb-4 f-style" style="margin-left: 8vh;">
+                    <span>Type </span>
+                    <div><strong>&nbsp;&nbsp;&nbsp;&nbsp;{{trainerData.typeOfEmp}}</strong> </div>
+                  </div>
                 
             </div>
-            <div class="col-12 col-sm-6 col-md-5 second">
-                <div class="mb-3 mt-1">
+            <div class="col-12 col-sm-6 col-md-5 second"><br><br>
+                <div class="mb-3 mt-1 f-style">
                     <label  class="form-label">Address</label>
                     <div><strong>&nbsp;&nbsp;&nbsp;&nbsp;{{trainerData.address}}</strong></div>
                    
                   </div>
 
-                  <div class="mb-3">
+                  <div class="mb-3 f-style">
                     <label  class="form-label">Qualification</label>
                     <div><strong>&nbsp;&nbsp;&nbsp;&nbsp;{{trainerData.qualification}}</strong></div>
                   </div>
 
-                  <div class="mb-3">
+                  <div class="mb-3 f-style">
                     <label  class="form-label">Skills</label>
                     <div><strong>&nbsp;&nbsp;&nbsp;&nbsp;{{trainerData.skill}}</strong></div>
                   </div>
 
 
-                  <div class="mb-3">
+                  <div class="mb-3 f-style">
                     <label  class="form-label">Current Company</label>
                     <div><strong>&nbsp;&nbsp;&nbsp;&nbsp;{{trainerData.companyName}}</strong></div>
                   </div>
 
-                  <div class="mb-3">
-                    <label  class="form-label">Type of Employment</label>
-                    <div><strong>&nbsp;&nbsp;&nbsp;&nbsp;{{trainerData.typeOfEmp}}</strong> </div>
-                  </div>
-
-                  <div class="mb-3">
-                    <label  class="form-label">Course Handling</label>
-                    <div *ngFor="let i of trainerData.course.split(',')" >
-                        <strong><li>{{i}}</li></strong></div>
-                  </div>
-
-                 
-
-                 
-
-                  <div class="form-submit submitme text-center mt-5">
+                  
+                   <div class="form-submit submitme text-center mt-5">
              
                     <button type="submit" value="Submit" class="submit" id="submit" >Edit Profile</button>
-                   
-                
+                    
                 </div>
                 
             </div>
