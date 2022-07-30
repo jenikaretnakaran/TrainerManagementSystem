@@ -8,8 +8,9 @@
 
         <div *ngFor="let i of trainerData" class="trainerdata shadow-sm mb-4">
             
-            <div class="listbox">
-                <h5>Course:  {{i.course}}</h5>
+            <div class="listbox" >
+                <button class="btn btn-danger remov" (click)="removeEvent(i)">Cancel</button>
+                <h5>Course:  {{i.course}}</h5>  
                 <h5 class="pb-2">Batch:  {{i.batchId}}</h5>
                 <h5 class="pb-2 pt-2 mbl">Name :  {{i.trainer}}</h5>
                 <h6>Associate : {{i.associative}}</h6>
@@ -20,7 +21,7 @@
                 <div> End Date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Time:&nbsp; {{i.eEnd}}</div>
                 </div>
                 <div>Meeting Link&nbsp;: &nbsp; {{i.meetingLink}}</div>
-
+                
             </div>
         </div>
     </div>
