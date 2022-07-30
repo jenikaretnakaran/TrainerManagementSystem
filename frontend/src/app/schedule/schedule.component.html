@@ -13,17 +13,21 @@
             <th scope="col">End Date</th>
             <th scope="col">Start Time</th>
             <th scope="col">End Time</th>
+            <th scope="col">Meeting Link</th>
+
 
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">{{trainer.batchid}}</th>
+          <tr *ngFor="let trainer of trainerdata">
+            <th scope="row">{{trainer.batchId}}</th>
             <td>{{trainer.course}}</td>
-            <td>{{trainer.start}}</td>
-            <td>{{trainer.end}}</td>
-            <td>{{trainer.starttime}}</td>
-            <td>{{trainer.endtime}}</td>
+            <td>{{trainer.eStart | date:'mediumDate'}}</td>
+            <td>{{trainer.eEnd | date:'mediumDate'}}</td>
+            <td>{{trainer.eStart | date:'shortTime'}}</td>
+            <td>{{trainer.eEnd | date:'shortTime'}}</td>
+            <td>{{trainer.meetingLink}}</td>
+
           </tr>
           
         </tbody>

@@ -419,7 +419,7 @@ app.post('/allocated', async (req,res)=>{
  
   await eventdata.find(approvedSession)
   .then((data)=>{
-    res.send(d);
+    res.send(data);
   })
 
 })

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CalendarOptions } from '@fullcalendar/angular'; 
+import { TrainerService } from '../trainer.service';
 
 
 @Component({
@@ -9,16 +10,17 @@ import { CalendarOptions } from '@fullcalendar/angular';
 })
 export class ScheduleComponent implements OnInit {
 
-  trainer={
-    batchid:"",
+  trainerdata:any={
+    batchId:"",
     course:"",
-    start:"",
-    end:"",
+    eStart:"",
+    eEnd:"",
     starttime:"",
-    endtime:""
+    endtime:"",
+    meetingLink:""
   }
 
-  constructor() { }
+  constructor(private trainerservice:TrainerService) { }
 
 
   calendarOptions: CalendarOptions = {
@@ -34,7 +36,18 @@ export class ScheduleComponent implements OnInit {
     alert(arg.dateStr)
   }
 
-  ngOnInit(): void {
-  }
 
-}
+
+  ngOnInit(): void {
+
+    let token = localStorage.getItem("token")
+    this.trainerservice.scheduledata(token)
+    .subscribe((data)=>{
+      console.log(data)
+    this.trainerdata=JSON.parse(JSON.stringify(data))
+    
+    
+  })
+   }
+
+  }

@@ -1,12 +1,12 @@
 .calender{
-    padding: 40px;
+    padding: 25px;
+    margin: 30px;
     background-color: rgba(255, 255, 255, 0.871);
 }
 .tableitem{
-    padding: 15px;
-    padding-top: 25px;
-    padding-bottom: 30vh;
+    margin: 15px;
+    margin-top: 25px;
+    margin-bottom: 20vh;
     background-color: rgba(255, 255, 255, 0.871);
-    min-height: 30vh;
 
 }
