@@ -360,7 +360,7 @@ app.post('/allocated', async (req,res)=>{
 
   //sending mail to associate trainer about session details
 
-   if(allocatedData.associative!=="" || allocatedData.associative!=="nil")
+   if(allocatedData.associative!=="" && allocatedData.associative!=="nil")
   {
     let associativemail= await trainerdata.findOne({trainerName:allocatedData.associative},{email:1,_id:0});
     aEmail=String(associativemail['email']);
