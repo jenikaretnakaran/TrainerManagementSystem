@@ -40,19 +40,20 @@ export class ScheduleComponent implements OnInit {
   //calender data
   this.trainerservice.scheduledata(token)
     .subscribe((data:any)=>{
-      this.eventss = data.map((e: any) => ({ title: e.batchId, start: e.eStart , end: e.eEnd , url: e.meetingLink}))
+      this.eventss = data.map((e: any) => ({ title: e.batchId, start: e.eStart , end: e.eEnd , url: e.meetingLink , color:"red" }))
       console.log(this.eventss)
+      this.calendarOptions.events=this.eventss;
+
   })
 
-    console.log(this.calendarOptions);
-    
+
   }
   //Calender starting
 
 
   calendarOptions: CalendarOptions = {
   initialView: 'dayGridMonth',
-  dateClick: this.handleDateClick.bind(this), 
+  dateClick: this.handleDateClick.bind(this.eventss), 
   events:this.eventss
   
   };
