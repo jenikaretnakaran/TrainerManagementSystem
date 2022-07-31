@@ -172,7 +172,7 @@ app.get('/scheduledata/:id', function (req, res) {
   token = req.params.id;
   payload = jwt.verify(token, 'secretkey');
   console.log(payload.subject)
-  eventdata.find({ "tEmail": payload.subject })
+  eventdata.find({$or: [{"tEmail": payload.subject},{"aEmail": payload.subject}]})
     .then(function (data) {
       console.log("data="+data)
       res.send(data);

@@ -40,7 +40,7 @@ export class ScheduleComponent implements OnInit {
   //calender data
   this.trainerservice.scheduledata(token)
     .subscribe((data:any)=>{
-      this.eventss = data.map((e: any) => ({ title: e.batchId, start: e.eStart , end: e.eEnd , url: e.meetingLink , color:"red" }))
+      this.eventss = data.map((e: any) => ({ title: e.batchId, start: e.eStart , url: e.meetingLink , color:"red" }))
       console.log(this.eventss)
       this.calendarOptions.events=this.eventss;
 
