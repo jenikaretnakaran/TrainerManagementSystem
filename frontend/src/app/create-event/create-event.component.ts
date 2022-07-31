@@ -108,20 +108,28 @@ export class CreateEventComponent implements OnInit {
       this.errorMsg = 'INVALID DATES';
       this.err = true;
     } 
-    // else if (isNaN(this.startstamp) || isNaN(this.endstamp)) {
-    //   this.errorMsg = 'PROVIDE A VALID DATE AND TIME';
-    //   this.err = true;
-    // } 
     else 
-    {
+    { 
       for (let len = 0; len < this.length; len++) {
         if (
           this.startstamp >= this.bookedStart[len] &&
           this.startstamp <= this.bookedEnd[len]
-        ) {
+        ) 
+        {
           this.errorMsg = 'SLOT UNAVAILABLE';
           this.err = true;
-        } else if (this.endstamp - this.startstamp < 3600000) {
+        } 
+        else if(this.endstamp<=this.bookedEnd[len]&& this.endstamp>=this.bookedStart[len])
+        {
+          this.errorMsg="SLOT UNAVAILABLE"
+          this.err=true;
+        } 
+        else if(this.endstamp<=this.bookedEnd[len]&& this.endstamp>=this.bookedStart[len])
+        {
+          this.errorMsg="SLOT UNAVAILABLE"
+          this.err=true;
+        }
+        else if (this.endstamp - this.startstamp < 3600000) {
           this.errorMsg = ' SESSION TIME SHOULD BE MINIMUM OF ONE HOUR';
           this.err = true;
         } else {
@@ -142,7 +150,8 @@ export class CreateEventComponent implements OnInit {
   }
 
   onSubmit() {
-    
+
+    console.log(this.eventdata);
     this.isEmpty = Object.values(this.eventdata).some((x) => x === null || x === '' || x!==x );
 
     if (this.isEmpty === true) 
