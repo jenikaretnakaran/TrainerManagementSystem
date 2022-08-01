@@ -10,6 +10,7 @@ const allocateddata=require("../model/allocateddata");
 const coursedata=require("../model/coursedata");
 const eventdata=require("../model/eventdata");
 const enrollmentData = require("../model/enrollmentdata");
+const { db } = require("../model/enrollmentdata");
 
 // Middleware Fuction to verify Token send from FrontEnd
 function verifyToken(req,res,next){
@@ -69,10 +70,9 @@ app.get('/nameSearch/:name',(req,res)=>{
     res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE");
     let trainerName= req.params.name;
     // console.log(trainerName);
-    trainerdata.find({trainerName:trainerName}).then((data)=>{
+    trainerdata.find({trainerName: trainerName}).then((data)=>{
         res.send(data);
       })
-        
 })
 
 app.get('/skillSearch/:skill',(req,res)=>{
