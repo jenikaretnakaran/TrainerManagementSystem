@@ -2,6 +2,7 @@ require("dotenv").config();
 const express= require ("express");
 const app= express();
 const nodemailer=require("nodemailer");
+const jwt = require("jsonwebtoken")
 
 const enrollmentdata=require("../model/enrollmentdata");
 const trainerdata=require("../model/trainerdata.js");
@@ -11,10 +12,36 @@ const eventdata=require("../model/eventdata");
 const enrollmentData = require("../model/enrollmentdata");
 const { db } = require("../model/enrollmentdata");
 
+// Middleware Fuction to verify Token send from FrontEnd
+function verifyToken(req,res,next){
+  //console.log(req.headers)
+
+  if(!req.headers.authorization){
+     return res.status(401).send("Unauthorized Access")
+  }
+  var tokens = req.headers.authorization.split(' ')[2];
+ 
+ console.log(tokens)
+ if(tokens == "null"){
+     return res.status(401).send("Unauthorized Access")
+ }
+
+ var payload= jwt.verify(tokens , "hiddenkey")
+ console.log(payload)
+ if(!payload){
+     return res.status(401).send("Unauthorized Access")
+ }
+ req.userId = payload.subject
+      next()
+ }
+
+
+
+
 
 // dashboard
 
-app.get('/getTrainers',(req,res)=>{
+app.get('/getTrainers',verifyToken ,(req,res)=>{
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
     trainerdata.find().then((trainers)=>{

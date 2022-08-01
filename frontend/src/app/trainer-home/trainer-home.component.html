@@ -23,6 +23,7 @@
       </ul>
   </div>
  </nav>
+<div *ngIf="!auth.userverified()">
 <div class="welcome" >Welcome to ICTAK </div><br><br>
 
 
@@ -30,4 +31,11 @@
 
 <div style=" text-align: center; margin-top: 2%; min-height: 68vh;">
     <img src="../../assets/images/trainer-bg.jpg">
+</div>
+</div>
+
+<!-- After approved this section will appear -->
+
+<div *ngIf="auth.userverified()" class="homedata">
+
 </div>

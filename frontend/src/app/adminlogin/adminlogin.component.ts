@@ -23,8 +23,10 @@ export class AdminloginComponent implements OnInit {
     this.userlogin.adminlogin(this.admin).subscribe((res)=>{
 
       if(res.status){
-        localStorage.setItem('token' , res.token)
+        //localStorage.setItem('token' , res.token)
+        localStorage.setItem('tokens' , res.tokens)
         this.route.navigate(['/admin'])
+
        }else{
         console.log(res.data)
         var error = res.data
