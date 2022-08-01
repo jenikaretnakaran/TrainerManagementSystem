@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-trainer',
@@ -8,7 +9,9 @@ import { Router } from '@angular/router';
 })
 export class TrainerComponent implements OnInit {
 
-  constructor(private route:Router) { }
+  constructor(private route:Router , public auth:AuthService) { }
+
+  id=localStorage.getItem('email');
 
 
   btnclk1(){
@@ -32,14 +35,17 @@ export class TrainerComponent implements OnInit {
   btnclk5(){
     localStorage.removeItem("token") 
     this.route.navigate(['login'])
+    localStorage.clear();
+    sessionStorage.clear();
   }
+  
   btnclk6(){
     this.route.navigate(['/trainer/approvedata'])
   }
 
 
   ngOnInit(): void {
-    let token = localStorage.getItem("email")
+    this.auth.verifieduser(this.id)
   }
 
 }

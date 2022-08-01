@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-trainer-home',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TrainerHomeComponent implements OnInit {
 
-  constructor() { }
+  id=localStorage.getItem('email');
+
+
+  constructor(public auth:AuthService) { }
 
   ngOnInit(): void {
+    this.auth.verifieduser(this.id)
+
   }
+
 
 }

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input'
 import { MatSelectModule } from '@angular/material/select'
@@ -51,6 +51,7 @@ FullCalendarModule.registerPlugins([
 ]);
 import { CreateEventComponent } from './create-event/create-event.component';
 import { ApprovedDataComponent } from './approved-data/approved-data.component';
+import { TokenInterceptorService } from './token-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -99,7 +100,16 @@ import { ApprovedDataComponent } from './approved-data/approved-data.component';
     FullCalendarModule,
     NgMultiSelectDropDownModule.forRoot()
   ],
-  providers: [AuthService,TrainerService,AdminService],
+  providers: [
+    AuthService,
+    TrainerService,
+    AdminService,
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass:TokenInterceptorService,
+      multi:true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

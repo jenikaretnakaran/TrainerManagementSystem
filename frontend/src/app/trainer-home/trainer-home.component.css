@@ -455,3 +455,7 @@ nav .profile-details i{
   align-items: right;
   padding-left: 450%;
 }
+
+.homedata{
+  min-height: 90vh;
+}

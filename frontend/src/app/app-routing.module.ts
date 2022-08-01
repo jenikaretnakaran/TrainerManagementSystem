@@ -24,6 +24,8 @@ import { TrainerProfileupdateComponent } from './trainer-profileupdate/trainer-p
 import { ScheduleComponent } from './schedule/schedule.component';
 import { CreateEventComponent } from './create-event/create-event.component';
 import { ApprovedDataComponent } from './approved-data/approved-data.component';
+import { AuthGuard } from './auth.guard';
+import { AdminGuard } from './admin.guard';
 
 const routes: Routes = [
 
@@ -37,7 +39,7 @@ const routes: Routes = [
       {path:"adminlogin" , component:AdminloginComponent}
   ]},
 
-  {path:"admin",component:AdminComponent,
+  {path:"admin",canActivate:[AdminGuard],component:AdminComponent,
    children:[
     {path:"",component:AdminDashboardComponent},
     {path:"requests",component:TrainerRequestComponent},
@@ -48,7 +50,7 @@ const routes: Routes = [
     {path:"event",component:CreateEventComponent}
   ]},
 
-  {path:'trainer',component:TrainerComponent,
+  {path:'trainer',canActivate:[AuthGuard],component:TrainerComponent,
    children:[
     {path:'',component:TrainerHomeComponent},
     {path:'enrollment',component:TrainerEnrollmentComponent},

@@ -29,7 +29,7 @@ var storage = multer.diskStorage({
 
 
 //save enrollment details
-app.post('/enroll',function (req, res) {
+app.post('/enroll' , function (req, res) {
     
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
@@ -83,7 +83,7 @@ else {
 });
 
 
-app.get('/getTrainerData',(req,res)=>{
+app.get('/getTrainerData', (req,res)=>{
     res.header("Access-Control-Allow-Origin","*");
     res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE");
     enrollmentData.find().then((enrollmentdata)=>{
@@ -178,6 +178,21 @@ app.get('/scheduledata/:id', function (req, res) {
       res.send(data);
     });
 });
+
+
+
+app.post('/checkverified', (req, res) => {
+  res.header("Access-Control-Allow-Orgin", "*");
+  res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS");
+  userid = req.body.id;
+  trainerdata.findOne({ email: userid }).then((data) => {
+    if (data) {
+      res.send();
+    }
+    
+  })
+  
+ })
 
 
 

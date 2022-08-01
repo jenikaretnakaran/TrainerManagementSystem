@@ -48,8 +48,8 @@ router.post("/adminlogin" , (req,res)=>{
 
   if((admin.email===adminemail)&&(admin.password===adminpass)){
      let payload = {subject:admin.email+admin.password};
-     let token = jwt.sign(payload , "secretkey")
-     res.send({status: true , token , data: 'Success'})
+     let tokens = jwt.sign(payload , "hiddenkey")
+     res.send({status: true , tokens , data: 'Success'})
   }else if ((admin.email===adminemail)&&(admin.password!==adminpass)){
     res.send({status: false , data: 'Incorrect Password' })
   }else if ((admin.email!==adminemail)&&(admin.password==adminpass)){
