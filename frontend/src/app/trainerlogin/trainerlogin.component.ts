@@ -14,7 +14,6 @@ export class TrainerloginComponent implements OnInit {
     password:""
   }
 
-
   constructor(private login:LoginService ,private route:Router) { }
 
 
@@ -22,7 +21,7 @@ export class TrainerloginComponent implements OnInit {
     this.login.trainerlogin(this.user).subscribe((res)=>{
 
       if(res.status){
-        localStorage.setItem('token' , res.token)
+        localStorage.setItem('token' , res.token);
         this.route.navigate(['/trainer'])
        }else{
         var error = res.data;
@@ -31,6 +30,8 @@ export class TrainerloginComponent implements OnInit {
        }
     })
   }
+
+ 
 
 
   ngOnInit(): void {

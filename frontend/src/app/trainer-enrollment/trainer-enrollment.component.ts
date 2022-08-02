@@ -65,7 +65,9 @@ export class TrainerEnrollmentComponent implements OnInit {
     
     this.trainerService.enrollTrainer(this.TrainerItem);
     // alert("You are Enrolled");
+    let Email=this.email
     this.route.navigate(['trainer/confirmation']);
+    localStorage.setItem('enrolled',Email);
 
    
   }

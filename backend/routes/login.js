@@ -1,6 +1,9 @@
 const express = require('express')
 const router = express.Router();
-const jwt = require ("jsonwebtoken")
+const jwt = require ("jsonwebtoken");
+const { trusted } = require('mongoose');
+const enrollmentData = require('../model/enrollmentdata');
+
 
 
 adminemail = "admin@gmail.com";
@@ -83,7 +86,5 @@ router.post("/trainerlogin" , (req,res)=>{
 
   });
 });
-
-
 
 module.exports=router;
