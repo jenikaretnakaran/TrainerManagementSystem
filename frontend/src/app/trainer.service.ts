@@ -32,4 +32,5 @@ export class TrainerService {
   scheduledata(id:any){
     return this.http.get(`${this.server_address}/trainer/scheduledata/`+id)
   }
+  
 }

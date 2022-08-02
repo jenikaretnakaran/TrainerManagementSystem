@@ -24,7 +24,6 @@ export class LoginService {
   trainerlogin(data){
     return this.http.post<any>(`${this.server_address}/trainerlogin`, {data:data})
   }
-
-
+ 
 
 }
