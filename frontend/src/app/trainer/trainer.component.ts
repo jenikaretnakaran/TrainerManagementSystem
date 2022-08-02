@@ -42,7 +42,9 @@ export class TrainerComponent implements OnInit {
   btnclk6(){
     this.route.navigate(['/trainer/approvedata'])
   }
-
+  btnclk7(){
+    this.route.navigate(['/trainer/reject'])
+  }
 
   ngOnInit(): void {
     this.auth.verifieduser(this.id)
