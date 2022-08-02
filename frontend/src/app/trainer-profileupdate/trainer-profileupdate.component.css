@@ -7,21 +7,25 @@
 }
 .first{
     padding: 30px;
-    border: 2px solid white;
+    border: 2px solid rgba(255, 255, 255, 0.458);
     border-right: 0px;
+    background-color: rgba(0, 0, 0, 0.137);
 
 
 }
 .second{
     padding:30px;
-    border: 2px solid white;
+    border: 2px solid rgba(255, 255, 255, 0.454);
     border-left: 0px;
+    background-color: rgba(0, 0, 0, 0.137);
+
 
 
 }
 @media only screen and (max-width: 575px) {
     .forms {
         border: 2px solid white;
+        
     }
     .second{
         border: 0px;
