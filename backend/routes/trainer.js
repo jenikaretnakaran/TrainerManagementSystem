@@ -139,8 +139,8 @@ app.get('/trainereditprofile/:id', function (req, res) {
     designation=req.body.data.designation,
     course=req.body.data.course,
     image=req.body.data.image,
-    typeOfEmp=req.body.data.typeOfEmp
-
+    typeOfEmp=req.body.data.typeOfEmp,
+    about=req.body.data.about
   
  
    trainerdata.findByIdAndUpdate({"_id":id},
@@ -155,7 +155,8 @@ app.get('/trainereditprofile/:id', function (req, res) {
                                         "designation":designation,
                                         "course":course,
                                         "image":image,
-                                        "typeOfEmp":typeOfEmp
+                                        "typeOfEmp":typeOfEmp,
+                                        "about":about
                                     }})
 
     .then((data)=>{

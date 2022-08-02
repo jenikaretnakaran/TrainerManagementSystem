@@ -29,7 +29,7 @@
             <div (click)="btnclk4()" class="textdata"><i class="fa-solid fa-calendar-check fa-lg pe-2"></i>Schedule</div>
             <div (click)="btnclk6()" class="textdata"><i class="fa-solid fa-rectangle-list fa-lg pe-2"></i>Courses</div>
             <div (click)="btnclk5()" class="textdata"> <i class="fa-solid fa-right-from-bracket fa-lg pe-2 text-danger"></i>Logout</div>
-
+                
 
           </div>
           
@@ -52,7 +52,8 @@
          <div (click)="btnclk3()" *ngIf="auth.userverified()" class="para22 "><i class="fa-solid fa-user-circle fa-lg pe-2"></i>Profile</div>
          <div (click)="btnclk4()" *ngIf="auth.userverified()" class="para22"><i class="fa-solid fa-calendar-check fa-lg pe-2"></i>Schedule</div>
          <div (click)="btnclk6()" *ngIf="auth.userverified()" class="para22"><i class="fa-solid fa-rectangle-list fa-lg pe-2"></i>Courses</div>
-    </div>
+   
+        </div>
     <div class="content">
         
       <router-outlet></router-outlet>

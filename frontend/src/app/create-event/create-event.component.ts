@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MaxLengthValidator } from '@angular/forms';
 import { Router } from '@angular/router';
+// import { parse } from 'path';
 import { AdminService } from '../admin.service';
 
 @Component({
@@ -42,10 +43,30 @@ export class CreateEventComponent implements OnInit {
   err;
   isEmpty;
   isClick = true;
+  newDateTime;
+  parseCurrentDate;
+
+  currentDateTime = () => {
+    var tzoffset = new Date().getTimezoneOffset() * 60000; //offset in milliseconds
+    var localISOString = new Date(Date.now() - tzoffset)
+      .toISOString()
+      .slice(0, -1);
+  
+    // convert to YYYY-MM-DDTHH:MM
+    this. newDateTime = localISOString.substring(
+      0,
+      ((localISOString.indexOf("T") | 0) + 6) | 0
+    );
+    this.parseCurrentDate = Date.parse(this.newDateTime);
+    return this.parseCurrentDate;
+
+  };
+ 
 
   courseIds = ['01_DSA', '02_FSD', '03_RPA'];
 
   batchIds = ['DSA001', 'DSA002', 'FSD001'];
+
   constructor(private adminservice: AdminService, private router: Router) {}
 
   ngOnInit(): void {
@@ -54,6 +75,7 @@ export class CreateEventComponent implements OnInit {
       this.courses = this.coursedata.map(({ title }) => title);
       this.eventdata.courseId = this.courseIds[0];
       this.eventdata.batchId = this.batchIds[0];
+      console.log(this.currentDateTime());
     });
 
     //fetching startdate
@@ -108,6 +130,10 @@ export class CreateEventComponent implements OnInit {
       this.errorMsg = 'INVALID DATES';
       this.err = true;
     } 
+    else if (this.startstamp<=this.parseCurrentDate || this.endstamp<=this.parseCurrentDate){
+      this.errorMsg = 'INVALID DATE AND TIME';
+      this.err = true;
+    }
     else 
     { 
       for (let len = 0; len < this.length; len++) {

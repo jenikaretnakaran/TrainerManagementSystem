@@ -13,12 +13,14 @@
 
                                  
                 </div>
-<!---
-                <div class="input-group mb-4">
-                    <span class="input-group-text">ID</span>
-                    <input type="text" class="form-control" #id="ngModel" disabled name="id" [(ngModel)]="trainer.id">
-                  </div>
-                -->
+                <div style="color: grey; text-align: center;">
+                <strong><h3>{{trainer.trainerName}}</h3></strong>
+                </div>
+                
+
+                <textarea name="text" cols="40" rows="4" class="form-control" #about="ngModel" name="about" [(ngModel)]="trainer.about"></textarea>
+               
+<!--
                   <div class="input-group mb-4">
                     <span class="input-group-text">Email</span>
                     <input type="text" class="form-control" #email="ngModel" disabled name="email" [(ngModel)]="trainer.email">
@@ -36,9 +38,25 @@
                   <small class="text-danger" *ngIf="form.submitted&&phone.errors?.['required']">*Phone Number required</small>
                   <small class="text-danger" *ngIf="form.submitted&&phone.errors?.['pattern']">*Invalid Phone Number</small>
                   <small class="text-danger" *ngIf="form.submitted&&phone.errors?.['maxlength']">*Phone number must be 10 digit</small>
-                </div>
+                </div>-->
             </div>
             <div class="col-12 col-sm-6 col-md-5 second">
+              <div class="mb-3 mt-1">
+                <label  class="form-label">Email</label>
+                <input type="text" class="form-control" #email="ngModel" disabled name="email" [(ngModel)]="trainer.email">
+              </div>
+              <div class="mb-3 mt-1"><div>
+                <label  class="form-label">Phone</label>
+                <input type="number" class="form-control"  name="phone" [(ngModel)]="trainer.phone" pattern="^[0-9]{10}$" maxlength="10" required #phone="ngModel">  
+                  </div>
+                  <small class="text-danger" *ngIf="form.submitted&&phone.errors?.['required']">*Phone Number required</small>
+                  <small class="text-danger" *ngIf="form.submitted&&phone.errors?.['pattern']">*Invalid Phone Number</small>
+                  <small class="text-danger" *ngIf="form.submitted&&phone.errors?.['maxlength']">*Phone number must be 10 digit</small>
+              </div>
+              <div class="mb-3 mt-1">
+                <label  class="form-label">Type</label>
+                <input type="text" class="form-control" #place="ngModel" disabled name="place" [(ngModel)]="trainer.typeOfEmp">
+                   </div>
                 <div class="mb-3 mt-1">
                     <label  class="form-label">Address</label>
                     <input type="string" class="form-control" #address="ngModel" name="address" [(ngModel)]="trainer.address">

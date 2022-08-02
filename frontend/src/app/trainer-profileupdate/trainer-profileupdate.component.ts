@@ -33,6 +33,7 @@ export class TrainerProfileupdateComponent implements OnInit {
     course:"",
     image:"",
     typeOfEmp:"",
+    about:""
 
   }
 
