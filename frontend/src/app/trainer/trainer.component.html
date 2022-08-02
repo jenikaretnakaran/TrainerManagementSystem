@@ -48,12 +48,13 @@
 
          <div (click)="btnclk1()" *ngIf="!auth.userverified()" class="para22 mt-4 overflow-hidden"><i class="fa-solid fa-pen fa-lg pe-2"></i>Enrollment</div>
          <div (click)="btnclk7()" *ngIf="auth.rejected() && !auth.userverified()" class="para22"><i class="fa-solid fa-pen fa-lg pe-2"></i>Message</div>
-         <div (click)="btnclk2()" *ngIf="auth.userverified()" class="para22 mt-4 "><i class="fa-solid fa-house fa-lg pe-2"></i>Dashboard</div>
+         <div (click)="btnclk2()" *ngIf="auth.userverified()" class="para22 mt-4 "><i class="fa-solid fa-house fa-lg pe-2"></i>Home</div>
          <div (click)="btnclk3()" *ngIf="auth.userverified()" class="para22 "><i class="fa-solid fa-user-circle fa-lg pe-2"></i>Profile</div>
          <div (click)="btnclk4()" *ngIf="auth.userverified()" class="para22"><i class="fa-solid fa-calendar-check fa-lg pe-2"></i>Schedule</div>
          <div (click)="btnclk6()" *ngIf="auth.userverified()" class="para22"><i class="fa-solid fa-rectangle-list fa-lg pe-2"></i>Courses</div>
     </div>
     <div class="content">
-        <router-outlet></router-outlet>
+        
+      <router-outlet></router-outlet>
     </div>
   </div>

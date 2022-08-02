@@ -8,7 +8,10 @@
 
 .box1{
     height: 90vh;
-    padding: 30vh; 
+    padding: 10vh; 
     padding-top: 15vh; 
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: gray;
+    font-size: large;
   }
+ 
