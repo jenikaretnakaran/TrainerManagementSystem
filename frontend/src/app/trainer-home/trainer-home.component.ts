@@ -15,6 +15,7 @@ export class TrainerHomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.auth.verifieduser(this.id)
+    this.auth.rejecteduser(this.id)
 
   }
 

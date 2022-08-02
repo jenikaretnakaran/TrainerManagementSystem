@@ -9,6 +9,7 @@ const multer = require('multer');
 const ImageDataURI = require('image-data-uri');
 const jwt = require ("jsonwebtoken");
 const path= require("path");
+const userdata = require("../model/userdata");
 
 app.use(express.json({ limit: '50mb'}));
 
@@ -187,6 +188,22 @@ app.post('/checkverified', (req, res) => {
   userid = req.body.id;
   trainerdata.findOne({ email: userid }).then((data) => {
     if (data) {
+      res.send();
+    }
+    
+  })
+  
+ })
+
+ 
+ app.post('/rejected', (req, res) => {
+  res.header("Access-Control-Allow-Orgin", "*");
+  res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS");
+  userid = req.body.id;
+  rej = "true"
+  userdata.findOne({ email: userid , rej: "true"}).then((data) => {
+    if (data) {
+      //console.log(data)
       res.send();
     }
     
