@@ -54,6 +54,7 @@ import { ApprovedDataComponent } from './approved-data/approved-data.component';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { TrainerRejectComponent } from './trainer-reject/trainer-reject.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -87,7 +88,7 @@ import { TrainerRejectComponent } from './trainer-reject/trainer-reject.componen
     CreateEventComponent,
     ApprovedDataComponent,
     TrainerRejectComponent
-
+  
 
   ],
   imports: [

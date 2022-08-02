@@ -19,6 +19,7 @@ import { TrainerWaitingComponent } from './trainer-waiting/trainer-waiting.compo
 import { TrainerProfileComponent } from './trainer-profile/trainer-profile.component';
 import { TrainerRejectComponent } from './trainer-reject/trainer-reject.component';
 
+
 import { AllocateComponent } from './allocate/allocate.component';
 import { TrainerComponent } from './trainer/trainer.component';
 import { TrainerProfileupdateComponent } from './trainer-profileupdate/trainer-profileupdate.component';
@@ -61,6 +62,7 @@ const routes: Routes = [
     {path:'schedule',component:ScheduleComponent},
     {path:'approvedata',component:ApprovedDataComponent},
     {path:"reject",component:TrainerRejectComponent}
+    
   ]},
     
   ];
