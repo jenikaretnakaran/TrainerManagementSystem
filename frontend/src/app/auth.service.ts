@@ -27,6 +27,16 @@ export class AuthService {
 
   }
 
+  rejecteduser(id:any){
+    return this.http.post(`${this.server_address}/trainer/rejected`,{id:id}).subscribe((data)=>{
+      sessionStorage.setItem('rejected','true');
+     });
+  }
+
+  rejected(){
+    return !!sessionStorage.getItem('rejected');
+  }
+
   userverified(){
     return !!sessionStorage.getItem('verified');
   }

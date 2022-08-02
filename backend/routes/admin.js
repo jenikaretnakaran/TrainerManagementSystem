@@ -3,7 +3,7 @@ const express= require ("express");
 const app= express();
 const nodemailer=require("nodemailer");
 const jwt = require("jsonwebtoken")
-
+const logindata = require("../model/userdata")
 const enrollmentdata=require("../model/enrollmentdata");
 const trainerdata=require("../model/trainerdata.js");
 const allocateddata=require("../model/allocateddata");
@@ -205,6 +205,18 @@ app.delete('/reject/:id', (req, res) => {
 
   id = req.params.id;
   console.log(id);
+  enrollmentdata.findById({_id: id })
+  .then((data)=>{
+    //console.log(data.email)
+
+    logindata.findOneAndUpdate({email:data.email},{$set:{
+      "rej":"yes"
+      
+    }})
+    .then((data)=>{
+      console.log(data)
+    })
+  })
   enrollmentdata.findByIdAndDelete({ _id: id })
     .then(() => {
       res.json("successfully deleted");

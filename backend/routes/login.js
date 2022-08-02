@@ -23,6 +23,7 @@ router.post("/signup" , (req,res)=>{
             email:user.email,
             username:user.username,
             password:user.password,
+            rej:"false",
         }
 
         var adduser = new userdata(adduser);
