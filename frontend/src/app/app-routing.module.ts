@@ -17,6 +17,8 @@ import { TrainerHomeComponent } from './trainer-home/trainer-home.component';
 import { TrainerEnrollmentComponent } from './trainer-enrollment/trainer-enrollment.component';
 import { TrainerWaitingComponent } from './trainer-waiting/trainer-waiting.component';
 import { TrainerProfileComponent } from './trainer-profile/trainer-profile.component';
+import { TrainerRejectComponent } from './trainer-reject/trainer-reject.component';
+
 
 import { AllocateComponent } from './allocate/allocate.component';
 import { TrainerComponent } from './trainer/trainer.component';
@@ -58,7 +60,9 @@ const routes: Routes = [
     {path:'profile',component:TrainerProfileComponent},
     {path:'edit',component:TrainerProfileupdateComponent},
     {path:'schedule',component:ScheduleComponent},
-    {path:'approvedata',component:ApprovedDataComponent}
+    {path:'approvedata',component:ApprovedDataComponent},
+    {path:"reject",component:TrainerRejectComponent}
+    
   ]},
     
   ];

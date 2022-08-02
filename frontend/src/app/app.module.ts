@@ -52,6 +52,8 @@ FullCalendarModule.registerPlugins([
 import { CreateEventComponent } from './create-event/create-event.component';
 import { ApprovedDataComponent } from './approved-data/approved-data.component';
 import { TokenInterceptorService } from './token-interceptor.service';
+import { TrainerRejectComponent } from './trainer-reject/trainer-reject.component';
+
 
 @NgModule({
   declarations: [
@@ -84,8 +86,9 @@ import { TokenInterceptorService } from './token-interceptor.service';
     TrainerProfileupdateComponent,
     ScheduleComponent,
     CreateEventComponent,
-    ApprovedDataComponent
-
+    ApprovedDataComponent,
+    TrainerRejectComponent
+  
 
   ],
   imports: [

@@ -6,6 +6,19 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
+.head{
+  margin-top: 15vh;
+  text-align: center;
+}
+.contnt{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: large;
+  text-align: center;
+ color: grey;
+ 
+  
+}
+
 /*
 .sidebar{
   position: fixed;
@@ -458,4 +471,6 @@ nav .profile-details i{
 
 .homedata{
   min-height: 90vh;
+  padding: 25px;
+  background-color: rgba(240, 248, 255, 0.52);
 }
