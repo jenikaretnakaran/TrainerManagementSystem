@@ -46,7 +46,7 @@ trainerData={
   course:"",
   image:"",
   typeOfEmp:"",
- // url:"",
+  about:"",
 
 }
 

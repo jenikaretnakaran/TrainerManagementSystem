@@ -14,6 +14,7 @@ const trainerSchema= new schema({
     course:String,
     image:String,
     typeOfEmp:String,
+    about:String,
 });
 
 var trainerData= mongoose.model('trainerdata',trainerSchema);
