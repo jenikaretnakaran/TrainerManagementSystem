@@ -8,53 +8,69 @@
                   <img *ngIf='!isNewImage' src="{{imagePath}}/{{trainerData.image}}" alt="image" class="rounded-circle" name="image" id="image" height="150vh" ngDefaultControl [(ngModel)]="trainerData.image"
                   [style.width.px]='imageWidth'
                   [style.margin.px]="imageMargin">
-               <!--  <div class="text-center">            
-                    <input type="file"  name="trainerName" class="custom" id="image" accept="image/*"  (change)="onFileSelected($event)">                 
-                 </div>  -->               
+                           
                 </div>
-                <div class="input-group mb-4 f-style" style="margin-left: 7vh;"> 
+                <div > 
+                  
+                  <strong ><h3>{{trainerData.trainerName}}</h3></strong>
+                </div>
+<div style="padding: 10%;">{{trainerData.about}}</div>
+<!--
+                <div class="input-group mb-4 f-style" > 
                     <span >Email</span>
                     <strong>{{trainerData.email}}</strong>
                   </div>
 
-                 
-                  <div class="input-group mb-4 f-style" style="margin-left: 10vh;">
+                
+                  <div class="input-group mb-4 f-style" >
                     <span >Phone</span>
                     <strong>{{trainerData.phone}}</strong>
                   </div>
-                  <div class="input-group mb-4 f-style" style="margin-left: 8vh;">
-                    <span>Type </span>
-                    <div><strong>&nbsp;&nbsp;&nbsp;&nbsp;{{trainerData.typeOfEmp}}</strong> </div>
+                  <div class="input-group mb-4 f-style" >
+                    <span>Type: </span>
+                    <div><strong>{{trainerData.typeOfEmp}}</strong> </div>
                   </div>
-                
+                -->
             </div>
-            <div class="col-12 col-sm-6 col-md-5 second"><br><br>
+            <div class="col-12 col-sm-6 col-md-5 second"><br>
+              <div class="mb-3 mt-1 f-style">
+                <label  class="form-label">Email</label>
+                <div><strong>{{trainerData.email}}</strong></div>
+               
+              </div>
+              <div class="mb-3 mt-1 f-style">
+                <label  class="form-label">Phone</label>
+                <div><strong>{{trainerData.phone}}</strong></div>
+               
+              </div>
+              <div class="mb-3 mt-1 f-style">
+                <label  class="form-label">Employee Type</label>
+                <div><strong>{{trainerData.typeOfEmp}}</strong></div>
+               
+              </div>
                 <div class="mb-3 mt-1 f-style">
                     <label  class="form-label">Address</label>
-                    <div><strong>&nbsp;&nbsp;&nbsp;&nbsp;{{trainerData.address}}</strong></div>
+                    <div><strong>{{trainerData.address}}</strong></div>
                    
                   </div>
 
                   <div class="mb-3 f-style">
                     <label  class="form-label">Qualification</label>
-                    <div><strong>&nbsp;&nbsp;&nbsp;&nbsp;{{trainerData.qualification}}</strong></div>
+                    <div><strong>{{trainerData.qualification}}</strong></div>
                   </div>
 
                   <div class="mb-3 f-style">
                     <label  class="form-label">Skills</label>
-                    <div><strong>&nbsp;&nbsp;&nbsp;&nbsp;{{trainerData.skill}}</strong></div>
+                    <div><strong>{{trainerData.skill}}</strong></div>
                   </div>
 
 
                   <div class="mb-3 f-style">
                     <label  class="form-label">Current Company</label>
-                    <div><strong>&nbsp;&nbsp;&nbsp;&nbsp;{{trainerData.companyName}}</strong></div>
+                    <div><strong>{{trainerData.companyName}}</strong></div>
                   </div>
-
-                  
-                   <div class="form-submit submitme text-center mt-5">
-             
-                    <button type="submit" value="Submit" class="submit" id="submit" >Edit Profile</button>
+                  <div class="form-submit submitme text-center">
+                   <button type="submit" value="Submit" class="submit" id="submit" >Edit Profile</button>
                     
                 </div>
                 

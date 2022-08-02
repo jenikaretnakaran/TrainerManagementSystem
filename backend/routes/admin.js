@@ -116,6 +116,7 @@ app.get('/approveRequest/:id', (req, res) => {
 
     let trainerName = req.body.trainerName;
     let typeOfEmp = req.body.typeOfEmp;
+    let about="A trainer with the ability to be flexible, think creatively and effectively communicate, whether communicating highly technical, sensitive or challenging information.";
     let id = Math.random().toString(16)+ "_"+ trainerName.concat(typeOfEmp).toUpperCase();
     let approvedTrainer = {
       trainerName: req.body.trainerName,
@@ -129,7 +130,8 @@ app.get('/approveRequest/:id', (req, res) => {
       course: req.body.course,
       image: req.body.image,
       typeOfEmp: req.body.typeOfEmp,
-      id: id
+      id: id,
+      about: about
     }
    
     let approvedtrainer = new trainerdata(approvedTrainer);
