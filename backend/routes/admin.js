@@ -214,7 +214,7 @@ app.delete('/reject/:id',verifyToken, (req, res) => {
     logindata.findOneAndUpdate({email:data.email},{$set:{
       "rej":"yes"
       
-    }})
+    }},{new: true})
     .then((data)=>{
       console.log(data)
     })

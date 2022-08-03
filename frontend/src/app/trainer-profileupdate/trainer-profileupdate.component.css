@@ -7,21 +7,25 @@
 }
 .first{
     padding: 30px;
-    border: 2px solid white;
+    border: 2px solid rgb(255, 255, 255);
     border-right: 0px;
+    background-color: rgba(209,214,220,255);
 
 
 }
 .second{
     padding:30px;
-    border: 2px solid white;
+    border: 2px solid rgb(255, 255, 255);
     border-left: 0px;
+    background-color: rgba(209,214,220,255);
+
 
 
 }
 @media only screen and (max-width: 575px) {
     .forms {
         border: 2px solid white;
+        
     }
     .second{
         border: 0px;
@@ -62,4 +66,8 @@ span{
       border: 2px solid #1161ee;
       background: white;
       color: #1161ee; 
+    }
+
+    .textareas{
+        margin-bottom: 55px;
     }
