@@ -32,7 +32,7 @@
                         <label class="form-label">Confirm Password</label>
                         <input type="password" class="form-control" required #confpass="ngModel"  name="confpass" [(ngModel)]="user.confpass" class="form-control">
                         <small class="text-danger" *ngIf="form.submitted&&confpass.errors?.['required']">*Confirm Password</small>
-                        <small class="text-danger" *ngIf="confpass.touched&&confpass.value!==password.value">Password Mismatch</small>
+                        <small class="text-danger" *ngIf="confpass.touched&&confpass.value!==password.value"> Password Mismatch</small>
                       
                       </div>
                 
