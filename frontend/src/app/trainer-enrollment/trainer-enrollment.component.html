@@ -13,7 +13,7 @@
                     <img [src]="url" class="rounded mx-auto d-block" width="150vh" name="image" id="image" height="150vh" ngDefaultControl [(ngModel)]="image" alt="..." style="margin-left: 20%;" >
                     <label for="file" class="required" id="image" style="margin-left: 41%;">
                       </label >
-                     <input type="file"  name="trainerName" class="custom" id="image" accept="image/*"  (change)="onFileSelected($event)" /> 
+                     <input type="file"  name="trainerName" class="custom" id="image" accept="image/*"  (change)="onFileSelected($event)" required/> 
                 </div></div>
                 <div class="col-4 "></div>
              </div> 
