@@ -3,6 +3,8 @@ const router = express.Router();
 const jwt = require ("jsonwebtoken");
 const { trusted } = require('mongoose');
 const enrollmentData = require('../model/enrollmentdata');
+const bcrypt = require("bcrypt")
+const saltRounds = 10;
 
 
 
@@ -16,7 +18,11 @@ router.post("/signup" , (req,res)=>{
   res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS");
 
   var user = req.body.data;
-  console.log(user);
+
+  const salt = bcrypt.genSaltSync(saltRounds);
+  const pssd = bcrypt.hashSync(user.password, salt);
+
+  console.log(pssd);
 
   userdata.findOne({email:user.email.trim()})
   .then((data)=>{
@@ -25,7 +31,7 @@ router.post("/signup" , (req,res)=>{
         var adduser = {
             email:user.email,
             username:user.username,
-            password:user.password,
+            password:pssd,
             rej:"false",
         }
 
@@ -70,21 +76,31 @@ router.post("/trainerlogin" , (req,res)=>{
   res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTIONS");
 
   var trainer =req.body.data
-  console.log(trainer);
 
-  userdata.findOne({email:trainer.email.trim() , password:trainer.password})
+  console.log(trainer.email , trainer.password);
+
+  userdata.findOne({email:trainer.email.trim()})
   .then((data)=>{
+
     //console.log(data.id); 
     if(data===null){
         res.send({ status: false, data: 'Invalid Username and Password'})
-    }else if((data.email===trainer.email)&&(data.password===trainer.password)){
-        let payload = {subject:data.email};
-        let token = jwt.sign(payload , "secretkey")
-        var email = data.email;
-        res.send({ status: true, data: 'Success', email , token})
-    }else{
-        res.send({ status: false, data: 'Incorrect Username or Password'})
+    }else { 
+        bcrypt.compare(trainer.password , data.password , function(err, result) {
+          if (result) {
+            console.log(result)
+            let payload = {subject:data.email};
+            let token = jwt.sign(payload , "secretkey")
+            var email = data.email;
+            res.send({ status: true, data: 'Success', email , token})
+         }
+         else{
+              res.send({ status: false, data: 'Incorrect Username or Password'})
+          }
+      });
+       
     }
+
 
   });
 });
