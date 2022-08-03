@@ -7,17 +7,17 @@
 }
 .first{
     padding: 30px;
-    border: 2px solid rgba(255, 255, 255, 0.458);
+    border: 2px solid rgb(255, 255, 255);
     border-right: 0px;
-    background-color: rgba(0, 0, 0, 0.137);
+    background-color: rgba(209,214,220,255);
 
 
 }
 .second{
     padding:30px;
-    border: 2px solid rgba(255, 255, 255, 0.454);
+    border: 2px solid rgb(255, 255, 255);
     border-left: 0px;
-    background-color: rgba(0, 0, 0, 0.137);
+    background-color: rgba(209,214,220,255);
 
 
 
@@ -66,4 +66,8 @@ span{
       border: 2px solid #1161ee;
       background: white;
       color: #1161ee; 
+    }
+
+    .textareas{
+        margin-bottom: 55px;
     }
