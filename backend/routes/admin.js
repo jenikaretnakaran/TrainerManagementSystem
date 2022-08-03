@@ -9,7 +9,7 @@ const trainerdata=require("../model/trainerdata.js");
 const allocateddata=require("../model/allocateddata");
 const coursedata=require("../model/coursedata");
 const eventdata=require("../model/eventdata");
-const enrollmentData = require("../model/enrollmentdata");
+// const enrollmentData = require("../model/enrollmentdata");
 const { db } = require("../model/enrollmentdata");
 
 // Middleware Fuction to verify Token send from FrontEnd
@@ -49,7 +49,7 @@ app.get('/getTrainers',verifyToken ,(req,res)=>{
     })
 });
 
-app.get('/getCount',(req,res)=>{
+app.get('/getCount',verifyToken,(req,res)=>{
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
     var trainerCount=[];
@@ -65,7 +65,7 @@ app.get('/getCount',(req,res)=>{
     })  
 })
 
-app.get('/nameSearch/:name',(req,res)=>{
+app.get('/nameSearch/:name',verifyToken,(req,res)=>{
     res.header("Access-Control-Allow-Origin","*");
     res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE");
     let trainerName= req.params.name;
@@ -75,7 +75,7 @@ app.get('/nameSearch/:name',(req,res)=>{
       })
 })
 
-app.get('/skillSearch/:skill',(req,res)=>{
+app.get('/skillSearch/:skill',verifyToken,(req,res)=>{
     res.header("Access-Control-Allow-Origin","*");
     res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE");
     let skill= req.params.skill;
@@ -84,7 +84,7 @@ app.get('/skillSearch/:skill',(req,res)=>{
     })
 })
 
-app.get('/empSearch/:emp',(req,res)=>{
+app.get('/empSearch/:emp',verifyToken,(req,res)=>{
     res.header("Access-Control-Allow-Origin","*");
     res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE");
     let typeOfEmp=req.params.emp;
@@ -93,7 +93,7 @@ app.get('/empSearch/:emp',(req,res)=>{
     })
 })
 
-app.get('/courseSearch/:course',(req,res)=>{
+app.get('/courseSearch/:course',verifyToken,(req,res)=>{
     res.header("Access-Control-Allow-Origin","*");
     res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE");
     let course= req.params.course;
@@ -103,7 +103,7 @@ app.get('/courseSearch/:course',(req,res)=>{
 });
 
 //trainerApproval
-app.get('/approveRequest/:id', (req, res) => {
+app.get('/approveRequest/:id',verifyToken, (req, res) => {
 
     const id = req.params.id;
     enrollmentdata.findOne({ _id: id })
@@ -112,7 +112,7 @@ app.get('/approveRequest/:id', (req, res) => {
       });
   })
 
-  app.post('/approvedTrainer', async (req, res)=> {
+  app.post('/approvedTrainer',verifyToken, async (req, res)=> {
 
     let trainerName = req.body.trainerName;
     let typeOfEmp = req.body.typeOfEmp;
@@ -193,7 +193,7 @@ app.get('/approveRequest/:id', (req, res) => {
 
   //trainerRequests
 
-app.get('/request', (req, res) =>{
+app.get('/request',verifyToken, (req, res) =>{
   res.header("Access-Control-Allow-Origin", "*")
   res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
   enrollmentdata.find()
@@ -203,7 +203,7 @@ app.get('/request', (req, res) =>{
     });
 });
 
-app.delete('/reject/:id', (req, res) => {
+app.delete('/reject/:id',verifyToken, (req, res) => {
 
   id = req.params.id;
   console.log(id);
@@ -227,7 +227,7 @@ app.delete('/reject/:id', (req, res) => {
 })
 
 
-app.get('/allocatedlist',(req, res)=> {
+app.get('/allocatedlist',verifyToken,(req, res)=> {
   
   res.header("Access-Control-Allow-Origin", "*")
   res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
@@ -240,14 +240,14 @@ app.get('/allocatedlist',(req, res)=> {
 
 //trainersList
 
-app.get("/getTrainersList",(req,res)=>{
+app.get("/getTrainersList",verifyToken,(req,res)=>{
   res.header("Access-Control-Allow-Origin", "*")
   res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
   trainerdata.find().then((trainers)=>{
     res.send(trainers);
   })
 
-  app.get("/removeTrainer/:id",(req,res)=>{
+  app.get("/removeTrainer/:id",verifyToken,(req,res)=>{
     res.header("Access-Control-Allow-Origin", "*")
     res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
     const id=req.params.id;
@@ -257,7 +257,7 @@ app.get("/getTrainersList",(req,res)=>{
     })
   })
   
-app.delete("/removeTrainer/:id",(req,res)=>{
+app.delete("/removeTrainer/:id",verifyToken,(req,res)=>{
   res.header("Access-Control-Allow-Origin", "*")
   res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
   id=req.params.id;
@@ -269,7 +269,7 @@ app.delete("/removeTrainer/:id",(req,res)=>{
 })  
 
  //allocate
- app.get("/allocationData/:id",(req,res)=>{
+ app.get("/allocationData/:id",verifyToken,(req,res)=>{
   res.header("Access-Control-Allow-Origin", "*")
   res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
     const id = req.params.id;
@@ -279,7 +279,7 @@ app.delete("/removeTrainer/:id",(req,res)=>{
       });
  }) 
 
- app.get('/dateSchedule/:email',(req,res)=>{
+ app.get('/dateSchedule/:email',verifyToken,(req,res)=>{
   res.header("Access-Control-Allow-Origin", "*")
   res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
   let email=req.params.email;
@@ -294,7 +294,7 @@ app.delete("/removeTrainer/:id",(req,res)=>{
 })
 
 //eventcreate
-app.get('/getCourses',(req,res)=>{
+app.get('/getCourses',verifyToken,(req,res)=>{
   res.header("Access-Control-Allow-Origin", "*")
   res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
   coursedata.find({},{title:1,_id:0})
@@ -303,7 +303,7 @@ app.get('/getCourses',(req,res)=>{
   })
 })
 
-app.get('/selectedCourse/:course',(req,res)=>{
+app.get('/selectedCourse/:course',verifyToken,(req,res)=>{
   res.header("Access-Control-Allow-Origin", "*")
   res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
   courseid=req.params.course;
@@ -315,7 +315,7 @@ app.get('/selectedCourse/:course',(req,res)=>{
 })
 
 
-app.get('/getDate',(req,res)=>{
+app.get('/getDate',verifyToken,(req,res)=>{
   res.header("Access-Control-Allow-Origin", "*")
   res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
   eventdata.find({},{startDate:1,_id:0})
@@ -324,7 +324,7 @@ app.get('/getDate',(req,res)=>{
   })
 })
 
-app.get('/getEndDate',(req,res)=>{
+app.get('/getEndDate',verifyToken,(req,res)=>{
   res.header("Access-Control-Allow-Origin", "*")
   res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
   eventdata.find({},{endDate:1,_id:0})
@@ -333,7 +333,7 @@ app.get('/getEndDate',(req,res)=>{
   })
 })
 
-app.post('/allocated', async (req,res)=>{
+app.post('/allocated',verifyToken, async (req,res)=>{
   res.header("Access-Control-Allow-Origin", "*")
   res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
      
@@ -439,6 +439,7 @@ app.post('/allocated', async (req,res)=>{
     })
   
   }else{
+
     aEmail="";
   }
 
@@ -466,16 +467,91 @@ app.post('/allocated', async (req,res)=>{
 
 })
 // delete an event 
-app.delete("/removeEvent/:id",(req,res)=>{
+app.delete("/removeEvent/:id",verifyToken,(req,res)=>{
   res.header("Access-Control-Allow-Origin", "*")
   res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
   id=req.params.id;
+
   eventdata.findByIdAndDelete({_id:id})
-  .then(()=>{
+  .then((data)=>{
+    console.log(data);
+    let emailTrainer=data.tEmail;
+    let emailAssociate=data.aEmail;
+
+    //sending mail to trainer about cancellation of session
+  var transport = nodemailer.createTransport(
+    {
+      service: 'gmail',
+      auth: {
+        user: 'ictak2022@gmail.com',
+        pass: 'xxuantsnvdvlqhyo'
+      }
+    }
+  )
+
+  var mailOptions = {
+
+    from: 'ictak2022@gmail.com',
+    to: emailTrainer,
+    subject: 'Session Cancelled',
+    text: `Mr/Ms. ${data.trainer}
+                     
+                  This is to inform you that session scheduled on ${data.eStart} to ${data.eEnd} for ${data.course} course has been cancelled.
+                  You will be informed with updated Session Schedule soon.
+    
+            
+    Sorry for the inconvenience             
+    Please contact us regarding any query.
+
+    Thanks and Regards,
+    ICTAK TEAM
+    `
+  }
+  transport.sendMail(mailOptions, function (error, info) {
+    if (error) {
+      console.log(error + " error in senting email")
+    }
+    else {
+      console.log("email sent " + info.response)
+    }
+  })
+
+  //sending mail to associate trainer about session details
+
+  if(data.associative!=="")
+  {
+    var mailOptionsTrainer = {
+
+      from: 'ictak2022@gmail.com',
+      to: emailAssociate,
+      subject: 'Session Cancelled',
+      text: `Mr/Ms. ${data.associative}
+                          This is to inform you that session scheduled on ${data.eStart} to ${data.eEnd} for ${data.course} course has been cancelled.
+                           You will be informed with updated Session Schedule soon.
+
+
+      Sorry for the inconvenience             
+      Please contact us regarding any query.
+
+      Thanks and Regards,
+      ICTAK TEAM`
+     
+    }
+    transport.sendMail(mailOptionsTrainer, function (error, info) {
+      if (error) {
+        console.log(error + " error in senting email")
+      }
+      else {
+        console.log("email sent " + info.response)
+      }
+    })
+  }
     res.json("successfully deleted the Event");
     res.send();
-  })
-})  
+})
+
+})
+ 
 
 
 

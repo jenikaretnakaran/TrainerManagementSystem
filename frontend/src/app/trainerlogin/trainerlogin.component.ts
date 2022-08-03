@@ -14,7 +14,6 @@ export class TrainerloginComponent implements OnInit {
     password:""
   }
 
-
   constructor(private login:LoginService ,private route:Router) { }
 
 
@@ -32,6 +31,8 @@ export class TrainerloginComponent implements OnInit {
        }
     })
   }
+
+ 
 
 
   ngOnInit(): void {
