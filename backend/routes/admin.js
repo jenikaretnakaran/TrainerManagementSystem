@@ -70,7 +70,9 @@ app.get('/nameSearch/:name',verifyToken,(req,res)=>{
     res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE");
     let trainerName= req.params.name;
     // console.log(trainerName);
-    trainerdata.find({trainerName: trainerName}).then((data)=>{
+    var regex = new RegExp(["^", trainerName].join(""), "i");
+    console.log(regex)
+    trainerdata.find({trainerName: regex}).then((data)=>{
         res.send(data);
       })
 })
@@ -79,7 +81,8 @@ app.get('/skillSearch/:skill',verifyToken,(req,res)=>{
     res.header("Access-Control-Allow-Origin","*");
     res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE");
     let skill= req.params.skill;
-    trainerdata.find({skill: skill}).then((data)=>{
+    var regex = new RegExp(["^", skill].join(""), "i");
+    trainerdata.find({skill: regex}).then((data)=>{
         res.send(data);
     })
 })
@@ -88,7 +91,8 @@ app.get('/empSearch/:emp',verifyToken,(req,res)=>{
     res.header("Access-Control-Allow-Origin","*");
     res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE");
     let typeOfEmp=req.params.emp;
-    trainerdata.find({typeOfEmp: typeOfEmp}).then((data)=>{
+    var regex = new RegExp(["^", typeOfEmp].join(""), "i");
+    trainerdata.find({typeOfEmp: regex}).then((data)=>{
         res.send(data);
     })
 })
@@ -97,7 +101,9 @@ app.get('/courseSearch/:course',verifyToken,(req,res)=>{
     res.header("Access-Control-Allow-Origin","*");
     res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE");
     let course= req.params.course;
-    trainerdata.find({course: course}).then((data)=>{
+    console.log(course)
+    trainerdata.find({ $text: { $search: course }}).then((data)=>{
+      console.log(data)
         res.send(data);
     })
 });
