@@ -70,7 +70,7 @@ searchEmp()
 }
 searchCourse()
 {
-  this.adminservice.searchByCourse(this.searchBySkill).subscribe((search)=>{
+  this.adminservice.searchByCourse(this.searchByCourse).subscribe((search)=>{
     this.trainersList=JSON.parse(JSON.stringify(search))
   })
 }
