@@ -3,7 +3,7 @@ const router = express.Router();
 const jwt = require ("jsonwebtoken");
 const { trusted } = require('mongoose');
 const enrollmentData = require('../model/enrollmentdata');
-
+const bcrypt =require('bcrypt');
 
 
 adminemail = "admin@gmail.com";
